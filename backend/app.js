@@ -8,9 +8,12 @@ const cookieParser = require('cookie-parser');
 const { environment } = require('./config');
 const isProduction = environment === 'production';
 const app = express();
+const { ValidationError } = require('sequelize');
+
 app.use(morgan('dev'));
 app.use(cookieParser());//middleware for parsing cookies
 app.use(express.json());//middleware for parsing JSON bodies
+
   // backend/app.js
   const routes = require('./routes');
 
@@ -55,7 +58,7 @@ app.use((_req, _res, next) => {
 });
 // backend/app.js
 // ...
-const { ValidationError } = require('sequelize');
+
 
 // ...
 
