@@ -1,10 +1,10 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs');//access files through filesystem so using library fs
+const path = require('path');//The path module provides utilities for working with file and directory paths
 const Sequelize = require('sequelize');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
+const basename = path.basename(__filename);//Return the last portion of a path. Similar to the Unix basename command. Often used to extract the file name from a fully qualified path.
+const env = process.env.NODE_ENV || 'development';//env used here is dev
 const config = require(__dirname + '/../../config/database.js')[env];
 const db = {};
 
