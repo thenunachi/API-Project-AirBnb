@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     userId:{
       type:DataTypes.INTEGER,
       allowNull:false
-    },git 
+    }, 
     review:{
       type:DataTypes.STRING,
       allowNull:false
