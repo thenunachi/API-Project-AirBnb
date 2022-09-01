@@ -5,6 +5,27 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
+const validateError = [
+    check('review')
+      .exists({ checkFalsy: true })
+      .withMessage("Review text is required"),
+    check('stars')
+      .exists({ checkFalsy: true })
+      .withMessage("Stars must be an integer from 1 to 5"),
+  
+    handleValidationErrors
+  ];
+
+
+
+
+
+
+
+
+
+
+
 //Get all Reviews of the Current User
 router.get("/current", requireAuth, async (req, res) => {
     const { user } = req;
@@ -29,7 +50,7 @@ router.get("/current", requireAuth, async (req, res) => {
 
 
 //Edit a Review
-router.put("/:reviewId", requireAuth, async (req, res) => { //work on error
+router.put("/:reviewId",validateError, requireAuth, async (req, res) => { 
 const {user}=req;
 const{reviewId}=req.params;
 const {review,stars}=req.body;
@@ -72,6 +93,17 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
 
 })
 
+//Add an Image to a Review based on the Review's id
+// router.post("/:reviewId/images",requireAuth,async(req,res)=>{
+//     const {url} = req.body;
+//     const {reviewId} =req.params;
+//     const imageid = await ReviewImage.findByPk(reviewId)
+//     const newImage = await Review.create({
+//         url,reviewId:imageid.id
+//     })
+//     res.status=200;
+//     return res.json(newImage)
+// })
 
 
 module.exports = router

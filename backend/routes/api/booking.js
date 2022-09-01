@@ -7,7 +7,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 
 //Get all of the Current User's Bookings
-//why is it taking null value for start date and end date
+
 router.get("/current",requireAuth,async(req,res)=>{
 const {user}=req;
 const allBookings = await Booking.findAll({
@@ -18,14 +18,51 @@ include:[{
 })
 res.json({"Bookings":allBookings})
 
-
-
 })
 
 
+//Edit a Booking
+router.put("/:bookingId",requireAuth,async(req,res)=>{
+const {user}=req;
+const {bookingId}=req.params;
+const {startDate,endDate}=req.body;
+const updateBooking = await Booking.findByPk(bookingId)
+if(!updateBooking){
+    res.status=404;
+    return res.json({
+        "message": "Booking couldn't be found",
+        "statusCode": 404
+      })
+}
+updateBooking.startDate = startDate;
+updateBooking.endDate = endDate;
+await updateBooking.save()
+res.status=200
+return res.json(updateBooking)//error pending
 
+})
+//Delete a Booking
 
+router.delete("/:bookingId", requireAuth, async (req, res) => {
 
+    const { user } = req;
+    const { bookingId } = req.params;
+    const existingBooking = await Spot.findByPk(bookingId);
+    if (!existingBooking) {
+        res.statusCode = 404;
+        return res.json({
+            "message": "Booking couldn't be found",
+            "statusCode": 404
+          })
+    }
+    existingBooking.destroy();
+    res.status(200)
+    return res.json({
+        "message": "Successfully deleted",
+        "statusCode": 200 //error pending
+    })
+
+})
 
 
 

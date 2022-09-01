@@ -4,7 +4,47 @@ const { Spot, Review, SpotImage, sequelize, User, ReviewImage, Booking } = requi
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-//Get all Spots
+
+
+const validateError = [
+    check('address')
+      .exists({ checkFalsy: true })
+      .withMessage("Street address is required"),
+    check('city')
+      .exists({ checkFalsy: true })
+      .isLength({ min: 4 })
+      .withMessage("City is required"),
+    check('state')
+      .exists({checkFalsy:true})
+      .withMessage("State is required"),
+      check('country')
+      .exists({ checkFalsy: true })
+      .withMessage("Country is required"),
+      check('lat')
+      .exists({ checkFalsy: true })
+      .withMessage("Latitude is not valid"),
+    check('lng')
+      .exists({ checkFalsy: true })
+      .withMessage("Longitude is not valid"),
+      check('name')
+      .exists({ checkFalsy: true })
+      .isLength({ max: 50 })
+      .withMessage("Name must be less than 50 characters"),
+      check('description')
+      .exists({ checkFalsy: true })
+      .withMessage("Description is required"),
+      check('price')
+      .exists({ checkFalsy: true })
+      .withMessage("Price per day is required"),
+    handleValidationErrors
+  ];
+
+
+
+
+
+
+// //Get all Spots
 // router.get("/", async (req, res) => {
 //     console.log(req)
 //     const spots = await Spot.findAll({
@@ -64,11 +104,11 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     const { url, preview } = req.body
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId)
-    const newImage = await SpotImage.create({ //???
+    const newImage = await SpotImage.create({ 
         url, preview, spotId: spot.id
     })
     console.log(newImage)
-    if (!newImage) { // not working
+    if (!newImage) { 
         res.statusCode = 404;
         return res.json({
 
@@ -83,7 +123,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
 
 //Edit a Spot
 
-router.put("/:spotId", requireAuth, async (req, res) => {
+router.put("/:spotId", validateError,requireAuth, async (req, res) => {
     const { user } = req
     const { address, city, state, country, lat, lng, name, description, price } = req.body
     const { spotId } = req.params;
@@ -181,7 +221,7 @@ router.get("/:spotId/reviews", async (req, res) => {
 
 //Create a Review for a Spot based on the Spot's id ????????????????????
 
-router.post("/:spotId/reviews", requireAuth, async (req, res) => {
+router.post("/:spotId/reviews",validateError ,requireAuth, async (req, res) => {
     const { review, stars } = req.body;
     const { user } = req
     const { spotId } = req.params;
@@ -202,10 +242,44 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
 
 //Get all Bookings for a Spot based on the Spot's id
 
+router.get("/:spotId/bookings",requireAuth,async(req,res)=>{ 
 
+    const {spotId}=req.params;
+    const id = await Spot.findByPk(spotId);
+const allBookings = await Booking.findAll({
+    include:[{
+        model:User,
+        attributes:["id","firstName","lastName"]
+    }]
+})
+// if(!allBookings.User){ //to work on not a owner use pagination,exclude something like that
+//     res.status=200;
+//     return res.json(allBookings)
+// }
+if(!allBookings){ //error not working
+    res.status = 404;
+    return res.json({
+        "message": "Spot couldn't be found",
+        "statusCode": 404
+      })
+}     
+res.status = 200;
+return res.json({"Bookings":allBookings})
 
+})
 
-
+//Create a Booking from a Spot based on the Spot's id
+router.post("/:spotId/bookings",requireAuth,async(req,res)=>{
+    const {user}=req
+    const {spotId}=req.params;
+    const spot = await Spot.findByPk(spotId);
+    const {startDate,endDate}=req.body;
+    const newBooking = await Booking.create({
+        spotId:spot.id,userId:user.id,startDate,endDate
+    })
+    res.status=200;
+    return res.json(newBooking)//errors pending
+})
 
 
 
