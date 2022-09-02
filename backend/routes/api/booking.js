@@ -76,7 +76,7 @@ router.delete("/:bookingId", requireAuth, async (req, res) => {
     const { bookingId } = req.params;
     const existingBooking = await Spot.findByPk(bookingId);
     if (!existingBooking) {
-        res.statusCode(404);
+        res.status(404);
         return res.json({
             "message": "Booking couldn't be found",
             "statusCode": 404
