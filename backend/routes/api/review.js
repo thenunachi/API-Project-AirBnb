@@ -76,7 +76,7 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
     const { reviewId } = req.params;
     const existingReview = await Spot.findByPk(reviewId);
     if (!existingReview) {
-        res.statusCode (404);
+        res.status (404);
         return res.json({
             "message": "Review couldn't be found",
             "statusCode": 404
