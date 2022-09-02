@@ -56,14 +56,14 @@ const{reviewId}=req.params;
 const {review,stars}=req.body;
 const updateReview = await Review.findByPk(reviewId)
 if(!updateReview){
-    res.status = 404;
+    res.status (404);
     return res.json({"message": "Review couldn't be found",
     "statusCode": 404})
 }
 updateReview.review = review;
 updateReview.stars = stars;
 await updateReview.save();
-res.status = 200;
+res.status (200) ;
 return res.json(updateReview)
 
 })
@@ -76,7 +76,7 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
     const { reviewId } = req.params;
     const existingReview = await Spot.findByPk(reviewId);
     if (!existingReview) {
-        res.statusCode = 404;
+        res.statusCode (404);
         return res.json({
             "message": "Review couldn't be found",
             "statusCode": 404
@@ -94,16 +94,35 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
 })
 
 //Add an Image to a Review based on the Review's id
-// router.post("/:reviewId/images",requireAuth,async(req,res)=>{
-//     const {url} = req.body;
-//     const {reviewId} =req.params;
-//     const imageid = await ReviewImage.findByPk(reviewId)
-//     const newImage = await Review.create({
-//         url,reviewId:imageid.id
-//     })
-//     res.status=200;
-//     return res.json(newImage)
-// })
+router.post("/:reviewId/images",requireAuth,async(req,res)=>{
+    // review must belong to the current user
+    // cannot add more than 10 image
+    const {user}=req;
+    const {url} = req.body;
+    const {reviewId} =req.params;
+    const review = await Review.findByPk(reviewId);
+    if(!review){
+        res.status(404);
+        return res.json({
+            "message": "Review couldn't be found",
+            "statusCode": 404
+          })
+    }
+    const array = await ReviewImage.findAll();
+    //console.log("LENGTH",length.length)
+    if(array.length >10){
+        res.status(403);
+        return res.json({
+            "message": "Maximum number of images for this resource was reached",
+            "statusCode": 403
+          })
+    }
+        const newImage = await ReviewImage.create({
+            url,reviewId:review.id
+        })
+    res.status(200);
+    return res.json({id: newImage.id, url: newImage.url,})
+})
 
 
 module.exports = router

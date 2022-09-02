@@ -35,17 +35,36 @@ const {user}=req;
 const {bookingId}=req.params;
 const {startDate,endDate}=req.body;
 const updateBooking = await Booking.findByPk(bookingId)
+console.log("UP",updateBooking)
 if(!updateBooking){
-    res.status=404;
+    res.status(404);
     return res.json({
-        "message": "Booking couldn't be found",
-        "statusCode": 404
-      })
+      "message": "Booking couldn't be found",
+      "statusCode": 404
+    })
+}
+if(updateBooking.endDate < new Date()){
+  res.status(403);
+  return res.json({
+    "message": "Past bookings can't be modified",
+    "statusCode": 403
+  })
+}
+if(updateBooking.spotId){//need to update
+  res.status(403);
+  return res.json({
+    "message": "Sorry, this spot is already booked for the specified dates",
+    "statusCode": 403,
+    "errors": {
+      "startDate": "Start date conflicts with an existing booking",
+      "endDate": "End date conflicts with an existing booking"
+    }
+  })
 }
 updateBooking.startDate = startDate;
 updateBooking.endDate = endDate;
 await updateBooking.save()
-res.status=200
+res.status(200);
 return res.json(updateBooking)//error pending
 
 })
@@ -57,17 +76,27 @@ router.delete("/:bookingId", requireAuth, async (req, res) => {
     const { bookingId } = req.params;
     const existingBooking = await Spot.findByPk(bookingId);
     if (!existingBooking) {
-        res.statusCode = 404;
+        res.statusCode(404);
         return res.json({
             "message": "Booking couldn't be found",
             "statusCode": 404
           })
     }
+    let bookingSD = new Date (existingBooking.startDate)
+    console.log("date",bookingSD)
+    console.log(bookingSD < new Date())
+    if(bookingSD < new Date()){//test it out
+      res.status(403);
+      return res.json({
+        "message": "Bookings that have been started can't be deleted",
+        "statusCode": 403
+      })
+    }
     existingBooking.destroy();
     res.status(200)
     return res.json({
         "message": "Successfully deleted",
-        "statusCode": 200 //error pending
+        "statusCode": 200 
     })
 
 })
