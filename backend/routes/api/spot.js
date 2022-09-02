@@ -125,7 +125,7 @@ router.get("/current", requireAuth, async (req, res) => {
             model: Review,
             attributes: []
         },
-           
+
         ],
         attributes: {
             include: [
@@ -168,7 +168,7 @@ router.get("/current", requireAuth, async (req, res) => {
 //     const spot = await Spot.findAll({
 //         where:{
 //             ownerId:user.id,
-            
+
 //         },
 //         include:{
 //             model:SpotImage,
@@ -178,7 +178,7 @@ router.get("/current", requireAuth, async (req, res) => {
 //             model: Review,
 //             attributes: []
 //         },
-           
+
 //         ],
 //         attributes: {
 //             include: [
@@ -238,7 +238,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId)
     if (!spot) {
-        res.statusCode(404);
+        res.status(404);
         return res.json({
 
             "message": "Spot couldn't be found",
@@ -250,7 +250,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
         url, preview, spotId: spot.id
     })
     console.log(newImage)
-    
+
     res.status(200)
     return res.json({ id: newImage.id, url: newImage.url, preview: newImage.preview })
 })
@@ -307,7 +307,7 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
     const { spotId } = req.params;
     const existingSpot = await Spot.findByPk(spotId);
     if (!existingSpot) {
-        res.statusCode (404);
+        res.status(404);
         return res.json({
             "message": "Spot couldn't be found",
             "statusCode": 404
@@ -343,13 +343,13 @@ router.get("/:spotId/reviews", async (req, res) => {
     })
     console.log("reviewSpots", reviewSpots)
     if (!spotsofReview) {
-        res.status (404) ;
+        res.status(404);
         return res.json({
             "message": "Spot couldn't be found",
             "statusCode": 404
         })
     }
-    res.status (200)
+    res.status(200)
     return res.json(reviewSpots)
 })
 
