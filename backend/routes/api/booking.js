@@ -5,6 +5,14 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
+const validateError = [
+    check('endDate')
+      .exists({ checkFalsy: true })
+      .withMessage("endDate cannot come before startDate"),//should I use is after constraint in booking start end column?
+    
+  
+    handleValidationErrors
+  ];
 
 //Get all of the Current User's Bookings
 
@@ -22,7 +30,7 @@ res.json({"Bookings":allBookings})
 
 
 //Edit a Booking
-router.put("/:bookingId",requireAuth,async(req,res)=>{
+router.put("/:bookingId",validateError,requireAuth,async(req,res)=>{
 const {user}=req;
 const {bookingId}=req.params;
 const {startDate,endDate}=req.body;

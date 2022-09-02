@@ -8,67 +8,96 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const validateError = [
     check('address')
-      .exists({ checkFalsy: true })
-      .withMessage("Street address is required"),
+        .exists({ checkFalsy: true })
+        .withMessage("Street address is required"),
     check('city')
-      .exists({ checkFalsy: true })
-      .isLength({ min: 4 })
-      .withMessage("City is required"),
+        .exists({ checkFalsy: true })
+        .isLength({ min: 4 })
+        .withMessage("City is required"),
     check('state')
-      .exists({checkFalsy:true})
-      .withMessage("State is required"),
-      check('country')
-      .exists({ checkFalsy: true })
-      .withMessage("Country is required"),
-      check('lat')
-      .exists({ checkFalsy: true })
-      .withMessage("Latitude is not valid"),
+        .exists({ checkFalsy: true })
+        .withMessage("State is required"),
+    check('country')
+        .exists({ checkFalsy: true })
+        .withMessage("Country is required"),
+    check('lat')
+        .exists({ checkFalsy: true })
+        .withMessage("Latitude is not valid"),
     check('lng')
-      .exists({ checkFalsy: true })
-      .withMessage("Longitude is not valid"),
-      check('name')
-      .exists({ checkFalsy: true })
-      .isLength({ max: 50 })
-      .withMessage("Name must be less than 50 characters"),
-      check('description')
-      .exists({ checkFalsy: true })
-      .withMessage("Description is required"),
-      check('price')
-      .exists({ checkFalsy: true })
-      .withMessage("Price per day is required"),
+        .exists({ checkFalsy: true })
+        .withMessage("Longitude is not valid"),
+    check('name')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage("Name must be less than 50 characters"),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage("Description is required"),
+    check('price')
+        .exists({ checkFalsy: true })
+        .withMessage("Price per day is required"),
     handleValidationErrors
-  ];
+];
+
+const reviewvalidateError = [
+    check('review')
+        .exists({ checkFalsy: true })
+        .withMessage("Review text is required"),
+    check('stars')
+        .exists({ checkFalsy: true })
+        .withMessage("Stars must be an integer from 1 to 5"),
+
+    handleValidationErrors
+];
+
+
+
+
+//Get all Spots
+router.get("/", async (req, res) => {
+    console.log(req)
+    const spots = await Spot.findAll({
+
+        include: [{
+            model: Review,
+            attributes: []
+        },
+        {
+            model: SpotImage,
+            attributes: ["url",]
+        }
+        ],
+        attributes: {
+            include: [
+                [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]
+            ]
+        },
+        group: ["Spot.id"], // to return all spots
+        raw: true
+    })
+
+    return res.json({ Spots: spots })
+})
+
+//Get details of a Spot from an id
+
+router.get("/:spotId", async (req, res) => {
+    const { spotId } = req.params;
+    const spot = await Spot.findByPk(spotId)
 
 
 
 
 
 
-// //Get all Spots
-// router.get("/", async (req, res) => {
-//     console.log(req)
-//     const spots = await Spot.findAll({
 
-//         include: [{
-//             model: Review,
-//             attributes: []
-//         },
-//         {
-//             model: SpotImage,
-//             attributes: ["url",]
-//         }
-//         ],
-//         attributes: {
-//             include: [
-//                 [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]
-//             ]
-//         },
-//         group: ["Spot.id"], // to return all spots
-//         raw: true
-//     })
+})
 
-//     return res.json({ Spots: spots })
-// })
+
+
+
+
+
 //Create a Spot
 router.post("/", requireAuth, async (req, res) => {
     console.log(req.body)
@@ -104,11 +133,11 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     const { url, preview } = req.body
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId)
-    const newImage = await SpotImage.create({ 
+    const newImage = await SpotImage.create({
         url, preview, spotId: spot.id
     })
     console.log(newImage)
-    if (!newImage) { 
+    if (!newImage) {
         res.statusCode = 404;
         return res.json({
 
@@ -123,7 +152,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
 
 //Edit a Spot
 
-router.put("/:spotId", validateError,requireAuth, async (req, res) => {
+router.put("/:spotId", validateError, requireAuth, async (req, res) => {
     const { user } = req
     const { address, city, state, country, lat, lng, name, description, price } = req.body
     const { spotId } = req.params;
@@ -192,7 +221,7 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 router.get("/:spotId/reviews", async (req, res) => {
     const { spotId } = req.params;
     const spotsofReview = await Spot.findByPk(spotId)
-    console.log("spotsofreview", spotsofReview)
+    //console.log("spotsofreview", spotsofReview)
     const reviewSpots = await Review.findAll({
         where: {
             spotId: spotsofReview.id
@@ -221,63 +250,85 @@ router.get("/:spotId/reviews", async (req, res) => {
 
 //Create a Review for a Spot based on the Spot's id ????????????????????
 
-router.post("/:spotId/reviews",validateError ,requireAuth, async (req, res) => {
+router.post("/:spotId/reviews", reviewvalidateError, requireAuth, async (req, res) => {
     const { review, stars } = req.body;
     const { user } = req
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId)
-    const newReview = await Review.create({
-        review, stars, spotId: spot.id, userId: user.id
-    })
-    if (!newReview) { // need to write error
-        res.status = 404;
+    if (!spot) { // need to write error
+        res.status(404);
         return res.json({
             "message": "Spot couldn't be found",
             "statusCode": 404
         })
     }
-    res.status = 201
+    const newReview = await Review.create({
+        review, stars, spotId: spot.id, userId: user.id
+    })
+
+    if (newReview.spotId === spot.id && newReview.userId === user.id) { //basically if both are same they have a review
+        res.status(403);
+        return res.json({
+            "message": "User already has a review for this spot",
+            "statusCode": 403
+        })
+    }
+    res.status(201);
     return res.json(newReview)
 })
 
 //Get all Bookings for a Spot based on the Spot's id
 
-router.get("/:spotId/bookings",requireAuth,async(req,res)=>{ 
+router.get("/:spotId/bookings", requireAuth, async (req, res) => {
+    const { user } = req;
+    const { spotId } = req.params;
+    console.log("Before finding spot");
+    const spot = await Spot.findByPk(spotId);
+    console.log("spot" + spot)
+    if (!spot) { //error not working
+        res.status(404);
+        return res.json({
+            "message": "Spot couldn't be found",
+            "statusCode": 404
+        })
+    }
+    const allBookings = await Booking.findAll({
+        where: {
+            spotId: spot.id
+        },
+        include: [{
+            model: User,
+            attributes: ["id", "firstName", "lastName"]
+        }]
+    })
+    console.log(allBookings)
+    // if(!allBookings.User){ //to work on not a owner use pagination,exclude something like that
+    //     res.status=200;
+    //     return res.json(allBookings)
+    // }
+// console.log("user.id",user.id);
+// console.log("spot.ownwe.id",spot.ownerId)
+    if (user.id === spot.ownerId) {
+        res.status(200);
+        return res.json({ "Bookings": allBookings })
+    } else {
+        res.status(403) ;
+        return res.json({"errror": "Not authorized"});
+    }
 
-    const {spotId}=req.params;
-    const id = await Spot.findByPk(spotId);
-const allBookings = await Booking.findAll({
-    include:[{
-        model:User,
-        attributes:["id","firstName","lastName"]
-    }]
-})
-// if(!allBookings.User){ //to work on not a owner use pagination,exclude something like that
-//     res.status=200;
-//     return res.json(allBookings)
-// }
-if(!allBookings){ //error not working
-    res.status = 404;
-    return res.json({
-        "message": "Spot couldn't be found",
-        "statusCode": 404
-      })
-}     
-res.status = 200;
-return res.json({"Bookings":allBookings})
 
 })
 
 //Create a Booking from a Spot based on the Spot's id
-router.post("/:spotId/bookings",requireAuth,async(req,res)=>{
-    const {user}=req
-    const {spotId}=req.params;
+router.post("/:spotIod/bokings", requireAuth, async (req, res) => {
+    const { user } = req
+    const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId);
-    const {startDate,endDate}=req.body;
+    const { startDate, endDate } = req.body;
     const newBooking = await Booking.create({
-        spotId:spot.id,userId:user.id,startDate,endDate
+        spotId: spot.id, userId: user.id, startDate, endDate
     })
-    res.status=200;
+    res.status = 200;
     return res.json(newBooking)//errors pending
 })
 
