@@ -40,16 +40,17 @@ router.post(
         "statusCode": 401
       })
     }
-
-    await setTokenCookie(res, user);
-
+user.toJSON()
+console.log(user.toJSON())
+    let token =await setTokenCookie(res, user);
+user.token = token;
     return res.json({
       id:user.id,
       username:user.username,
       firstName:user.firstName,
       lastName:user.lastName,
       email:user.email,
-      token:""
+      token:token
     });
   }
 );
@@ -70,9 +71,7 @@ router.get(
   (req, res) => {
     const { user } = req;
     if (user) {
-      return res.json({
-        user: user.toSafeObject()
-      });
+      return res.json(user.toSafeObject());
     } else return res.json({});
   }
 );

@@ -82,7 +82,7 @@ router.get('/', async (req, res, next) => {
         attributes: {
             include: [
                 [
-                    sequelize.fn("AVG", sequelize.col("Reviews.stars")), "avgRating"
+                    "ROUND", sequelize.fn("AVG", sequelize.col("Reviews.stars")), "avgRating"
                 ]
             ]
         },
@@ -129,7 +129,7 @@ router.get("/current", requireAuth, async (req, res) => {
         ],
         attributes: {
             include: [
-                [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]
+                ["ROUND", sequelize.fn(("AVG", sequelize.col("stars")), 2), "avgRating"]
             ]
         },
         group: ["Spot.id"], // to return all spots
@@ -325,8 +325,14 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 //Get all Reviews by a Spot's id
 router.get("/:spotId/reviews", async (req, res) => {
     const { spotId } = req.params;
-    const spotsofReview = await Spot.findByPk(spotId)
-    //console.log("spotsofreview", spotsofReview)
+    const spotsofReview = await Spot.findByPk(spotId);
+    if (!spotsofReview) {
+        res.status(404);
+        return res.json({
+            "message": "Spot couldn't be found",
+            "statusCode": 404
+        })
+    }
     const reviewSpots = await Review.findAll({
         where: {
             spotId: spotsofReview.id
@@ -342,6 +348,7 @@ router.get("/:spotId/reviews", async (req, res) => {
             }]
     })
     console.log("reviewSpots", reviewSpots)
+<<<<<<< HEAD
     if (!spotsofReview) {
         res.status(404);
         return res.json({
@@ -351,6 +358,10 @@ router.get("/:spotId/reviews", async (req, res) => {
     }
     res.status(200)
     return res.json(reviewSpots)
+=======
+    res.status(200)
+    return res.json({ "Reviews": reviewSpots })
+>>>>>>> database
 })
 
 //Create a Review for a Spot based on the Spot's id ????????????????????
@@ -415,15 +426,22 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
             attributes: ["id", "firstName", "lastName"]
         }]
     })
-
-    if (user.id === spot.ownerId) {
-        res.status(200);
-        return res.json({ "Bookings": allBookings })
-    } else {
-        res.status(403);
-        return res.json({ "errror": "Not authorized" });
+    if (spot) {//owner
+        if (user.id === spot.ownerId) {
+            res.status(200);
+            return res.json({ "Bookings": allBookings })
+        }
+        else {//not owner
+          let  allBookings = await Booking.findAll({
+                where: {
+                    spotId
+                },
+                attributes: ["spotId", "startDate", "endDate"]
+            })
+            res.status(200);
+            return res.json({ "Bookings": allBookings })
+        }
     }
-
 
 })
 

@@ -18,14 +18,6 @@ const validateError = [
 
 
 
-
-
-
-
-
-
-
-
 //Get all Reviews of the Current User
 router.get("/current", requireAuth, async (req, res) => {
     const { user } = req;
@@ -44,7 +36,8 @@ router.get("/current", requireAuth, async (req, res) => {
             attributes: ["id", "url"]
         }]
     });
-    return res.json(allReviews)
+    
+    return res.json({"Reviews":allReviews})
 })
 
 
