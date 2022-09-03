@@ -348,8 +348,20 @@ router.get("/:spotId/reviews", async (req, res) => {
             }]
     })
     console.log("reviewSpots", reviewSpots)
+
+
+    if (!spotsofReview) {
+        res.status(404);
+        return res.json({
+            "message": "Spot couldn't be found",
+            "statusCode": 404
+        })
+    }
+    
+
     res.status(200)
     return res.json({ "Reviews": reviewSpots })
+
 })
 
 //Create a Review for a Spot based on the Spot's id ????????????????????
