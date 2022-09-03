@@ -1,4 +1,7 @@
 'use strict';
+
+const { DELETE } = require("sequelize/types/query-types");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('ReviewImages', {
@@ -12,7 +15,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:false,
         references:{
-          model:'Reviews'
+          model:'Reviews',
+         
         }
       },
       url:{

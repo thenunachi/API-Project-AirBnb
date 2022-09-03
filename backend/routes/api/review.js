@@ -18,14 +18,6 @@ const validateError = [
 
 
 
-
-
-
-
-
-
-
-
 //Get all Reviews of the Current User
 router.get("/current", requireAuth, async (req, res) => {
     const { user } = req;
@@ -44,7 +36,8 @@ router.get("/current", requireAuth, async (req, res) => {
             attributes: ["id", "url"]
         }]
     });
-    return res.json(allReviews)
+    
+    return res.json({"Reviews":allReviews})
 })
 
 
@@ -76,7 +69,7 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
     const { reviewId } = req.params;
     const existingReview = await Spot.findByPk(reviewId);
     if (!existingReview) {
-        res.statusCode (404);
+        res.status (404);
         return res.json({
             "message": "Review couldn't be found",
             "statusCode": 404
