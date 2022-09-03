@@ -303,7 +303,7 @@ router.put("/:spotId", validateError, requireAuth, async (req, res) => {
 
 //Delete a Spot
 router.delete("/:spotId", requireAuth, async (req, res) => {
-    const { user } = req;
+ 
     const { spotId } = req.params;
     const existingSpot = await Spot.findByPk(spotId);
     if (!existingSpot) {
@@ -313,7 +313,7 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
             "statusCode": 404
         })
     }
-    existingSpot.destroy();
+   await existingSpot.destroy();
     res.status(200)
     return res.json({
         "message": "Successfully deleted",
@@ -349,6 +349,7 @@ router.get("/:spotId/reviews", async (req, res) => {
     })
     console.log("reviewSpots", reviewSpots)
 
+
     if (!spotsofReview) {
         res.status(404);
         return res.json({
@@ -356,6 +357,7 @@ router.get("/:spotId/reviews", async (req, res) => {
             "statusCode": 404
         })
     }
+
 
     res.status(200)
     return res.json({ "Reviews": reviewSpots })
