@@ -21,10 +21,27 @@ const {user}=req;
 const allBookings = await Booking.findAll({
 include:[{
     model:Spot,
-    attributes:["id", "ownerId", "address", "city", "state", "country", "lat", "lng", "name", "price"] // to include preview image
+    attributes:["id", "ownerId", "address", "city", "state", "country", "lat", "lng", "name", "price"] 
 }]
 })
-res.json({"Bookings":allBookings})
+let newArray=[];
+let bookingObj;
+for(let i=0;i<allBookings.length;i++){
+  bookingObj = allBookings[i].toJSON();
+  const previewImage = await SpotImage.findByPk(allBookings[i].id,{
+    where:{preview:true},
+    attributes:["url"],
+    raw:true
+  })
+  if(!previewImage){
+    bookingObj.Spot.previewImage = ""
+}
+if(previewImage){
+    bookingObj.Spot.previewImage = previewImage.url
+}
+newArray.push(bookingObj)
+}
+res.json({"Bookings":newArray})
 
 })
 
@@ -50,6 +67,13 @@ if(updateBooking.endDate < new Date()){
     "statusCode": 403
   })
 }
+if(updateBooking){
+  updateBooking.startDate = startDate;
+  updateBooking.endDate = endDate;
+  await updateBooking.save()
+  res.status(200);
+  return res.json(updateBooking)
+}
 if(updateBooking.spotId){//need to update
   res.status(403);
   return res.json({
@@ -61,11 +85,7 @@ if(updateBooking.spotId){//need to update
     }
   })
 }
-updateBooking.startDate = startDate;
-updateBooking.endDate = endDate;
-await updateBooking.save()
-res.status(200);
-return res.json(updateBooking)//error pending
+//error pending
 
 })
 //Delete a Booking

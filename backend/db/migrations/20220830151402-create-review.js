@@ -12,14 +12,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:false,
         references:{
-          model:'Spots'
+          model:'Spots',
+         // onDelete:"CASCADE"
         }
       },
       userId:{
         type:Sequelize.INTEGER,
         allowNull:false,
         references:{
-          model:'Users'
+          model:'Users',
+         // onDelete:"CASCADE"
         }
       },
       review:{

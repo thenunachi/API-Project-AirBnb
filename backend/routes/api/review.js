@@ -36,8 +36,25 @@ router.get("/current", requireAuth, async (req, res) => {
             attributes: ["id", "url"]
         }]
     });
-    
-    return res.json({"Reviews":allReviews})
+    let newArray=[];
+    let reviewObject;
+    for(let i=0;i<allReviews.length;i++){
+        reviewObject=allReviews[i].toJSON();
+        const previewImage = await SpotImage.findByPk(allReviews[i].id,{
+            where:{preview:true},
+            attributes:["url"],
+            raw:true
+        });
+        //console.log("PI",previewImage);
+        if(!previewImage){
+            reviewObject.Spot.previewImage = ""
+        }
+        if(previewImage){
+            reviewObject.Spot.previewImage = previewImage.url
+        }
+newArray.push(reviewObject)
+    }
+    return res.json({"Reviews":newArray})
 })
 
 
