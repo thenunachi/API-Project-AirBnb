@@ -87,7 +87,7 @@ router.delete("/:reviewId", requireAuth, async (req, res) => {
 
     const { user } = req;
     const { reviewId } = req.params;
-    const existingReview = await Spot.findByPk(reviewId);
+    const existingReview = await Review.findByPk(reviewId);
     if (!existingReview) {
         res.status (404);
         return res.json({
