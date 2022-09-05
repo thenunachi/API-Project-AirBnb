@@ -21,7 +21,7 @@ router.get("/current", requireAuth, async (req, res) => {
   const { user } = req;
   const allBookings = await Booking.findAll({
     where: {
-      userID: user.id
+      userId: user.id
     },
     include: [{
       model: Spot,
