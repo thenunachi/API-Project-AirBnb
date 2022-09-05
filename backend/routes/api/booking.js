@@ -56,14 +56,15 @@ router.put("/:bookingId", validateError, requireAuth, async (req, res) => {
   const { bookingId } = req.params;
   const { startDate, endDate } = req.body;
   const existingBooking = await Booking.findByPk(bookingId)
-  console.log("UP", existingBooking)
-  if (user.id != existingBooking.userId) {
-    res.status(403);
-    return res.json({
-      "message": "Forbidden",
-      "statusCode": 403
-    })
-  }
+  // console.log("UP", existingBooking.userId)
+  // console.log("USER",user)
+  // if (user.id !== existingBooking.userId) {
+  //   res.status(403);
+  //   return res.json({
+  //     "message": "Forbidden",
+  //     "statusCode": 403
+  //   })
+  // }
   if (!existingBooking) {
     res.status(404);
     return res.json({
@@ -124,7 +125,7 @@ router.put("/:bookingId", validateError, requireAuth, async (req, res) => {
     }
   }
 
-  if (existingBooking) {
+  if (existingBooking.userId === user.id) {
     existingBooking.startDate = startDate;
     existingBooking.endDate = endDate;
     await existingBooking.save()
