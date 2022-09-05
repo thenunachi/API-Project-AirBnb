@@ -138,10 +138,10 @@ router.put("/:bookingId", validateError, requireAuth, async (req, res) => {
 //Delete a Booking
 
 router.delete("/:bookingId", requireAuth, async (req, res) => {
-
+// res.json(req.params.bookingId)
   const { user } = req;
   const { bookingId } = req.params;
-  const existingBooking = await Spot.findByPk(bookingId);
+  const existingBooking = await Booking.findByPk(bookingId);
   if (!existingBooking) {
     res.status(404);
     return res.json({

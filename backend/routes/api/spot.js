@@ -473,7 +473,9 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
         },
         include: [{
             model: User,
-            attributes: ["id", "firstName", "lastName"]
+            attributes: {
+               exclude: ["username", "email", "hashedPassword","createdAt","updatedAt"]
+            }
         }]
     })
     if (spot) {//owner
@@ -484,9 +486,11 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
         else {//not owner
             let allBookings = await Booking.findAll({
                 where: {
-                    spotId
+                    spotId:spot.id
                 },
-                attributes: ["spotId", "startDate", "endDate"]
+                attributes:{
+                   exclude: ["userId", "id","createdAt","updatedAt"]
+                } 
             })
             res.status(200);
             return res.json({ "Bookings": allBookings })
@@ -497,6 +501,7 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
 
 //Create a Booking from a Spot based on the Spot's id
 router.post("/:spotId/bookings", requireAuth, async (req, res) => {
+    console.log(req.params.spotId)
     const { user } = req
     const { spotId } = req.params;
     const spot = await Spot.findByPk(spotId);
