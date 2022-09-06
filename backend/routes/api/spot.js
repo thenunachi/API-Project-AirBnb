@@ -216,7 +216,7 @@ router.get("/current", requireAuth, async (req, res) => {
             spot.previewImage = null
         }
     }
-    
+
     return res.json({
         Spots: allSpots
     })
@@ -236,32 +236,32 @@ router.get("/:spotId", async (req, res) => {
             "statusCode": 404
         })
     }
-const owner = await User.findByPk(spotDetails.ownerId,{
-    attributes:["id","firstName","lastName"]
-})
+    const owner = await User.findByPk(spotDetails.ownerId, {
+        attributes: ["id", "firstName", "lastName"]
+    })
 
-const spotImages = await SpotImage.findAll({
-    where:{
-spotId:spotId
-    },
-    attributes:["id","url","preview"]
-})
+    const spotImages = await SpotImage.findAll({
+        where: {
+            spotId: spotId
+        },
+        attributes: ["id", "url", "preview"]
+    })
 
-const numReviews = await Review.count( {
-    where: {spotId: spotId},
-    raw: true
-})
-const averageRating = await Review.findOne({
-    attributes: [[sequelize.fn('ROUND',sequelize.fn("AVG", sequelize.col("stars")),2), "avgRating"]],
-    where: {spotId: spotId},
-    raw: true
-})
-const details = spotDetails.toJSON()
-details.numReviews = numReviews
-details.avgStarRating = averageRating.avgStarRating
-details.SpotImages  = spotImages
-details.Owner = owner
-return res.json(details)
+    const numReviews = await Review.count({
+        where: { spotId: spotId },
+        raw: true
+    })
+    const averageRating = await Review.findOne({
+        attributes: [[sequelize.fn('ROUND', sequelize.fn("AVG", sequelize.col("stars")), 2), "avgRating"]],
+        where: { spotId: spotId },
+        raw: true
+    })
+    const details = spotDetails.toJSON()
+    details.numReviews = numReviews
+    details.avgStarRating = averageRating.avgStarRating
+    details.SpotImages = spotImages
+    details.Owner = owner
+    return res.json(details)
 })
 
 
@@ -474,7 +474,7 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
         include: [{
             model: User,
             attributes: {
-               exclude: ["username", "email", "hashedPassword","createdAt","updatedAt"]
+                exclude: ["username", "email", "hashedPassword", "createdAt", "updatedAt"]
             }
         }]
     })
@@ -486,11 +486,11 @@ router.get("/:spotId/bookings", requireAuth, async (req, res) => {
         else {//not owner
             let allBookings = await Booking.findAll({
                 where: {
-                    spotId:spot.id
+                    spotId: spot.id
                 },
-                attributes:{
-                   exclude: ["userId", "id","createdAt","updatedAt"]
-                } 
+                attributes: {
+                    exclude: ["userId", "id", "createdAt", "updatedAt"]
+                }
             })
             res.status(200);
             return res.json({ "Bookings": allBookings })
@@ -542,16 +542,22 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
             })
         }
     }
-if(user.id !== spot.ownerId){
+    if (user.id === spot.ownerId) {
+        res.status(400);
+        return res.json({
+            "statusCode": 400,
+            "message": "Cant create booking in own spot",
+        })
+    }
+
     const newBooking = await Booking.create({
         spotId: spot.id, userId: user.id, startDate, endDate
     })
     res.status(200);
     return res.json(newBooking)
-}
-    
 
-    
+
+
 })
 
 
