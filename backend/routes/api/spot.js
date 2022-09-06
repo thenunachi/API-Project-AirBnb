@@ -542,13 +542,16 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
             })
         }
     }
-
+if(user.id !== spot.ownerId){
     const newBooking = await Booking.create({
         spotId: spot.id, userId: user.id, startDate, endDate
     })
-
     res.status(200);
     return res.json(newBooking)
+}
+    
+
+    
 })
 
 
