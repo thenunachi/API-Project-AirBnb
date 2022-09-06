@@ -65,9 +65,9 @@ const userExisted = await User.findOne({where:{username}})
       })
     }
     const user = await User.signup({ email, username, password, firstName, lastName });
-    console.log("USER",user)
+   // console.log("USER",user)
     user.toJSON();//
-    console.log("JSON",user.toJSON())
+    //console.log("JSON",user.toJSON())
     let token = await setTokenCookie(res, user);
     user.token = token;
     raw: true
@@ -76,10 +76,11 @@ const userExisted = await User.findOne({where:{username}})
       "username": user.username,
       "firstName": user.firstName,
       "lastName": user.lastName,
+      "email":user.email,
       "token": token
     });
   }
 );
-
+//Define an instance method toSafeObject in the user.js model file. This method will return an object with only the User instance information that is safe to save to a JWT, like id, username, and email.
 
 module.exports = router;
