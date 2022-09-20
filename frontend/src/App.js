@@ -5,7 +5,10 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-
+import { CreateSpotForm } from "./components/CreateFormSpots";
+import EditSpotForm from "./components/EditFormSpot";
+import { SingleSpotDetail } from "./components/SingleSpot/SingleSpotDetail";
+import SpotsBrowser from "./components/SpotsBrowser/SpotsBrowser"
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,8 +24,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-        </Switch>
+       
+        <Route path='/spots'>
+        <SpotsBrowser />
+        </Route>
+      </Switch>
       )}
+
+
     </>
   );
 }
