@@ -130,7 +130,7 @@ onChange={updatePrice}
 
 <button type="submit">Create new Spot</button>
  <button type="button" onClick={handleCancelClick}>Cancel</button>
- <button type="button" >Delete Spot</button>
+ 
 </form>
 
     </section>

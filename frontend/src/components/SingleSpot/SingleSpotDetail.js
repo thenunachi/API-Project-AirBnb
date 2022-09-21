@@ -2,7 +2,7 @@ import { NavLink, useParams } from "react-router-dom";
 import './SingleSpotDetail.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {  getAllSpots } from "../../store/SpotsReducer";
+import {  getAllSpots,deleteSpot,getOneSpot } from "../../store/SpotsReducer";
 import EditFormModal from '../EditForm';
 export const SingleSpotDetail =() =>{
  
@@ -10,11 +10,12 @@ export const SingleSpotDetail =() =>{
     let {spotId} = useParams();
 
    const spot = allspots.find(spot=>spot.id === +spotId)
+   console.log(spot,"SPOT FROM SINGLESPOT DETAILS")
     const dispatch = useDispatch();
    // const singleSpot = spotArray.find(spot=>spot.id === spotId);
     //useEffect
 // useEffect(() => {
-//   dispatch(getOneSpot(spotId))
+//   dispatch(deleteSpot(spot.id))
 // }, [dispatch]);
 // let details = await dispatch(getOneSpot(spotId));
 // if(details){
@@ -41,13 +42,16 @@ if (!spot) {
       <div>{spot.description}</div>
       <div>{spot.price}</div>
       <div>{spot.numReviews}</div>
-      <div>{spot.SpotImages}</div>
+      <div><img src={spot.previewImage}/></div>
       <div>{spot.Owner}</div>
 
       <div>
         <button>
           <EditFormModal/>
          Edit Spot
+        </button>
+        <button onClick={()=>dispatch(deleteSpot(spot.id))}>
+          Delete Spot
         </button>
       </div>
         </div>
