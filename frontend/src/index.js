@@ -10,8 +10,8 @@ import { ModalProvider } from "./context/Modal";
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
-import { deleteSpot } from "./store/Spots";
-import { getOneSpot,updateSpot } from "./store/Spots";
+import { deleteSpot,updateSpot } from "./store/SpotsReducer";
+
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
   window.deleteSpot = deleteSpot;
-  window.getOneSpot = getOneSpot;
+  // window.getOneSpot = getOneSpot;
   window.updateSpot = updateSpot;
 }
 

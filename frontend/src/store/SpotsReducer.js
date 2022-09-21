@@ -38,14 +38,14 @@ export const getAllSpots = () => async (dispatch) => { //getting all spots
     }
     return response
 }
-export const getOneSpot = (id)=>async dispatch =>{
-    // console.log("ID SPOT",id)
-    const response = await csrfFetch(`/api/spots/${id}`);
-    if(response.ok){
-        const data = await response.json();
-        dispatch(addSpot(data))
-    }
-}
+// export const getOneSpot = (id)=>async dispatch =>{
+//     // console.log("ID SPOT",id)
+//     const response = await csrfFetch(`/api/spots/${id}`);
+//     if(response.ok){
+//         const data = await response.json();
+//         dispatch(addSpot(data))
+//     }
+// }
 export const createSpot = (data) => async dispatch => {
     const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
@@ -91,9 +91,10 @@ const initialState = {};
 
 
 const spotsReducer = (state = initialState, action) => {
+    let allSpots = {};
     switch (action.type) {
         case GETALL_SPOTS:
-            const allSpots = {};
+         
 
             action.spots.Spots.forEach(spot => {
                 allSpots[spot.id] = spot;

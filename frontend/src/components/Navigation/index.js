@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import CreateSpotForm from '../CreateSpotForm/CreateFormSpots'
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -25,10 +26,26 @@ function Navigation({ isLoaded }){
 
   return (
     <ul>
+      {/* <li>
+      <div className='airbnblogo'>
+                    <img src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/>
+                </div>
+      </li> */}
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
+
+        <div><NavLink to="/new">
+          <button> Create Spot </button></NavLink>
+        </div>
+
+        {/* <div><NavLink><button>Edit Spot</button></NavLink></div> */}
+        {/* <div className='airbnblogo'>
+          <img src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'} />
+        </div> */}
       </li>
+
+
     </ul>
   );
 }

@@ -1,22 +1,20 @@
 import { useEffect,useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
-import { createSpot } from "../store/Spots";
-
+import { useParams } from "react-router-dom";
+import { createSpot } from "../../store/SpotsReducer";
+import './CreateSpotForm.css';
 export const CreateSpotForm = ({hideForm}) =>{
-    //selector??????????????????
+    
     const dispatch = useDispatch();
     const history = useHistory();
-//     "address": "aaa123 Disney Lane",
-//     "city": "San Francisco",
-//     "state": "California",
-//     "country": "United States of America",
-//     "lat": 37.7645358,
-//     "lng": -122.4730327,
-//     "name": "App Academy",
-//     "description": "Place where web developers are created",
-//     "price": 123
-
+// let {spotId}= useParams()
+//  let allspots = useSelector(state=> Object.values(state.spot));
+// // console.log(allspots,"ALLSPOTS FROM CREATEFORMPAGE")
+// const spot = allspots.find(spot=>spot.id === +spotId)
+// if (!spot) {
+//     return null;
+//   }
 
 const [address,setAddress] = useState("");
 const [city,setCity] = useState("");
@@ -43,11 +41,13 @@ const updatePrice =(e)=>setPrice(e.target.value);
 const handleSubmit = async(e)=>{
     e.preventDefault();
     const payload = {
+       //spotId,
         address,city,state,country,lat,lng,name,description,price
     };
 
-    
+    console.log(payload,"PAYLOAD")
     let createdSpot = await dispatch(createSpot(payload));
+    console.log("CREATED SPOT",createdSpot)
     if(createdSpot){
         history.push(`/spots/${createdSpot.id}`);
         hideForm();

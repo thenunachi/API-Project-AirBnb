@@ -5,8 +5,8 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import { CreateSpotForm } from "./components/CreateFormSpots";
-import EditSpotForm from "./components/EditFormSpot";
+import { CreateSpotForm } from "./components/CreateSpotForm/CreateFormSpots";
+import EditSpotForm from "./components/EditForm/EditFormSpot";
 import { SingleSpotDetail } from "./components/SingleSpot/SingleSpotDetail";
 import SpotsBrowser from "./components/SpotsBrowser/SpotsBrowser"
 function App() {
@@ -24,11 +24,19 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-       
-        <Route path='/spots'>
-        <SpotsBrowser />
-        </Route>
-      </Switch>
+          <Route path='/new'>
+            <CreateSpotForm />
+          </Route>
+          <Route path='/edit'>
+            <EditSpotForm />
+          </Route>
+          <Route path='/spots/:spotId'>
+            <SingleSpotDetail />
+          </Route>
+          <Route path='/spots'>
+            <SpotsBrowser />
+          </Route>
+        </Switch>
       )}
 
 

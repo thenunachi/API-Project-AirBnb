@@ -1,0 +1,33 @@
+/* input {
+    border: 10px 4px 5px 5px rgb(179, 58, 58);
+    background-color: rgb(221, 237, 237);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 3px;
+    padding: 3px;
+        font-family:  sans-serif;
+} */
+/* form {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3px;
+    padding: 3px;
+    font-family:  sans-serif;
+}
+
+button {
+     border: 10px 4px 5px 5px black;
+     background-color: rgb(145, 188, 232);
+     color: blue;
+     display: flex;
+     font-weight: bold;
+     justify-content: center;
+     flex-direction: row;
+     margin: 2px;
+     padding: 2px;
+     font-family: sans-serif;
+     max-width: 100px;
+} */
