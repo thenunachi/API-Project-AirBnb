@@ -15,12 +15,12 @@ module.exports = {
       startDate:new Date('2022-02-15'),
       endDate:new Date('2022-02-19')
     },
-    {
-      spotId:3,
-      userId:3,
-      startDate:new Date('2022-02-19'),
-      endDate:new Date('2022-02-25')
-    }
+    // {
+    //   spotId:3,
+    //   userId:3,
+    //   startDate:new Date('2022-02-19'),
+    //   endDate:new Date('2022-02-25')
+    // }
    ])
   },
 

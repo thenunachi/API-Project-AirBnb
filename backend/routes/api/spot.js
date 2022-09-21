@@ -328,6 +328,7 @@ router.put("/:spotId", validateError, requireAuth, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body
     const { spotId } = req.params;
     const particularSpot = await Spot.findByPk(spotId);
+    
     if (!particularSpot) {
         res.status(404)
         return res.send({
@@ -335,7 +336,7 @@ router.put("/:spotId", validateError, requireAuth, async (req, res) => {
             "statusCode": 404
         })
     }
-
+if(user.id === particularSpot.ownerId){
     particularSpot.address = address;
     particularSpot.city = city;
     particularSpot.state = state;
@@ -349,6 +350,17 @@ router.put("/:spotId", validateError, requireAuth, async (req, res) => {
     await particularSpot.save();
     res.status(200);
     return res.json(particularSpot)
+}
+else{
+    //res.status(403)
+    return res.send({
+        "message": "User not authorized",
+        "statusCode": 403
+    })
+}
+    
+
+    
 })
 
 //Delete a Spot

@@ -49,7 +49,7 @@ module.exports = {
         price:57.44
       },
       {
-        ownerId:4,
+        ownerId:1,
         address:"Snohomish,WA",
         city:"Snohomish",
         state:"WA",
@@ -61,7 +61,7 @@ module.exports = {
         price:48.21
       },
       {
-        ownerId:5,
+        ownerId:2,
         address:"Rainier,WA",
         city:"Rainier",
         state:"WA",
@@ -73,7 +73,7 @@ module.exports = {
         price:58.21
       },
       {
-        ownerId:6,
+        ownerId:3,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -85,7 +85,7 @@ module.exports = {
         price:98.21
       },
       {
-        ownerId:7,
+        ownerId:1,
         address:"QueenAnne,WA",
         city:"Seattle",
         state:"WA",
@@ -97,7 +97,7 @@ module.exports = {
         price:98.21
       },
       {
-        ownerId:8,
+        ownerId:2,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -109,7 +109,7 @@ module.exports = {
         price:58.21
       },
       {
-        ownerId:9,
+        ownerId:3,
         address:"Kirkland,WA",
         city:"Kirkland",
         state:"WA",
@@ -121,7 +121,7 @@ module.exports = {
         price:98.21
       },
       {
-        ownerId:10,
+        ownerId:1,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -133,7 +133,7 @@ module.exports = {
         price:102.21
       },
       {
-        ownerId:11,
+        ownerId:3,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -145,7 +145,7 @@ module.exports = {
         price:88.21
       },
       {
-        ownerId:12,
+        ownerId:2,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -157,7 +157,7 @@ module.exports = {
         price:78.21
       },
       {
-        ownerId:13,
+        ownerId:2,
         address:"Kent,WA",
         city:"Kent",
         state:"WA",
@@ -169,7 +169,7 @@ module.exports = {
         price:98.21
       },
       {
-        ownerId:14,
+        ownerId:1,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -181,7 +181,7 @@ module.exports = {
         price:508.21
       },
       {
-        ownerId:15,
+        ownerId:3,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -193,7 +193,7 @@ module.exports = {
         price:98.21
       },
       {
-        ownerId:16,
+        ownerId:3,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -205,7 +205,7 @@ module.exports = {
         price:88.21
       },
       {
-        ownerId:17,
+        ownerId:1,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -217,7 +217,7 @@ module.exports = {
         price:89.21
       },
       {
-        ownerId:18,
+        ownerId:1,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -229,7 +229,7 @@ module.exports = {
         price:45.21
       },
       {
-        ownerId:19,
+        ownerId:2,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -241,7 +241,7 @@ module.exports = {
         price:98.21
       },
       {
-        ownerId:20,
+        ownerId:3,
         address:"Seattle,WA",
         city:"Seattle",
         state:"WA",
@@ -251,7 +251,7 @@ module.exports = {
         name:"Cameron",
         description:"townhouse",
         price:89.21
-      },
+      }
       
       ], {});
   },
