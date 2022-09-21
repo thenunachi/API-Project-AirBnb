@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { updateSpot } from '../../store/SpotsReducer'
 
 
-const EditSpotForm =({hideForm}) =>{
+// const EditSpotForm =({hideForm}) =>{
+  const EditSpotForm =() =>{
   // console.log(spot,"EDITFORMPAGE SPOT")
 const dispatch = useDispatch();
 console.log("**************************************BEFORE***************************")
@@ -47,13 +48,13 @@ const handleSubmit = async(e)=>{
 console.log(payload.id,"PAYLOAD")
     let updatedSpot = await dispatch(updateSpot(payload));
     if(updatedSpot){
-        hideForm();
+        // hideForm();
     };
 }
 
 const handleCancelClick = (e) => {
     e.preventDefault();
-    hideForm();
+    // hideForm();
   };
 
 return(

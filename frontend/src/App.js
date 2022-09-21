@@ -27,9 +27,9 @@ function App() {
           <Route path='/new'>
             <CreateSpotForm />
           </Route>
-          <Route path='/edit'>
+          {/* <Route path='/spots/:spotId'>
             <EditSpotForm />
-          </Route>
+          </Route> */}
           <Route path='/spots/:spotId'>
             <SingleSpotDetail />
           </Route>

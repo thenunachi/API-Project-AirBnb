@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import './SingleSpotDetail.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import {  getAllSpots } from "../../store/SpotsReducer";
-
+import EditFormModal from '../EditForm';
 export const SingleSpotDetail =() =>{
  
   let allspots = useSelector(state=>Object.values(state.spot))//array of spots
@@ -43,6 +43,13 @@ if (!spot) {
       <div>{spot.numReviews}</div>
       <div>{spot.SpotImages}</div>
       <div>{spot.Owner}</div>
+
+      <div>
+        <button>
+          <EditFormModal/>
+         Edit Spot
+        </button>
+      </div>
         </div>
     )
 }
