@@ -30,11 +30,11 @@ function Navigation({ isLoaded }) {
     <ul>
       <header>
       
-      {/* <div className='airbnblogo'>
-                    <img src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/>
-                    
-                </div> */}
       
+                    <img className='Logo' src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/>
+                    
+                
+       
      
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
@@ -46,12 +46,9 @@ function Navigation({ isLoaded }) {
           <button> Edit Spot </button></NavLink>
         </div> */}
       
-        {/* <div className='airbnblogo'>
-          <img src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'} />
-        </div> */}
-      {/* </li> */}
+        
       </header>
-
+{/* <hr>ggggggggggggggggggggggggggggggggggggggggggggggggg</hr> */}
     </ul>
   );
 }
