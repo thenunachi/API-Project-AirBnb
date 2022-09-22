@@ -47,6 +47,7 @@ export const getAllSpots = () => async (dispatch) => { //getting all spots
 //     }
 // }
 export const createSpot = (data) => async dispatch => {
+    console.log("DATA FROM SPOT REDUCER",data)
     const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
         headers: {

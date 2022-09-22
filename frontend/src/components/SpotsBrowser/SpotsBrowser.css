@@ -1,8 +1,22 @@
-/* nav{
-    align-items: center;
-    justify-content: space-around;
+
+
+img{
+    height: 393px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 458px;
+    border-radius: 29px;
 }
-main{
-    display:inline-flex;
-    
+.allSpotsDetails{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20%;
+    margin-left: 167px;
+    margin-right: 230px;
+    justify-content: space-between;
+}
+/* header{
+    justify-content: center;
+    padding: 9px 976px;
 } */
