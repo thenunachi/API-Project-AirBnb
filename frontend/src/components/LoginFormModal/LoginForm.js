@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './loginForm.css'
+import DemoUser from "../Demo";
+
+
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
@@ -22,7 +25,7 @@ function LoginForm() {
 
   return (
     <form className="Login-form-container" onSubmit={handleSubmit}>
-      <div className="login-Title-SignUp">Log in or sign up</div>
+      <div className="login-Title-SignUp">Log in </div>
       <hr className="break"/>
       <div className="welcomeT">Welcome to T-bnb</div>
       <ul>
@@ -56,6 +59,9 @@ function LoginForm() {
         />
       </label>
       <button className="loginButton" type="submit">Log In</button>
+     <DemoUser/>
+    
+    
     </form>
   );
 }

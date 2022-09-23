@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-
+import DemoUser from '../Demo/index.js'
 import './Navigation.css';
 import CreateSpotForm from '../CreateSpotForm/CreateFormSpots'
 
@@ -38,17 +38,15 @@ function Navigation({ isLoaded }) {
      
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
-        
+        {/* <div> <button> Demo User </button> </div> */}
         <div><NavLink to="/new">
           <button> Create Spot </button></NavLink>
         </div>
-        {/* <div><NavLink to="/edit">
-          <button> Edit Spot </button></NavLink>
-        </div> */}
+       
       
         
       </header>
-{/* <hr>ggggggggggggggggggggggggggggggggggggggggggggggggg</hr> */}
+
     </ul>
   );
 }
