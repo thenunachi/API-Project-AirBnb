@@ -147,8 +147,8 @@ required
 value={preview}
 onChange={updatePreview}
 />
-<button type="submit">Create new Spot</button>
- <button type="button" onClick={handleCancelClick}>Cancel</button>
+<button className="spotButton" type="submit">Create new Spot</button>
+ <button className="cancelButton" type="button" onClick={handleCancelClick}>Cancel</button>
  
 </form>
 

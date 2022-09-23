@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createReviews, deleteReview, getAllReviewsBySpotId } from "../../store/ReviewsReducer";
+import './createReview.css'
 export const ReviewForm = ()=>{
     const dispatch = useDispatch();
     const history = useHistory();
@@ -57,8 +58,8 @@ max="5"
 value={stars}
 onChange={updateStars}
 />
-<button type="submit">Submit review</button>
- <button type="button" onClick={handleCancelClick}>Cancel</button>
+<button className="editButton" type="submit">Submit review</button>
+ <button className="cancelEdit" type="button" onClick={handleCancelClick}>Cancel</button>
  
         </form>
     )

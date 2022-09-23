@@ -9,6 +9,7 @@ import { CreateSpotForm } from "./components/CreateSpotForm/CreateFormSpots";
 import EditSpotForm from "./components/EditForm/EditFormSpot";
 import { SingleSpotDetail } from "./components/SingleSpot/SingleSpotDetail";
 import SpotsBrowser from "./components/SpotsBrowser/SpotsBrowser"
+import {ReviewForm} from "./components/CreateReviewForm/CreateReview"
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,7 +28,7 @@ function App() {
           <Route path='/new'>
             <CreateSpotForm />
           </Route>
-        
+          
           <Route path='/spots/:spotId'>
             <SingleSpotDetail />
           </Route>

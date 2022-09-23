@@ -1,0 +1,46 @@
+ /* .form{
+    height: 910px;
+    width: 910px;
+}
+input{
+    width: 889px;
+    height: 58px;
+}
+
+.cancelEdit{
+    width: 613px;
+    height: 40px;
+    border-radius: 11px;
+    padding-top: 9px;
+
+    border: 10px 4px 5px 5px black;
+    background-color: rgb(244, 6, 165);
+    color: white;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: row;
+    margin: 2px;
+    padding: 2px;
+    font-family: sans-serif;
+}
+.editButton{
+    border: 10px 4px 5px 5px black;
+    background-color: rgb(244, 6, 165);
+    color: white;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: row;
+    margin: 2px;
+    padding: 2px;
+    font-family: sans-serif;
+    width: 613px;
+        height: 40px;
+        border-radius: 11px;
+        padding-top: 9px;
+}  */
+.editForm{
+    padding-left: 7px;
+    padding-right: 7px;
+}

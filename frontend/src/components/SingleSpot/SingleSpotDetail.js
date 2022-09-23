@@ -51,7 +51,7 @@ export const SingleSpotDetail = () => {
      
       <form className="price" >
         <div>${spot.price}night </div>
-        <div>{spot.avgRating} {spot.numReviews}</div>
+        <div><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</div>
        
       </form>
       <div className="AirCover">
