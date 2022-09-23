@@ -48,11 +48,12 @@ const SpotsBrowser = () => {
                                 
                                 <div><img src={displayAllSpots.previewImage}/></div>
                                 <div className='details'>
-                                <div>{displayAllSpots.address}</div>
-                                <div>{displayAllSpots.city}</div>
+                                <div>{displayAllSpots.address} {displayAllSpots.city}       {displayAllSpots.avgRating}</div>
+                                {/* <div>{displayAllSpots.city}</div> */}
                                 <div>{displayAllSpots.price}</div>
                                 {/* <div>{displayAllSpots.numReviews}</div> */}
-                                <div>{displayAllSpots.avgRating}</div>
+                                {/* <div>{displayAllSpots.avgRating}</div> */}
+                                <div>{displayAllSpots.url}</div>
                                     </div>
                                 
                                

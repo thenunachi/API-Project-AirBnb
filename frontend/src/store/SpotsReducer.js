@@ -46,7 +46,7 @@ export const getAllSpots = () => async (dispatch) => { //getting all spots
 //         dispatch(addSpot(data))
 //     }
 // }
-export const createSpot = (data) => async dispatch => {
+export const createSpot = (imageload, data) => async dispatch => {
     console.log("DATA FROM SPOT REDUCER",data)
     const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
@@ -55,10 +55,23 @@ export const createSpot = (data) => async dispatch => {
         },
         body: JSON.stringify(data)
     });
-    if (response.ok) {
+    // const response2 = await csrfFetch(`/api/`)
+    // if (response.ok) {
         const newSpot = await response.json();
+        const imageResponse = await csrfFetch(`/api/spots/${newSpot.id}/images`,{
+            method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(imageload)
+        })
+       
+        // dispatch(addSpot(newSpot));
+        // return newSpot
+    // }
+    if(response.ok && imageResponse.ok ){
         dispatch(addSpot(newSpot));
-        return newSpot
+         return newSpot
     }
 }
 export const updateSpot = (payload) => async (dispatch) => {

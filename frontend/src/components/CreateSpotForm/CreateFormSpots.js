@@ -25,6 +25,8 @@ const [lng,setLng] = useState("");
 const [name,setName] = useState("");
 const [description,setDescription] = useState("");
 const [price,setPrice] = useState(1);
+const[preview,setPreview] = useState(false)
+const [url,setUrl] = useState("")
 
 const updateAddress =(e)=>setAddress(e.target.value);
 const updateCity =(e)=>setCity(e.target.value);
@@ -35,7 +37,8 @@ const updateLng =(e)=>setLng(e.target.value);
 const updateName =(e)=>setName(e.target.value);
 const updateDescription =(e)=>setDescription(e.target.value);
 const updatePrice =(e)=>setPrice(e.target.value);
-
+const updatePreview = (e)=>setPreview(!preview);
+const updateUrl = (e)=>setUrl(e.target.value)
 ///useEffect   ?????????????????????????????????
 
 const handleSubmit = async(e)=>{
@@ -44,9 +47,12 @@ const handleSubmit = async(e)=>{
        //spotId,
         address,city,state,country,lat,lng,name,description,price
     };
-
+const imageload ={
+    preview,url
+}
     console.log(payload,"PAYLOAD")
-    let createdSpot = await dispatch(createSpot(payload));
+    //  let  = await dispatch(createSpot(payload));
+    let createdSpot = await dispatch(createSpot(imageload, payload))
     console.log("CREATED SPOT",createdSpot)
     if(createdSpot){
         history.push(`/spots/${createdSpot.id}`);
@@ -127,7 +133,20 @@ required
 value={price}
 onChange={updatePrice}
 />
-
+<input 
+type="text"
+placeholder="url"
+required
+value={url}
+onChange={updateUrl}
+/>
+<input 
+type="checkbox"
+placeholder="boolean"
+required
+value={preview}
+onChange={updatePreview}
+/>
 <button type="submit">Create new Spot</button>
  <button type="button" onClick={handleCancelClick}>Cancel</button>
  
