@@ -33,7 +33,7 @@ export const SingleSpotDetail = () => {
     <div className="singleSpot">
 
       <div className="NameSpot">{spot.name}</div>
-      <div className="SpotDetails">{spot.avgRating} {spot.numReviews} {spot.address} {spot.city} {spot.country}</div>
+      <div className="SpotDetails"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews} {spot.address} {spot.city} {spot.country}</div>
       {/* <div >{spot.address}</div>
     <div>{spot.city}</div>
     <div>{spot.state}</div>

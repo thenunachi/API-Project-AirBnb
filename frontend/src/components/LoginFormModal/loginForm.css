@@ -1,7 +1,7 @@
 .Login-form-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 
 }
 .loginButton{
@@ -10,6 +10,10 @@
     background-color: #ff385c;
     border:none;
     border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+    margin-left: 35px;
+    margin-right: 39px;
+    margin-top: 31px;
 }
 .field{
     width: 520px;
@@ -18,10 +22,29 @@
     border:0px;
     padding:0px;
     border: 1px solid #afafaf;
+    margin-left: 35px;
+    margin-right: 39px;
 }
 #userfeild{
     border-radius: 8px 8px 0px 0px;
 }
 #passwordfeild{
     border-radius: 0px 0px 8px 8px;
+}
+
+.welcomeT{
+    font-size: 28px;
+    font-weight: bold;
+    padding-left: 37px;
+    padding-top: 18px;
+    padding-bottom: 25px;
+}
+.login-Title-SignUp{
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-top: 28px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 169px;
 }

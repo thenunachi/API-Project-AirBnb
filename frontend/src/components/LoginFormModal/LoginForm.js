@@ -23,6 +23,7 @@ function LoginForm() {
   return (
     <form className="Login-form-container" onSubmit={handleSubmit}>
       <div className="login-Title-SignUp">Log in or sign up</div>
+      <hr className="break"/>
       <div className="welcomeT">Welcome to T-bnb</div>
       <ul>
         {errors.map((error, idx) => (
@@ -48,7 +49,7 @@ function LoginForm() {
          id="passwordfeild"
           className="field"
           type="password"
-          placeholder="password"
+          placeholder=" Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
