@@ -17,7 +17,7 @@
 .header-div {
    
     text-align: center;
-  
+    border-bottom: 1px solid black;
     color: white;
     font-size: 30px; 
      height: 110px;
@@ -66,5 +66,8 @@
     height: 98px;
     width: 177px;
     margin-right: 1439px;
-    margin-left: 40px;
+    margin-left: 89px;
+  }
+  main{
+    margin-top: 76px;
   }

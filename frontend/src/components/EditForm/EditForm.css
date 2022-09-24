@@ -1,0 +1,51 @@
+input {
+    border: 10px 4px 5px 5px #ff385c;;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 3px;
+    padding: 3px;
+        font-family:  sans-serif;
+        width: 603px;
+        height: 36px;
+        border-radius: 11px;
+}
+.UpdateSpot{
+    border: 10px 4px 5px 5px black;
+    background-color: #ff385c;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: row;
+    margin: 2px;
+    padding: 2px;
+    font-family: sans-serif;
+    width: 613px;
+        height: 40px;
+        border-radius: 11px;
+        padding-top: 9px;
+}
+.CancelEdit{
+    border: 10px 4px 5px 5px black;
+    background-color: #ff385c;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: row;
+    margin: 2px;
+    padding: 2px;
+    font-family: sans-serif;
+    width: 613px;
+        height: 40px;
+        border-radius: 11px;
+        padding-top: 9px;
+}
+
+.update-spot-form{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}

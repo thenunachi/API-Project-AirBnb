@@ -33,9 +33,9 @@ const SpotsBrowser = () => {
     }
     return (
         <main>
-            <nav>
+            {/* <nav>
                 <Fab hidden={showForm} onClick={() => setShowForm(true)} />
-            </nav>
+            </nav> */}
           
             <div className='allSpotsDetails'>{ 
                 spotArray.map((displayAllSpots) => {

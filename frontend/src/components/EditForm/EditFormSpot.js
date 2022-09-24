@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { updateSpot } from '../../store/SpotsReducer'
-
+import './EditForm.css'
 
 // const EditSpotForm =({hideForm}) =>{
   const EditSpotForm =() =>{
@@ -59,8 +59,10 @@ const handleCancelClick = (e) => {
 
 return(
 <section className="edit-form">
-<form  onSubmit={handleSubmit}>
+<form className="update-spot-form" onSubmit={handleSubmit}>
+{/* <label className="label" for="html" onClick={showLabel}>HTML</label> */}
 <input 
+
 type="text"
 placeholder="Address"
 required
@@ -126,8 +128,8 @@ value={price}
 onChange={updatePrice}
 />
 
-<button type="submit">Update Spot</button>
-     <button type="button" onClick={handleCancelClick}>Cancel</button>
+<button className="UpdateSpot" type="submit">Update Spot</button>
+     <button className="CancelEdit" type="button" onClick={handleCancelClick}>Cancel</button>
 
 </form>
 
