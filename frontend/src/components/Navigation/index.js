@@ -4,11 +4,15 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-import SignUpFormModal from '../SignupFormPage'
+import SignUpFormModal from '../SignupFormModal'
 import DemoUser from '../Demo/index.js'
 import './Navigation.css';
 import CreateSpotForm from '../CreateSpotForm/CreateFormSpots'
 import logo from './tbnb.png'
+
+
+
+
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
@@ -27,21 +31,28 @@ function Navigation({ isLoaded }) {
       </>
     );
   }
+// const handleclick = async(e)=>{
+//   e.preventDefault();
 
+
+// }
   return (
-    // <ul>
+
       <header>
-        {/* <div className="EmptyDiv"></div> */}
+        
       <div className="header-div">
 {/* <div><img className='Logo' src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/></div> */}
 <div className="name"><img src={logo}/></div>
-<div className="dropdown">
-<button class="ProfileButton"><i class="fa-solid fa-bars"></i><ProfileButton/></button>
+<div className="dropdown" >
+<button class="ProfileButton" ><i class="fa-solid fa-bars"></i>
+<i className="fas fa-user-circle" />
+{/* <ProfileButton/> */}
+</button>
   <div class="dropdown-content">
     <a href="#"> <LoginFormModal /></a>
-    <a href="#"><SignUpFormModal/></a>
+    <a href="#"> <SignUpFormModal/></a>
     <div><NavLink to="/new">
-          <button> Create Spot </button></NavLink>
+          <button id="createspot-button"> Create Spot </button></NavLink>
         </div>
   </div>
 

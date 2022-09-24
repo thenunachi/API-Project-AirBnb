@@ -6,9 +6,10 @@
     font-size: 35px;
 }
 .SpotDetails {
-    font-size: 19px;
+    font-size: 23px;
     margin: 14px;
     margin-left: 1px;
+    margin-right: 292px;
 }
 .rooms{
     font-size: 19px;
@@ -22,10 +23,10 @@
     font-size: 42px;
     margin-top: -73px;
 }
-/* .previewImage{
+.previewImage{
     height: 849px;
-    width: 1368px;
-} */
+    width: 1342px;
+}
 .price{
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
@@ -37,14 +38,16 @@
     display:flex;
     font: size 23px;
     justify-content: space-between;
-  
+    font-size: 19px;
 }
 .title{
-    margin-top: -89px;
+    
+    margin-top: -75px;
 }
 .AirCover{
     position:relative;
     bottom:74px;
+    font-size: 19px;
 
 }
 
@@ -52,11 +55,13 @@
     width: 810px;
     border-bottom: solid 1px black;
     padding-bottom: 10px;
+    font-size: 19px;
 }
 .description{
     border-bottom: solid 1px black;
     padding-bottom: 20px;
     width: 810px;
+    font-size: 19px;
 
 }
 .review-details{
@@ -64,4 +69,8 @@
    
     padding-bottom: 21px;
     padding-top: 16px;
+    font-size: 19px;
+}
+.second-form{
+    font-size: 19px;
 }

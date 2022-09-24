@@ -4,6 +4,9 @@ import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createSpot } from "../../store/SpotsReducer";
 import './CreateSpotForm.css';
+import logo from './bbnb.png'
+
+
 export const CreateSpotForm = ({hideForm}) =>{
     
     const dispatch = useDispatch();
@@ -66,7 +69,17 @@ const handleCancelClick = (e) => {
   };
 
   return(
-    <section className="new-form">
+    <main>
+        <div class="split left">
+  <div class="centered">
+  <div className="logoname"><img src={logo}/></div>
+    <h2 id="host-text">What kind of place will you host?</h2>
+    
+  </div>
+</div>
+<div class="split right">
+  <div class="centered">
+  <section className="new-form">
 <form className="create-spot-form" onSubmit={handleSubmit}>
 <input 
 type="text"
@@ -153,6 +166,12 @@ onChange={updatePreview}
 </form>
 
     </section>
+   
+  </div>
+</div>
+     
+   
+    </main>
   )
 
 

@@ -18,7 +18,7 @@
    
     text-align: center;
     border-bottom: 1px solid black;
-    color: white;
+    color: Black;
     font-size: 30px; 
      height: 110px;
     justify-content: space-between;
@@ -37,12 +37,17 @@
   }
 
   .ProfileButton {
-    background-color: #4CAF50;
+    /* background-color: #4CAF50;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
-    cursor: pointer;
+    cursor: pointer; */
+       
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+   
   }
   .dropdown-content {
     display: none;
@@ -53,15 +58,16 @@
     z-index: 1;
     right: 0;
   }
-  .dropdown-content a {
+   .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border: none;
   }
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } 
   .name{
     height: 98px;
     width: 177px;
@@ -70,4 +76,14 @@
   }
   main{
     margin-top: 76px;
+  }
+  .fa-solid fa-bars{
+    padding-right: 19px;
+  }
+  .fa-solid fa-bars{
+    border: none;
+  }
+  #createspot-button{
+    height: 50px;
+    width: 182px;
   }

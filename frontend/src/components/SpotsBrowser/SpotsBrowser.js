@@ -73,10 +73,15 @@ const SpotsBrowser = () => {
                     <EditSpotForm />
                 </Route>
             )}, */}
-
-      
-
-        </main>
+            <footer>
+<div class="footer">
+        <p className="footer-code">© 2022 Airbnb, Inc.</p>
+      </div>
+</footer>
+   </main>
+   
+     
+       
     )
 }
 //do spot details in line 35

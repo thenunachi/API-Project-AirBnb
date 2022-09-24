@@ -1,6 +1,7 @@
 
 .new-form{
     margin-left: 598px;
+    margin-top: 93px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     padding: 24px;
@@ -9,7 +10,8 @@
     margin-right: 499px;
     height: 441px;
     display: flex;
-    width: 638px;
+    /* width: 638px; */
+    width: 1033px;
     font: size 23px;
     justify-content: center;
     flex-direction: column;
@@ -17,9 +19,11 @@
     padding: 3px;
     font-family:  sans-serif;
     border-radius: 45;
-    margin-left: 628px;
-    height: 633px;
-    
+    /* margin-left: 628px; */
+    height: 649px;
+    margin-top: 104px;
+    border: none;
+    /* margin-top: -356px; */
 }
 input {
     border: 10px 4px 5px 5px #ff385c;;
@@ -30,9 +34,22 @@ input {
     margin: 3px;
     padding: 3px;
         font-family:  sans-serif;
-        width: 603px;
+        width: 975px;
         height: 36px;
         border-radius: 11px;
+        /* margin-left: 201px; */
+        padding-top: 9px;
+        margin-bottom: 11px;
+        margin-left: 195px;
+
+        /* width: 520px;
+        height: 60px; 
+        margin:0px;
+        border:0px;
+        padding:0px;
+        border: 1px solid #afafaf;
+        margin-left: 35px;
+        margin-right: 39px; */
 }
 .spotButton{
     border: 10px 4px 5px 5px black;
@@ -42,18 +59,26 @@ input {
     font-weight: bold;
     justify-content: center;
     flex-direction: row;
-    margin: 2px;
+    /* margin: 2px; */
     padding: 2px;
     font-family: sans-serif;
     width: 613px;
         height: 40px;
         border-radius: 11px;
         padding-top: 9px;
+        margin-left: 3px;
+        margin-bottom: 11px;
+        /* width: 520px;
+        height: 60px;
+        background-color: #ff385c;
+        border:none;
+        border-radius: 8px;
+        font-family: 'Manrope', sans-serif;
+        margin-left: 35px;
+        margin-right: 39px;
+        margin-top: 31px; */
 }
-.create-spot-form{
-    padding-left: 10px;
-    padding-right: 10px;
-}
+
 .cancelButton{
     border: 10px 4px 5px 5px black;
     background-color: #ff385c;;
@@ -69,4 +94,67 @@ input {
         height: 40px;
         border-radius: 11px;
         padding-top: 9px;
+        margin-left: 3px;
+        margin-bottom: 11px;
+        /* width: 520px;
+        height: 60px;
+        background-color: #ff385c;
+        border:none;
+        border-radius: 8px;
+        font-family: 'Manrope', sans-serif;
+        margin-left: 35px;
+        margin-right: 39px;
+        margin-top: 31px; */
+}
+
+body {
+    font-family: sans-serif;
+    color: white;
+  }
+  
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    
+        background-image: linear-gradient(#d02478,#c5257e,#b82383,#871f90,#751f95,#591fa1);
+  }
+  
+  .right {
+    right: 0;
+    background-color: white;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+  }
+  #host-text{
+    font-size: 57px;
+    line-height: 56px;
+  }
+  .logoname{
+    height: 98px;
+    width: 177px;
+    margin-right: 1439px;
+    margin-left: 89px;
+  }
+
+
+  .create-spot-form{
+    margin-left: 201px;
+     /* display: flex;
+    flex-direction: column; */
 }

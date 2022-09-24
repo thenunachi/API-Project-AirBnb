@@ -1,11 +1,11 @@
 
 
 .spotimages{
-    height: 393px;
+    height: 269px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    width: 458px;
+    width: 422px;
     border-radius: 29px;
     flex-direction: row;
     justify-content: space-around;
@@ -33,3 +33,23 @@
 .details{
     margin: 14px;
 }
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align:left;
+    height: 65px;
+    padding-left: 107px;
+    border-top: 1px solid black;
+    font-size: 16px;
+    align-items: center;
+ }
+ .footer-code{
+    justify-content: center;
+    padding-top: 27px;
+    color: black;
+ }
+

@@ -33,7 +33,7 @@ export const SingleSpotDetail = () => {
     <div className="singleSpot">
 
       <div className="NameSpot">{spot.name}</div>
-      <div className="SpotDetails"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews} {spot.address} {spot.city} {spot.country}</div>
+      <div className="SpotDetails"><i class="fa-solid fa-star"></i> {spot.avgRating}  {spot.numReviews}        {spot.address}  {spot.city}  {spot.country}</div>
       {/* <div >{spot.address}</div>
     <div>{spot.city}</div>
     <div>{spot.state}</div>
@@ -50,7 +50,7 @@ export const SingleSpotDetail = () => {
       <div className="rooms">6 guests 2 bedrooms 2 beds 1 bath</div>
      
       <form className="price" >
-        <div>${spot.price}night </div>
+        <div>${spot.price} night </div>
         <div><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</div>
        
       </form>
@@ -59,11 +59,15 @@ export const SingleSpotDetail = () => {
         <p className="cover">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
         
         <div className="description">{spot.description}</div>
-       
+        <div className="second-form"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</div>
         <div className="review-details">{
+          
           allReviews.map((e) => {
             return (
-              <div>Review:{e.review}
+              
+              <div>
+               
+                Review:{e.review}
                <button onClick={() => dispatch(deleteReview(review.id))}>
           Delete Review
         </button>
