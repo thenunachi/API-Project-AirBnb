@@ -36,6 +36,7 @@ const SpotsBrowser = () => {
             <nav>
                 <Fab hidden={showForm} onClick={() => setShowForm(true)} />
             </nav>
+          
             <div className='allSpotsDetails'>{ 
                 spotArray.map((displayAllSpots) => {
                      console.log("****************************");
@@ -46,7 +47,7 @@ const SpotsBrowser = () => {
                             {/* <SingleSpotDetail spotArray={spotArray} /> */}
                             <div className="allSpots">
                                 
-                                <div><img src={displayAllSpots.previewImage}/></div>
+                                <div className="spotimages"><img src={displayAllSpots.previewImage}/></div>
                                 <div className='details'>
                                 <div>{displayAllSpots.address} {displayAllSpots.city}      <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}</div></div>
                                 {/* <div>{displayAllSpots.city}</div> */}

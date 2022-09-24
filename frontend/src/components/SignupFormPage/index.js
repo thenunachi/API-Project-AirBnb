@@ -32,13 +32,15 @@ const [lastName,setLastName] = useState("")
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="Signup-form-container"onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label>
-        Email
+        
         <input
+        className="inputFeild"
+        placeholder=" Email "
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -46,8 +48,10 @@ const [lastName,setLastName] = useState("")
         />
       </label>
       <label>
-        Username
+        
         <input
+        placeholder=" Username "
+           className="inputFeild"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -55,8 +59,10 @@ const [lastName,setLastName] = useState("")
         />
       </label>
       <label>
-        FirstName
+        
         <input
+           className="inputFeild"
+           placeholder=" FirstName "
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -64,8 +70,10 @@ const [lastName,setLastName] = useState("")
         />
       </label>
       <label>
-        LastName
+        
         <input
+        placeholder=" LastName "
+           className="inputFeild"
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
@@ -73,8 +81,10 @@ const [lastName,setLastName] = useState("")
         />
       </label>
       <label>
-        Password
+        
         <input
+        placeholder=" Password "
+           className="inputFeild"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -82,15 +92,17 @@ const [lastName,setLastName] = useState("")
         />
       </label>
       <label>
-        Confirm Password
+        
         <input
+         placeholder=" Confirm Password "
+           className="inputFeild"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className="signupButton" type="submit">Sign Up</button>
     </form>
   );
 }
