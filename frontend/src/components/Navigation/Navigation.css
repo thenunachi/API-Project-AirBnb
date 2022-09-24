@@ -25,6 +25,7 @@
     align-items: center;
     display: flex;
     padding-right: 119px;
+    padding-bottom: 9px;
   }
 
 
@@ -65,4 +66,5 @@
     height: 98px;
     width: 177px;
     margin-right: 1439px;
+    margin-left: 40px;
   }

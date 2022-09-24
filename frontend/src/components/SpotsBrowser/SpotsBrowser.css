@@ -7,13 +7,17 @@
     align-content: flex-start;
     width: 458px;
     border-radius: 29px;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .allSpotsDetails{
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     grid-template-rows: 20% 20% 20% 20%;
-    margin-left: 167px;
-    margin-right: 230px;
+    /* margin-left: 167px;
+    margin-right:  728px; */
+    margin-left: 87px;
+    margin-right: 231px;
     justify-content: space-between;
 }
 /* header{
@@ -23,6 +27,7 @@
 
 .allSpots{
     margin:1rem
+    /* margin: 178px; */
 }
 .details{
     margin: 14px;

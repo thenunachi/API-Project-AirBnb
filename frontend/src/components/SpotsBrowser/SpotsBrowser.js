@@ -39,15 +39,15 @@ const SpotsBrowser = () => {
           
             <div className='allSpotsDetails'>{ 
                 spotArray.map((displayAllSpots) => {
-                     console.log("****************************");
-                     console.log(displayAllSpots,"displayAllspotsID")
-                     console.log(displayAllSpots.avgRating,"AVERAGERATING",displayAllSpots.numReviews,"NUM REVIEWS")
+                    //  console.log("****************************");
+                    //  console.log(displayAllSpots,"displayAllspotsID")
+                    //  console.log(displayAllSpots.avgRating,"AVERAGERATING",displayAllSpots.numReviews,"NUM REVIEWS")
                     return (
                         <NavLink key={displayAllSpots.address} to={`/spots/${displayAllSpots.id}`}>
                             {/* <SingleSpotDetail spotArray={spotArray} /> */}
                             <div className="allSpots">
                                 
-                                <div className="spotimages"><img src={displayAllSpots.previewImage}/></div>
+                                <div ><img className="spotimages" src={displayAllSpots.previewImage}/></div>
                                 <div className='details'>
                                 <div>{displayAllSpots.address} {displayAllSpots.city}      <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}</div></div>
                                 {/* <div>{displayAllSpots.city}</div> */}
