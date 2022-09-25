@@ -46,7 +46,7 @@
 .spotButton{
   border: 1px solid #afafaf;
     background-color: #ff385c;
-    color: black;
+    color: white;
     display: flex;
     font-weight: bold;
     justify-content: center;
@@ -73,7 +73,7 @@
 .cancelButton{
   border: 1px solid #afafaf;
   background-color: #ff385c;
-  color: black;
+  color:white;
   display: flex;
   font-weight: bold;
   justify-content: center;
