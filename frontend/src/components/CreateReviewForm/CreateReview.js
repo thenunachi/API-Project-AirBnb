@@ -29,7 +29,7 @@ console.log("SPOT FROM CREATE REVIEW",spot)
   useEffect(()=>{
     const errors = [];
     if(!review.length)errors.push("Review text is required");
-    if(stars < 0 )errors.push("Stars must between 1 to 5");
+    if(stars <= 0 )errors.push("Stars must between 1 to 5");
     setValidations(errors)
   },[review, stars]);
 
@@ -38,11 +38,7 @@ console.log("SPOT FROM CREATE REVIEW",spot)
     const payload = {
       review,stars
     };
-  
-     let createdReview = await dispatch(createReviews(spot.id,payload));
-
-     
-
+    //  let createdReview = await dispatch(createReviews(spot.id,payload));
     }
     const handleCancelClick = (e) => {
       e.preventDefault();
@@ -53,21 +49,21 @@ console.log("SPOT FROM CREATE REVIEW",spot)
     }
     return (
 <form className="create-review-text" onSubmit = {handleSubmit}>
-<ul className="errors">
+<ul className="errorsReview">
         {
           validations.map((error,index)=> (
             <li key={index}>{error}</li>
           ))
         }
       </ul>
-<input 
+<input id="reviewInput"
 type="text"
 placeholder="Write a review"
 required
 value={review}
 onChange={updateReviews}
 />
-<input 
+<input  id="reviewInput"
 type="number"
 placeholder="rating"
 min="0"

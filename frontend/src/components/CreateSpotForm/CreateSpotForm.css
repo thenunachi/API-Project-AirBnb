@@ -40,6 +40,7 @@
   height: 21px;
   border-radius: 11px;
   margin-left: 73px;
+  font-family: 'Manrope', sans-serif;
 }
 .spotButton{
     border: 10px 4px 5px 5px black;
@@ -58,7 +59,7 @@
     margin-left: 73px;
     padding-top: 9px;
     margin-top: 8px;
-
+    font-family: 'Manrope', sans-serif;
     /* width: 613px;
         height: 40px;
         border-radius: 11px;
@@ -85,6 +86,7 @@
   margin-left: 73px;
   padding-top: 9px;
   margin-top: 8px;
+  font-family: 'Manrope', sans-serif;
 }
 
 body {
@@ -125,6 +127,7 @@ body {
     font-size: 40px;
     line-height: 56px;
     margin-bottom: 185px;
+    font-family: 'Manrope', sans-serif;
   }
   .logoname{
     height: 98px;
@@ -139,6 +142,7 @@ body {
     margin-top: 302px;
     margin-right: 262px;
     margin-bottom: 421px;
+    font-family: 'Manrope', sans-serif;
 }
 .errors{
   color:black;
@@ -148,5 +152,6 @@ body {
   width: 200px;
   text-align: start;
   margin-left: 48px;
+  font-family: 'Manrope', sans-serif;
 
 }
