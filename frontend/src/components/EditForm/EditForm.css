@@ -12,7 +12,7 @@ input {
         border-radius: 11px;
 }
 #UpdateSpot{
-    border: 10px 4px 5px 5px black;
+    border: 1px solid #afafaf;
     background-color: #ff385c;
     color: white;
     display: flex;
@@ -29,7 +29,7 @@ input {
         
 }
 .CancelEdit{
-    border: 10px 4px 5px 5px black;
+    border: 1px solid #afafaf;
     background-color: #ff385c;
     color: white;
     display: flex;

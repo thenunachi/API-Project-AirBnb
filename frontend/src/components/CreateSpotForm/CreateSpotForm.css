@@ -41,10 +41,10 @@
   border-radius: 11px;
   margin-left: 73px;
   font-family: 'Manrope', sans-serif;
-  border-color: black;
+  border: 1px solid #afafaf;
 }
 .spotButton{
-    border: 10px 4px 5px 5px black;
+  border: 1px solid #afafaf;
     background-color: #ff385c;
     color: black;
     display: flex;
@@ -71,7 +71,7 @@
 }
 
 .cancelButton{
-  border: 10px 4px 5px 5px black;
+  border: 1px solid #afafaf;
   background-color: #ff385c;
   color: black;
   display: flex;

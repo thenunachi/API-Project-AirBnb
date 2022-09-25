@@ -72,13 +72,13 @@ input{
     margin-left: 73px;
     margin-right: 41px;
     margin-bottom: 25px;
-  
+    border: 1px solid #afafaf;
     font-family: 'Manrope', sans-serif;
   }
   .editButton{
-    border: 10px 4px 5px 5px black;
+    border: 1px solid #afafaf;
     background-color: #ff385c;
-    color: black;
+    color: white;
     display: flex;
     font-weight: bold;
     justify-content: center;
@@ -96,9 +96,9 @@ input{
     font-family: 'Manrope', sans-serif;
   }
   .cancelEdit{
-    border: 10px 4px 5px 5px black;
+    border: 1px solid #afafaf;
     background-color: #ff385c;
-    color: black;
+    color: white;
     display: flex;
     font-weight: bold;
     justify-content: center;
