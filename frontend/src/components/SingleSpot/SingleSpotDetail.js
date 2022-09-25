@@ -60,9 +60,10 @@ export const SingleSpotDetail = () => {
                
               {e.review}
                {isUserOwner(spot, user) &&<button onClick={ async(e) => {
+               
                 e.preventDefault()
                  await dispatch(deleteReview(review.id))
-               dispatch(getAllReviewsBySpotId(spotId))
+               await dispatch(getAllReviewsBySpotId(spotId))
                return history.push(`/spots/${spot.id}`)
               }}>
           Delete Review

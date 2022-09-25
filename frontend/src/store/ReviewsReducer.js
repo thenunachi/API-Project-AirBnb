@@ -69,7 +69,6 @@ const reviewsReducer = (state = initialState,action)=>{
                 allReviews[review.id] = review;
             })
             return {
-                ...state,
                 ...allReviews
             };
             case  CREATE_ONE:
