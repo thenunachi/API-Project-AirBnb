@@ -69,6 +69,7 @@
     text-decoration: none;
     display: block;
     border: none;
+    height: 57px;
   }
   .dropdown:hover .dropdown-content {
     display: block;
@@ -101,4 +102,9 @@
   }
   .profile-dropdown{
     color:black
+  }
+  #logout-button{
+    height: 45px;
+    width: 182px;
+    margin-bottom: 11px;
   }

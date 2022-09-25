@@ -58,12 +58,29 @@ function Navigation({ isLoaded }) {
 <i className="fas fa-user-circle" />
 {/* <ProfileButton/> */}
 </button>
-  <div class="dropdown-content">
+  {/* <div class="dropdown-content">
     <a href="#"> <LoginFormModal /></a>
     <a href="#"> <SignUpFormModal/></a>
     <div><NavLink to="/new">
           <button id="createspot-button"> Create Spot </button></NavLink>
         </div>
+  </div> */}
+  <div class="dropdown-content">
+    {!sessionUser && 
+    
+    <div>
+      <a href="#"> <LoginFormModal /></a>
+    <a href="#"> <SignUpFormModal/></a>
+      
+    </div>
+    }
+{sessionUser && 
+  <div><NavLink to="/new">
+          <button id="createspot-button"> Create Spot </button></NavLink>
+       
+<button id="logout-button"> Log out </button> </div>
+}
+  
   </div>
 
 </div>
