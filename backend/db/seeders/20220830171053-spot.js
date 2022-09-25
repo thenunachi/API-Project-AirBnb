@@ -14,27 +14,27 @@ module.exports = {
      await queryInterface.bulkInsert('Spots', [
       {
          ownerId:1,
-         address:"Redmond,WA",
+         address:"Granite Falls",
          city:"Redmond",
          state:"WA",
          country:"USA",
          lat:69.21,
          lng:42.43,
          name:"Thenu",
-         description:"townhouse",
-         price:49.21
+         description:"Welcome to this beautiful house located in Granite Falls.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
+         price:386.21
        },
        {
         ownerId:2,
-        address:"Seattle,WA",
+        address:"LeavenWorth",
         city:"Seattle",
         state:"WA",
         country:"USA",
         lat:79.21,
         lng:52.43,
         name:"Kalyan",
-        description:"townhouse",
-        price:78.21
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
+        price:625.21
       },
       {
         ownerId:3,
@@ -45,7 +45,7 @@ module.exports = {
         lat:72.21,
         lng:51.43,
         name:"John",
-        description:"Cabin",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:57.44
       },
       {
@@ -57,7 +57,7 @@ module.exports = {
         lat:80.21,
         lng:51.43,
         name:"Smith",
-        description:"house",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:48.21
       },
       {
@@ -69,43 +69,43 @@ module.exports = {
         lat:89.21,
         lng:82.43,
         name:"Ted",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:58.21
       },
       {
         ownerId:3,
-        address:"Seattle,WA",
+        address:"Portland,Oregon",
         city:"Seattle",
         state:"WA",
         country:"USA",
         lat:89.21,
         lng:32.43,
         name:"Phill",
-        description:"SingleFamilyhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:98.21
       },
       {
         ownerId:1,
         address:"QueenAnne,WA",
-        city:"Seattle",
+        city:"Duvell",
         state:"WA",
         country:"USA",
         lat:99.21,
         lng:62.43,
         name:"Naren",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:98.21
       },
       {
         ownerId:2,
-        address:"Seattle,WA",
-        city:"Seattle",
+        address:"Livingston,Montana",
+        city:"Mount",
         state:"WA",
         country:"USA",
         lat:89.21,
         lng:62.43,
         name:"Ram",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:58.21
       },
       {
@@ -117,55 +117,55 @@ module.exports = {
         lat:89.21,
         lng:62.43,
         name:"Karthik",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:98.21
       },
       {
         ownerId:1,
-        address:"Seattle,WA",
-        city:"Seattle",
-        state:"WA",
-        country:"USA",
+        address:"Whistler",
+        city:"Dell",
+        state:"Canada",
+        country:"Canada",
         lat:78.21,
         lng:56.43,
         name:"Dhaniya",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:102.21
       },
       {
         ownerId:3,
-        address:"Seattle,WA",
+        address:"White Salmon",
         city:"Seattle",
         state:"WA",
         country:"USA",
         lat:89.21,
         lng:59.43,
         name:"Bindhu",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:88.21
       },
       {
         ownerId:2,
-        address:"Seattle,WA",
+        address:"Tacoma,WA",
         city:"Seattle",
         state:"WA",
         country:"USA",
         lat:69.21,
         lng:92.43,
         name:"Ruku",
-        description:"Cabin",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:78.21
       },
       {
         ownerId:2,
-        address:"Kent,WA",
+        address:"Surrey,WA",
         city:"Kent",
         state:"WA",
         country:"USA",
         lat:99.21,
         lng:62.43,
         name:"Diya",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:98.21
       },
       {
@@ -177,7 +177,7 @@ module.exports = {
         lat:99.21,
         lng:52.43,
         name:"Prasad",
-        description:"Mansion",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:508.21
       },
       {
@@ -189,7 +189,7 @@ module.exports = {
         lat:59.21,
         lng:572.43,
         name:"Millie",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.e",
         price:98.21
       },
       {
@@ -201,7 +201,7 @@ module.exports = {
         lat:89.21,
         lng:62.43,
         name:"Saranya",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:88.21
       },
       {
@@ -213,7 +213,7 @@ module.exports = {
         lat:79.21,
         lng:52.43,
         name:"Chase",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:89.21
       },
       {
@@ -225,7 +225,7 @@ module.exports = {
         lat:79.21,
         lng:52.43,
         name:"Foreman",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:45.21
       },
       {
@@ -237,7 +237,7 @@ module.exports = {
         lat:79.21,
         lng:52.43,
         name:"House",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:98.21
       },
       {
@@ -249,7 +249,7 @@ module.exports = {
         lat:79.21,
         lng:52.43,
         name:"Cameron",
-        description:"townhouse",
+        description:"Welcome to this beautiful house located in LeavenWorth.Modern newly constructed house with an open floor plan and large windows overlooking the Wenatchee river. The kitchen comes fully equipped with all appliances, dishware and utensils. There is a large screen TV with comfortable seating for 6 as well as a large dining room table. The house has an en suite king bed master bedroom.. attached bath and a large shower overlooking the river. There are two guest bedrooms each having a beautiful view of the river.",
         price:89.21
       }
       
