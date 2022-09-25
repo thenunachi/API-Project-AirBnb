@@ -4,7 +4,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createReviews, deleteReview, getAllReviewsBySpotId } from "../../store/ReviewsReducer";
 import './createReview.css'
-export const ReviewForm = ()=>{
+export const ReviewForm = ({onCancel})=>{
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -40,11 +40,14 @@ console.log("SPOT FROM CREATE REVIEW",spot)
     };
     let createdReview = await dispatch(createReviews(spot.id,payload));
     dispatch((getAllReviewsBySpotId(spot.id)));
+    if(createdReview){
+      history.push(`/spots/${spot.id}`);
     }
-    const handleCancelClick = (e) => {
-      e.preventDefault();
+    }
+    // const handleCancelClick = (e) => {
+    //   e.preventDefault();
       
-    };
+    // };
     if (!spot) {
       return null;
     }
@@ -73,7 +76,7 @@ value={stars}
 onChange={updateStars}
 />
 <button className="editButton" type="submit">Submit review</button>
- <button className="cancelEdit" type="button" onClick={handleCancelClick}>Cancel</button>
+ <button className="cancelEdit" type="button" onClick={onCancel}>Cancel</button>
  
         </form>
     )

@@ -11,7 +11,7 @@ function ReviewFormModal(){
         {
             showModal && (
                 <Modal className="ReviewModal" onClose={()=>setShowModal(false)}>
-<ReviewForm />
+<ReviewForm onCancel={() => setShowModal(false)}/>
 
                 </Modal>
             )

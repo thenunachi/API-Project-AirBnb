@@ -21,14 +21,13 @@ export const SingleSpotDetail = () => {
   console.log(review, "REVIEW FORMAT")//obj
   // console.log(spot, "SPOT FROM SINGLESPOT DETAILS")
   const dispatch = useDispatch();
-  // const singleSpot = spotArray.find(spot=>spot.id === spotId);
-  //useEffect
+ 
 
   useEffect(() => {
     dispatch((getAllSpots()))
     dispatch((getAllReviewsBySpotId(spotId)));
     //dispatch((createReviews(spot.id)))
-  }, [dispatch]);
+  }, dispatch);
 
   console.log(getAllReviewsBySpotId(), "GET ALL REVIEWS BY SPOT ID")
 
@@ -38,18 +37,6 @@ export const SingleSpotDetail = () => {
       <div> 
       <div className="NameSpot">{spot.name}</div>
       <div className="SpotDetails"><i class="fa-solid fa-star"></i> {spot.avgRating}  {spot.numReviews}        {spot.address}  {spot.city}  {spot.country}</div>
-      {/* <div >{spot.address}</div>
-    <div>{spot.city}</div>
-    <div>{spot.state}</div>
-    <div>{spot.country}</div> */}
-      {/* <div>{spot.lat}</div>
-    <div>{spot.lng}</div> */}
-
-      {/* <div>{spot.description}</div> */}
-      {/* <div>{spot.price}</div> */}
-      {/* <img src={'https://media.istockphoto.com/vectors/five-point-star-vector-icon-isolated-gold-star-rating-flat-symbol-vector-id1295967422?k=20&m=1295967422&s=612x612&w=0&h=6G6WYoO_3MCi6ILsC2GWwTf9hxIDXyWainB21GU0gjw='}/> */}
-      {/* <div>{spot.avgRating}{spot.numReviews}</div> */}
-      {/* <div></div> */}
       <img className="previewImage" src={spot.previewImage} />
       <div className="rooms">6 guests 2 bedrooms 2 beds 1 bath</div>
      
@@ -72,10 +59,14 @@ export const SingleSpotDetail = () => {
               <div id="reviewList">
                
               {e.review}
-               {isUserOwner(spot, user) &&<button onClick={() => {dispatch(deleteReview(review.id))
+               {isUserOwner(spot, user) &&<button onClick={ async(e) => {
+                e.preventDefault()
+                 await dispatch(deleteReview(review.id))
                dispatch(getAllReviewsBySpotId(spotId))
+               return history.push(`/spots/${spot.id}`)
               }}>
           Delete Review
+
         </button>}
               </div>
 

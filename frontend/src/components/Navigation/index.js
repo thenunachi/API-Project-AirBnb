@@ -2,20 +2,21 @@
 import {React, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignupFormModal'
 import DemoUser from '../Demo/index.js'
 import './Navigation.css';
 import CreateSpotForm from '../CreateSpotForm/CreateFormSpots'
-import logo from './tbnb.png'
-
+import logo from './tbnb.png';
+import * as sessionActions from '../../store/session';
 
 
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
-
+  const dispatch = useDispatch();
   const [shouldShowDropDown, setShouldShowDropDown] = useState(false);
   let sessionLinks;
   if (sessionUser) {
@@ -43,6 +44,10 @@ function Navigation({ isLoaded }) {
 //   console.log("THIS WAS CLICKED")
 //   setShouldShowDropDown(!shouldShowDropDown);
 // }
+const logout = (e) => {
+  e.preventDefault();
+  dispatch(sessionActions.logout());
+};
   return (
 
       <header>
@@ -78,7 +83,7 @@ function Navigation({ isLoaded }) {
   <div><NavLink to="/new">
           <button id="createspot-button"> Create Spot </button></NavLink>
        
-<button id="logout-button"> Log out </button> </div>
+<button onClick={logout} id="logout-button"> Log out ({sessionUser.username})</button> </div>
 }
   
   </div>
