@@ -79,6 +79,8 @@ const imageload ={
 
 const handleCancelClick = (e) => {
     e.preventDefault();
+    console.log("CANCEL CLICK")
+    // e.style.display = 'none'
     hideForm();
   };
 

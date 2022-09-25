@@ -85,7 +85,8 @@
   }
   .fa-solid fa-bars{
     padding-right: 19px;
-    margin-right: 5px;
+    /* margin-right: 5px; */
+    margin-right: 12px;
   }
   .fa-solid fa-bars{
     border: none;

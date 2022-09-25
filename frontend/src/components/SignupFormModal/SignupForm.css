@@ -7,6 +7,7 @@
     border: 1px solid #afafaf;
     margin-left: 35px;
     margin-right: 39px;
+    /* margin-top: 103px; */
     /* margin-top: 54px; */
 }
 .signupButton{
@@ -23,8 +24,12 @@
 .Signup-form-container{
     display: flex;
     flex-direction: column;
+    margin-top: 55px;
 }
 #Modal-signup{
     height: 50px;
     width: 182px;
+}
+#errorSingUp{
+    color:black
 }

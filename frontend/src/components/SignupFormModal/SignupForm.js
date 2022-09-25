@@ -33,7 +33,7 @@ const [lastName,setLastName] = useState("")
 
   return (
     <form className="Signup-form-container"onSubmit={handleSubmit}>
-      <ul>
+      <ul id = "errorSingUp">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label>

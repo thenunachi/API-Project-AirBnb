@@ -71,7 +71,7 @@ export const SingleSpotDetail = () => {
               <div id="reviewList">
                
               {e.review}
-               {spot.ownerId === user.id &&<button onClick={() => dispatch(deleteReview(review.id))}>
+               {isUserOwner(spot, user) &&<button onClick={() => dispatch(deleteReview(review.id))}>
           Delete Review
         </button>}
               </div>
@@ -87,7 +87,7 @@ export const SingleSpotDetail = () => {
       </div>
       {/* <div>{spot.Owner}</div> */}
 
-      { spot.ownerId === user.id &&
+      { isUserOwner(spot, user) &&
             <div id="combine-button">
 
         <button className="Edit-button">
@@ -115,3 +115,5 @@ export const SingleSpotDetail = () => {
       
   )
 }
+
+const isUserOwner = (spot, user) => spot && user && spot.ownerId === user.id;

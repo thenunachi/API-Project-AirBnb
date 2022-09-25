@@ -28,7 +28,7 @@ function LoginForm() {
       <div className="login-Title-SignUp">Log in </div>
       <hr className="break"/>
       <div className="welcomeT">Welcome to T-bnb</div>
-      <ul>
+      <ul id = "errorLogin">
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
