@@ -32,7 +32,7 @@ function App() {
           <Route path='/spots/:spotId'>
             <SingleSpotDetail />
           </Route>
-          <Route path='/spots'>
+          <Route path='/'>
             <SpotsBrowser />
           </Route>
         </Switch>

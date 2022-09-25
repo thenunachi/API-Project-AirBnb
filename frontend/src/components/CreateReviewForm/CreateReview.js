@@ -38,7 +38,8 @@ console.log("SPOT FROM CREATE REVIEW",spot)
     const payload = {
       review,stars
     };
-    //  let createdReview = await dispatch(createReviews(spot.id,payload));
+    let createdReview = await dispatch(createReviews(spot.id,payload));
+    dispatch((getAllReviewsBySpotId(spot.id)));
     }
     const handleCancelClick = (e) => {
       e.preventDefault();

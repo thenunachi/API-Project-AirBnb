@@ -5,7 +5,7 @@ import { updateSpot } from '../../store/SpotsReducer'
 import './EditForm.css'
 
 // const EditSpotForm =({hideForm}) =>{
-  const EditSpotForm =() =>{
+  const EditSpotForm =({onCancel}) =>{
   // console.log(spot,"EDITFORMPAGE SPOT")
 const dispatch = useDispatch();
 console.log("**************************************BEFORE***************************")
@@ -51,11 +51,6 @@ console.log(payload.id,"PAYLOAD")
         // hideForm();
     };
 }
-
-const handleCancelClick = (e) => {
-    e.preventDefault();
-    // hideForm();
-  };
 
 return(
 <section className="edit-form">
@@ -129,7 +124,7 @@ onChange={updatePrice}
 />
 
 <button id="UpdateSpot" type="submit">Update Spot</button>
-     <button className="CancelEdit" type="button" onClick={handleCancelClick}>Cancel</button>
+     <button className="CancelEdit" type="button" onClick={onCancel}>Cancel</button>
 
 </form>
 

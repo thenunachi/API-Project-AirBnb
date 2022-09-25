@@ -15,7 +15,6 @@
     
 
 .header-div {
-   
     text-align: center;
     border-bottom: 1px solid black;
     color: Black;
@@ -55,7 +54,7 @@
    
   }
   .dropdown-content {
-    /* display: none; */
+    display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -71,9 +70,9 @@
     display: block;
     border: none;
   }
-  /* .dropdown:hover .dropdown-content {
+  .dropdown:hover .dropdown-content {
     display: block;
-  }  */
+  } 
   .name{
     height: 98px;
     width: 177px;
@@ -85,8 +84,8 @@
   }
   .fa-solid fa-bars{
     padding-right: 19px;
-    /* margin-right: 5px; */
-    margin-right: 12px;
+    margin-right: 5px;
+        margin-right: 12px;
   }
   .fa-solid fa-bars{
     border: none;

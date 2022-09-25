@@ -79,6 +79,7 @@ const imageload ={
 
 const handleCancelClick = (e) => {
     e.preventDefault();
+    history.push('/')
     console.log("CANCEL CLICK")
     // e.style.display = 'none'
     hideForm();

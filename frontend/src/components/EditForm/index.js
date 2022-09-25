@@ -11,7 +11,7 @@ function EditFormModal(){
         {
             showModal && (
                 <Modal onClose={()=>setShowModal(false)}>
-<EditSpotForm />
+<EditSpotForm onCancel={() => setShowModal(false)} />
 
                 </Modal>
             )

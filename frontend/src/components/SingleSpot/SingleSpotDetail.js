@@ -6,8 +6,9 @@ import { getAllSpots, deleteSpot, getOneSpot } from "../../store/SpotsReducer";
 import { createReviews, deleteReview, getAllReviewsBySpotId } from "../../store/ReviewsReducer";
 import EditFormModal from '../EditForm';
 import ReviewFormModal from "../CreateReviewForm";
+import { useHistory } from "react-router-dom";
 export const SingleSpotDetail = () => {
-
+  const history = useHistory();
 
   let allspots = useSelector(state => Object.values(state.spot))//array of spots
   let { spotId } = useParams();
@@ -71,7 +72,9 @@ export const SingleSpotDetail = () => {
               <div id="reviewList">
                
               {e.review}
-               {isUserOwner(spot, user) &&<button onClick={() => dispatch(deleteReview(review.id))}>
+               {isUserOwner(spot, user) &&<button onClick={() => {dispatch(deleteReview(review.id))
+               dispatch(getAllReviewsBySpotId(spotId))
+              }}>
           Delete Review
         </button>}
               </div>
@@ -94,14 +97,18 @@ export const SingleSpotDetail = () => {
           <EditFormModal />
           
         </button>
-        <button className="Delete-button" onClick={() => dispatch(deleteSpot(spot.id))}>
+        <button className="Delete-button" onClick={() =>{ dispatch(deleteSpot(spot.id))
+        history.push('/')
+        } 
+       }>
           Delete Spot
         </button>
         
         </div>
         }
          {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
-        <button className="Review-button"><ReviewFormModal /></button>
+         { !isUserOwner(spot, user) &&
+        <button className="Review-button"><ReviewFormModal /></button>}
         </div>
         }
         

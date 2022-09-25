@@ -1,5 +1,5 @@
 // frontend/src/components/Navigation/index.js
-import React from 'react';
+import {React, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -16,6 +16,7 @@ import logo from './tbnb.png'
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
+  const [shouldShowDropDown, setShouldShowDropDown] = useState(false);
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
@@ -31,23 +32,28 @@ function Navigation({ isLoaded }) {
       </>
     );
   }
-const handleclick = (e)=>{
-  e.preventDefault()
-  console.log("THIS WAS CLICKED")
-{/* <>
-<LoginFormModal />
-<SignUpFormModal/>
-</> */}
-}
+
+//   const handleOtherClick =  (e) => {
+//     e.preventDefault();  
+//     // setShouldShowDropDown(false);
+//   }
+// const handleclick = (e)=>{
+//   e.preventDefault();
+//   e.stopPropagation();
+//   console.log("THIS WAS CLICKED")
+//   setShouldShowDropDown(!shouldShowDropDown);
+// }
   return (
 
       <header>
         
-      <div className="header-div">
+      {/* <div onClick={handleOtherClick} className="header-div"> */}
+      <div  className="header-div">
 {/* <div><img className='Logo' src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/></div> */}
 <div className="name"><img  className="t-logo" src={logo}/></div>
 <div className="dropdown" >
-<button class="ProfileButton" onClick={handleclick}>
+{/* <button class="ProfileButton" onClick={handleclick}> */}
+<button class="ProfileButton" >
   <i class="fa-solid fa-bars"></i>
 <i className="fas fa-user-circle" />
 {/* <ProfileButton/> */}
@@ -60,21 +66,11 @@ const handleclick = (e)=>{
         </div>
   </div>
 
-
 </div>
-      </div>
-      
-     
-     
+      </div>     
         {/* <NavLink exact to="/">Home</NavLink> */}
         {isLoaded && sessionLinks}
-        {/* <div> <button> Demo User </button> </div> */}
-      
-       
-      
-        
       </header>
-
     // </ul>
   );
 }

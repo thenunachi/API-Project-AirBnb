@@ -52,7 +52,7 @@ input {
 }
 #edit-spot-modal{
 
-       
+    height: 29px;
         width: 305px;
         border:none;
         background-color: #ff385c;

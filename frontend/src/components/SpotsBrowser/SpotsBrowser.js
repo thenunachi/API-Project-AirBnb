@@ -51,7 +51,7 @@ const SpotsBrowser = () => {
                                 <div>${displayAllSpots.price} night</div>
                                 {/* <div>{displayAllSpots.numReviews}</div> */}
                                 {/* <div>{displayAllSpots.avgRating}</div> */}
-                                <div>{displayAllSpots.url}</div>
+                                {/* <div>{displayAllSpots.url}</div> */}
                                     </div>
                                 
                                
