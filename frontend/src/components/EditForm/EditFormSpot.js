@@ -57,49 +57,49 @@ const EditSpotForm = ({ closeForm }) => {
             <form className="update-spot-form" onSubmit={handleSubmit}>
                 {/* <label className="label" for="html" onClick={showLabel}>HTML</label> */}
                 <input
-
+id="inputEdit"
                     type="text"
                     placeholder="Address"
 
                     value={address}
                     onChange={updateAddress}
                 />
-                <input
+                <input id="inputEdit"
                     type="text"
                     placeholder="City"
 
                     value={city}
                     onChange={updateCity}
                 />
-                <input
+                <input id="inputEdit"
                     type="text"
                     placeholder="State"
 
                     value={state}
                     onChange={updateState}
                 />
-                <input
+                <input id="inputEdit"
                     type="text"
                     placeholder="Country"
 
                     value={country}
                     onChange={updateCountry}
                 />
-                <input
+                <input id="inputEdit"
                     type="number"
                     placeholder="Lat"
 
                     value={lat}
                     onChange={updateLat}
                 />
-                <input
+                <input id="inputEdit"
                     type="number"
                     placeholder="Lng"
 
                     value={lng}
                     onChange={updateLng}
                 />
-                <input
+                <input id="inputEdit"
                     type="text"
                     placeholder="Name"
 
@@ -107,7 +107,7 @@ const EditSpotForm = ({ closeForm }) => {
                     onChange={updateName}
                 />
 
-                <input
+                <input id="inputEdit"
                     type="text"
                     placeholder="Description"
 
@@ -115,7 +115,7 @@ const EditSpotForm = ({ closeForm }) => {
                     onChange={updateDescription}
                 />
 
-                <input
+                <input id="inputEdit"
                     type="number"
                     placeholder="Price"
 
