@@ -30,6 +30,7 @@ const [description,setDescription] = useState("");
 const [price,setPrice] = useState(1);
 const[preview,setPreview] = useState(false)
 const [url,setUrl] = useState("")
+const [validations,setValidations] = useState([])
 
 const updateAddress =(e)=>setAddress(e.target.value);
 const updateCity =(e)=>setCity(e.target.value);
@@ -42,7 +43,20 @@ const updateDescription =(e)=>setDescription(e.target.value);
 const updatePrice =(e)=>setPrice(e.target.value);
 const updatePreview = (e)=>setPreview(!preview);
 const updateUrl = (e)=>setUrl(e.target.value)
-///useEffect   ?????????????????????????????????
+
+useEffect (()=>{
+  const errors = [];
+    if(!address.length) errors.push("Street address is required")
+    if(!city.length) errors.push("City is required")
+    if(!state.length) errors.push("State is required")
+    if(!country.length) errors.push("Country is required")
+    if(name.length <3 ) errors.push("Name must be 3 or more characters");
+    if(!description.length) errors.push("Description is required")
+    if(price < 0) errors.push("Price per day is required")
+    setValidations(errors)
+  
+},[address,city,state,country,name,description,price])
+
 
 const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -81,49 +95,56 @@ const handleCancelClick = (e) => {
   <div class="centered">
   <section className="new-form">
 <form className="create-spot-form" onSubmit={handleSubmit}>
-<input 
+<ul className="errors">
+        {
+          validations.length > 0 && validations.map((error,index)=> (
+            <li key={index}>{error}</li>
+          ))
+        }
+      </ul>
+<input id="inputText"
 type="text"
 placeholder="Address"
 required
 value={address}
 onChange={updateAddress}
 />
-<input 
+<input id="inputText"
 type="text"
 placeholder="City"
 required
 value={city}
 onChange={updateCity}
 />
-<input 
+<input id="inputText"
 type="text"
 placeholder="State"
 required
 value={state}
 onChange={updateState}
 />
-<input 
+<input id="inputText"
 type="text"
 placeholder="Country"
 required
 value={country}
 onChange={updateCountry}
 />
-<input 
+<input id="inputText"
 type="number"
 placeholder="Lat"
 
 value={lat}
 onChange={updateLat}
 />
-<input 
+<input id="inputText"
 type="number"
 placeholder="Lng"
 
 value={lng}
 onChange={updateLng}
 />
-<input 
+<input id="inputText"
 type="text"
 placeholder="Name"
 required
@@ -131,7 +152,7 @@ value={name}
 onChange={updateName}
 />
 
-<input 
+<input id="inputText"
 type="text"
 placeholder="Description"
 required
@@ -139,21 +160,21 @@ value={description}
 onChange={updateDescription}
 />
 
-<input 
+<input id="inputText"
 type="number"
 placeholder="Price"
 required
 value={price}
 onChange={updatePrice}
 />
-<input 
+<input id="inputText"
 type="text"
 placeholder="url"
 required
 value={url}
 onChange={updateUrl}
 />
-<input 
+<input id="inputText"
 type="checkbox"
 placeholder="boolean"
 required

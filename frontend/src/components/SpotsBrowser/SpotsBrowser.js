@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Route, NavLink, Switch } from 'react-router-dom'
+import { useParams, Route, NavLink, Switch,Link } from 'react-router-dom'
 import { getAllSpots } from '../../store/SpotsReducer';
 import { CreateSpotForm } from '../CreateSpotForm/CreateFormSpots';
 import EditSpotForm from '../EditForm/EditFormSpot';
@@ -14,14 +14,11 @@ import { SingleSpotDetail } from '../SingleSpot/SingleSpotDetail';
 //const airbnbLogo = 'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'
 const SpotsBrowser = () => {
     const dispatch = useDispatch();
-    const { spotId } = useParams();
     const spot = useSelector(state => {
         return state.spot
     })//op is obj
     const spotArray = Object.values(spot);
 
-    // console.log(spot, "Spot from spotsBrowser")
-    // console.log(spotArray, "SpotArray")
     const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
@@ -43,7 +40,7 @@ const SpotsBrowser = () => {
                     //  console.log(displayAllSpots,"displayAllspotsID")
                     //  console.log(displayAllSpots.avgRating,"AVERAGERATING",displayAllSpots.numReviews,"NUM REVIEWS")
                     return (
-                        <NavLink key={displayAllSpots.address} to={`/spots/${displayAllSpots.id}`}>
+                        <Link key={displayAllSpots.address} to={`/spots/${displayAllSpots.id}`}>
                             {/* <SingleSpotDetail spotArray={spotArray} /> */}
                             <div className="allSpots">
                                 
@@ -51,7 +48,7 @@ const SpotsBrowser = () => {
                                 <div className='details'>
                                 <div>{displayAllSpots.address} {displayAllSpots.city}      <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}</div></div>
                                 {/* <div>{displayAllSpots.city}</div> */}
-                                <div>{displayAllSpots.price}</div>
+                                <div>${displayAllSpots.price} night</div>
                                 {/* <div>{displayAllSpots.numReviews}</div> */}
                                 {/* <div>{displayAllSpots.avgRating}</div> */}
                                 <div>{displayAllSpots.url}</div>
@@ -60,7 +57,7 @@ const SpotsBrowser = () => {
                                
                                
                             </div>
-                        </NavLink>
+                        </Link>
                         
                     )
                 })

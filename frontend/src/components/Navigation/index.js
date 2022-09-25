@@ -32,9 +32,10 @@ function Navigation({ isLoaded }) {
     );
   }
 // const handleclick = async(e)=>{
-//   e.preventDefault();
-
-
+// <>
+// <LoginFormModal />
+// <SignUpFormModal/>
+// </>
 // }
   return (
 
@@ -42,9 +43,9 @@ function Navigation({ isLoaded }) {
         
       <div className="header-div">
 {/* <div><img className='Logo' src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/></div> */}
-<div className="name"><img src={logo}/></div>
+<div className="name"><img  className="t-logo" src={logo}/></div>
 <div className="dropdown" >
-<button class="ProfileButton" ><i class="fa-solid fa-bars"></i>
+<button class="ProfileButton"  ><i class="fa-solid fa-bars"></i>
 <i className="fas fa-user-circle" />
 {/* <ProfileButton/> */}
 </button>
@@ -60,10 +61,7 @@ function Navigation({ isLoaded }) {
 </div>
       </div>
       
-                    
-                    
-                
-       
+     
      
         {/* <NavLink exact to="/">Home</NavLink> */}
         {isLoaded && sessionLinks}

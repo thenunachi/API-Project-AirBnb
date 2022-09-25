@@ -1,33 +1,39 @@
 .singleSpot{
-    margin-left: 465px;
+    margin-left: 92px;
     margin-top: 45px;
+    color: black;
 }
 .NameSpot{
-    font-size: 35px;
+    font-size: 26px;
+    color: black;
 }
 .SpotDetails {
-    font-size: 23px;
+    font-size: 19px;
     margin: 14px;
     margin-left: 1px;
     margin-right: 292px;
+    color: black;
 }
 .rooms{
     font-size: 19px;
-    
+    color: black;
     border-bottom: 1px solid black;
     width: 810px;
     padding-top: 28px;
     padding-bottom: 20px;
 }
 .title{
-    font-size: 42px;
+    font-size: 28px;
     margin-top: -73px;
+    color: black;
 }
 .previewImage{
     height: 849px;
-    width: 1342px;
+    width: 1219px;
+    color: black;
 }
 .price{
+    width: 195px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     padding: 24px;
@@ -39,38 +45,97 @@
     font: size 23px;
     justify-content: space-between;
     font-size: 19px;
+    color: black;
 }
 .title{
-    
+    color: black;
     margin-top: -75px;
+    margin-bottom: 19px;
 }
 .AirCover{
     position:relative;
     bottom:74px;
     font-size: 19px;
-
+    color: black;
 }
 
 .cover{
+    color: black;
+ 
     width: 810px;
     border-bottom: solid 1px black;
     padding-bottom: 10px;
-    font-size: 19px;
+    font-size: 16px;
 }
 .description{
     border-bottom: solid 1px black;
     padding-bottom: 20px;
     width: 810px;
-    font-size: 19px;
-
+    font-size: 16px;
+    color: black;
+    margin-top: 12px;
 }
 .review-details{
     width: 810px;
-   
+    color: black;
     padding-bottom: 21px;
     padding-top: 16px;
-    font-size: 19px;
+    font-size: 16px;
 }
 .second-form{
-    font-size: 19px;
+    font-size: 16px;
+    color: black;
+    margin-top: 18px;
 }
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align:left;
+    height: 65px;
+    padding-left: 107px;
+    border-top: 1px solid black;
+    font-size: 16px;
+    align-items: center;
+ }
+ .footerSingle{
+    justify-content: center;
+    padding-top: 27px;
+    color: black;
+    margin-left: -18px;
+
+ }
+ .Delete-button{
+    background-color: pink;
+    height:20px;
+    width: 20px;
+    margin-bottom: 126px;
+    margin-top: -41px;
+    color:black;
+    height: 48px;
+    width: 126px;
+ }
+ .Edit-button{
+    background-color: pink;
+    height:20px;
+    width: 20px;
+    margin-bottom: 126px;
+    margin-top: -41px;
+    color:black;
+    height: 48px;
+    width: 126px;
+ }
+ .Review-button{
+    background-color: pink;
+    height:20px;
+    width: 20px;
+    margin-bottom: 126px;
+    margin-top: -41px;
+    color:black;
+    height: 48px;
+    width: 126px;
+    border:none
+ }

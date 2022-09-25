@@ -33,6 +33,7 @@
 }
 
 .welcomeT{
+    color:black;
     font-size: 28px;
     font-weight: bold;
     padding-left: 37px;
@@ -40,6 +41,7 @@
     padding-bottom: 25px;
 }
 .login-Title-SignUp{
+    color:black;
     justify-content: center;
     padding-bottom: 40px;
     padding-top: 28px;

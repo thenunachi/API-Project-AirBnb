@@ -8,11 +8,13 @@ import EditFormModal from '../EditForm';
 import ReviewFormModal from "../CreateReviewForm";
 export const SingleSpotDetail = () => {
 
+
   let allspots = useSelector(state => Object.values(state.spot))//array of spots
   let { spotId } = useParams();
   let allReviews = useSelector(state => Object.values(state.review));
   console.log("ALL REVIEWS", allReviews)
-
+  let user = useSelector (state=>(state.session.user))
+  console.log("USER DETAILS",user)
   const review = allReviews.find(review => review.spotId === +spotId)
   const spot = allspots.find(spot => spot.id === +spotId)
   console.log(review, "REVIEW FORMAT")//obj
@@ -22,16 +24,17 @@ export const SingleSpotDetail = () => {
   //useEffect
 
   useEffect(() => {
-    dispatch((getAllReviewsBySpotId(spot.id)));
+    dispatch((getAllSpots()))
+    dispatch((getAllReviewsBySpotId(spotId)));
     //dispatch((createReviews(spot.id)))
   }, [dispatch]);
 
   console.log(getAllReviewsBySpotId(), "GET ALL REVIEWS BY SPOT ID")
 
-
   return (
     <div className="singleSpot">
-
+      { spot && 
+      <div> 
       <div className="NameSpot">{spot.name}</div>
       <div className="SpotDetails"><i class="fa-solid fa-star"></i> {spot.avgRating}  {spot.numReviews}        {spot.address}  {spot.city}  {spot.country}</div>
       {/* <div >{spot.address}</div>
@@ -59,7 +62,7 @@ export const SingleSpotDetail = () => {
         <p className="cover">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
         
         <div className="description">{spot.description}</div>
-        <div className="second-form"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</div>
+        <div className="second-form"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}Reviews</div>
         <div className="review-details">{
           
           allReviews.map((e) => {
@@ -67,10 +70,10 @@ export const SingleSpotDetail = () => {
               
               <div>
                
-                Review:{e.review}
-               <button onClick={() => dispatch(deleteReview(review.id))}>
+              {e.review}
+               {spot.ownerId === user.id &&<button onClick={() => dispatch(deleteReview(review.id))}>
           Delete Review
-        </button>
+        </button>}
               </div>
 
             )
@@ -84,21 +87,31 @@ export const SingleSpotDetail = () => {
       </div>
       {/* <div>{spot.Owner}</div> */}
 
-      <div>
-        <button>
+      { spot.ownerId === user.id &&
+            <div>
+
+        <button className="Edit-button">
           <EditFormModal />
           Edit Spot
         </button>
-        <button onClick={() => dispatch(deleteSpot(spot.id))}>
+        <button className="Delete-button" onClick={() => dispatch(deleteSpot(spot.id))}>
           Delete Spot
         </button>
-
-
-
-       
-        <button><ReviewFormModal /></button>
-        {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
+        
+        </div>
+        }
+         {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
+        <button className="Review-button"><ReviewFormModal /></button>
+        </div>
+        }
+        
+      <footer>
+      <div id="footer">
+        <p className="footerSingle">© 2022 Airbnb, Inc.</p>
       </div>
+</footer>
+
     </div>
+      
   )
 }

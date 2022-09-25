@@ -1,110 +1,90 @@
 
 .new-form{
-    margin-left: 598px;
+  margin-left: 111px;
+ 
     margin-top: 93px;
+    margin-bottom: 108px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     padding: 24px;
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-    margin-left: 841px;
-    margin-right: 499px;
+    
     height: 441px;
     display: flex;
-    /* width: 638px; */
+  
     width: 1033px;
-    font: size 23px;
+    font-size :23px;
     justify-content: center;
     flex-direction: column;
     margin: 3px;
     padding: 3px;
     font-family:  sans-serif;
     border-radius: 45;
-    /* margin-left: 628px; */
+   
     height: 649px;
-    margin-top: 104px;
+  
     border: none;
-    /* margin-top: -356px; */
+   
 }
-input {
-    border: 10px 4px 5px 5px #ff385c;;
-    background-color:white;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin: 3px;
-    padding: 3px;
-        font-family:  sans-serif;
-        width: 975px;
-        height: 36px;
-        border-radius: 11px;
-        /* margin-left: 201px; */
-        padding-top: 9px;
-        margin-bottom: 11px;
-        margin-left: 195px;
+#inputText {
 
-        /* width: 520px;
-        height: 60px; 
-        margin:0px;
-        border:0px;
-        padding:0px;
-        border: 1px solid #afafaf;
-        margin-left: 35px;
-        margin-right: 39px; */
+        
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  /* margin: 3px; */
+  padding: 5px;
+  font-family: sans-serif;
+  width: 466px;
+  height: 21px;
+  border-radius: 11px;
+  margin-left: 73px;
 }
 .spotButton{
     border: 10px 4px 5px 5px black;
     background-color: #ff385c;
-    color: white;
+    color: black;
     display: flex;
     font-weight: bold;
     justify-content: center;
     flex-direction: row;
     /* margin: 2px; */
-    padding: 2px;
+    padding: 5px;
     font-family: sans-serif;
-    width: 613px;
+    width: 466px;
+    height: 40px;
+    border-radius: 11px;
+    margin-left: 73px;
+    padding-top: 9px;
+    margin-top: 8px;
+
+    /* width: 613px;
         height: 40px;
         border-radius: 11px;
         padding-top: 9px;
         margin-left: 3px;
-        margin-bottom: 11px;
-        /* width: 520px;
-        height: 60px;
-        background-color: #ff385c;
-        border:none;
-        border-radius: 8px;
-        font-family: 'Manrope', sans-serif;
-        margin-left: 35px;
-        margin-right: 39px;
-        margin-top: 31px; */
+        margin-bottom: 11px; */
+       
 }
 
 .cancelButton{
-    border: 10px 4px 5px 5px black;
-    background-color: #ff385c;;
-    color: white;
-    display: flex;
-    font-weight: bold;
-    justify-content: center;
-    flex-direction: row;
-    margin: 2px;
-    padding: 2px;
-    font-family: sans-serif;
-    width: 613px;
-        height: 40px;
-        border-radius: 11px;
-        padding-top: 9px;
-        margin-left: 3px;
-        margin-bottom: 11px;
-        /* width: 520px;
-        height: 60px;
-        background-color: #ff385c;
-        border:none;
-        border-radius: 8px;
-        font-family: 'Manrope', sans-serif;
-        margin-left: 35px;
-        margin-right: 39px;
-        margin-top: 31px; */
+  border: 10px 4px 5px 5px black;
+  background-color: #ff385c;
+  color: black;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  flex-direction: row;
+  /* margin: 2px; */
+  padding: 5px;
+  font-family: sans-serif;
+  width: 466px;
+  height: 40px;
+  border-radius: 11px;
+  margin-left: 73px;
+  padding-top: 9px;
+  margin-top: 8px;
 }
 
 body {
@@ -142,8 +122,9 @@ body {
     font-family: 'Manrope', sans-serif;
   }
   #host-text{
-    font-size: 57px;
+    font-size: 40px;
     line-height: 56px;
+    margin-bottom: 185px;
   }
   .logoname{
     height: 98px;
@@ -155,6 +136,17 @@ body {
 
   .create-spot-form{
     margin-left: 201px;
-     /* display: flex;
-    flex-direction: column; */
+    margin-top: 302px;
+    margin-right: 262px;
+    margin-bottom: 421px;
+}
+.errors{
+  color:black;
+  font-size: 12px;
+  margin-top: 78px;
+  margin-left: -362px;
+  width: 200px;
+  text-align: start;
+  margin-left: 48px;
+
 }

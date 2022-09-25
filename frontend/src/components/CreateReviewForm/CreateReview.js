@@ -16,12 +16,22 @@ console.log("SPOT FROM CREATE REVIEW",spot)
    //const [comments,setComments] = useState("");
    const [review,setReview] = useState("");
    const [stars,setStars] = useState(0);
+   const [validations,setValidations] = useState([])
+
    const updateReviews = (e)=>setReview(e.target.value);
    const updateStars = (e)=>setStars(e.target.value);
+
    useEffect(() => {
     dispatch((getAllReviewsBySpotId(spot.id)));
     //dispatch((createReviews(spot.id)))
   }, [dispatch]);
+
+  useEffect(()=>{
+    const errors = [];
+    if(!review.length)errors.push("Review text is required");
+    if(stars < 0 )errors.push("Stars must between 1 to 5");
+    setValidations(errors)
+  },[review, stars]);
 
   const handleSubmit = async (e)=>{
     e.preventDefault();
@@ -43,6 +53,13 @@ console.log("SPOT FROM CREATE REVIEW",spot)
     }
     return (
 <form className="create-review-text" onSubmit = {handleSubmit}>
+<ul className="errors">
+        {
+          validations.map((error,index)=> (
+            <li key={index}>{error}</li>
+          ))
+        }
+      </ul>
 <input 
 type="text"
 placeholder="Write a review"
