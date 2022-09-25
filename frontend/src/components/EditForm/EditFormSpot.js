@@ -128,7 +128,7 @@ value={price}
 onChange={updatePrice}
 />
 
-<button className="UpdateSpot" type="submit">Update Spot</button>
+<button id="UpdateSpot" type="submit">Update Spot</button>
      <button className="CancelEdit" type="button" onClick={handleCancelClick}>Cancel</button>
 
 </form>

@@ -11,7 +11,7 @@ input {
         height: 36px;
         border-radius: 11px;
 }
-.UpdateSpot{
+#UpdateSpot{
     border: 10px 4px 5px 5px black;
     background-color: #ff385c;
     color: white;
@@ -26,6 +26,7 @@ input {
         height: 40px;
         border-radius: 11px;
         padding-top: 9px;
+        
 }
 .CancelEdit{
     border: 10px 4px 5px 5px black;
@@ -48,4 +49,14 @@ input {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
+}
+#edit-spot-modal{
+
+       
+        width: 305px;
+        border:none;
+        background-color: #ff385c;
+        margin-left: 3px;
+        font-weight: bold;
+        color: white;
 }

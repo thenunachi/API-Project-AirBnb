@@ -68,7 +68,7 @@ export const SingleSpotDetail = () => {
           allReviews.map((e) => {
             return (
               
-              <div>
+              <div id="reviewList">
                
               {e.review}
                {spot.ownerId === user.id &&<button onClick={() => dispatch(deleteReview(review.id))}>
@@ -88,11 +88,11 @@ export const SingleSpotDetail = () => {
       {/* <div>{spot.Owner}</div> */}
 
       { spot.ownerId === user.id &&
-            <div>
+            <div id="combine-button">
 
         <button className="Edit-button">
           <EditFormModal />
-          Edit Spot
+          
         </button>
         <button className="Delete-button" onClick={() => dispatch(deleteSpot(spot.id))}>
           Delete Spot
