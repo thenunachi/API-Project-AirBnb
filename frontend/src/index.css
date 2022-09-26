@@ -16,3 +16,6 @@
 *:visited {
     text-decoration: none;
 }
+button{
+    cursor:pointer;
+}
