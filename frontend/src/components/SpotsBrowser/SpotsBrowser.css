@@ -9,6 +9,7 @@
     border-radius: 29px;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 .allSpotsDetails{
     display: grid;
@@ -28,8 +29,7 @@
 .allSpots{
     margin:1rem;
     height: 393px;
-    width: 237px;
-    
+    width: 270px;
 }
 .details{
     /* margin: 14px;
@@ -43,10 +43,14 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     margin-right: 54px; */
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     margin-bottom: 2px;
-    color: black
+    color: black;
+    font-size: 11px;
+}
+.rating-star {
+    float: right;
 }
 .footer {
     position: fixed;
@@ -72,5 +76,8 @@
  }
  a{
     color:white
+ }
+ #address-rating{
+    margin-bottom:5px
  }
 

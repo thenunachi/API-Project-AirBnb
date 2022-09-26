@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Route, NavLink, Switch,Link } from 'react-router-dom'
+import { useParams, Route, NavLink, Switch, Link } from 'react-router-dom'
 import { getAllSpots } from '../../store/SpotsReducer';
 import { CreateSpotForm } from '../CreateSpotForm/CreateFormSpots';
 import EditSpotForm from '../EditForm/EditFormSpot';
@@ -33,8 +33,8 @@ const SpotsBrowser = () => {
             {/* <nav>
                 <Fab hidden={showForm} onClick={() => setShowForm(true)} />
             </nav> */}
-          
-            <div className='allSpotsDetails'>{ 
+
+            <div className='allSpotsDetails'>{
                 spotArray.map((displayAllSpots) => {
                     //  console.log("****************************");
                     //  console.log(displayAllSpots,"displayAllspotsID")
@@ -43,37 +43,38 @@ const SpotsBrowser = () => {
                         <Link key={displayAllSpots.address} to={`/spots/${displayAllSpots.id}`}>
                             {/* <SingleSpotDetail spotArray={spotArray} /> */}
                             <div className="allSpots">
-                                
-                                <div ><img className="spotimages" src={displayAllSpots.previewImage}/></div>
+
+                                <div ><img className="spotimages" src={displayAllSpots.previewImage} /></div>
                                 <div className='details'>
-                                <div>{displayAllSpots.address} 
-                                {/* {displayAllSpots.city}  */}
-                                    
-                                     
-                                     </div>
-                                     <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}
-                                     <div>{displayAllSpots.state}</div>
-                                     <div>{displayAllSpots.country}</div>
-                                     {/* <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating} */}
-                                     </div>
-                                     <div>${displayAllSpots.price} night</div>
-                                {/* <div>{displayAllSpots.city}</div> */}
-                                
-                                {/* <div>{displayAllSpots.numReviews}</div> */}
-                                {/* <div>{displayAllSpots.avgRating}</div> */}
-                                {/* <div>{displayAllSpots.url}</div> */}
+                                    <div id="address-rating">
+                                        <span> {displayAllSpots.address} </span>
+                                        {/* {displayAllSpots.city}  */}
+                                        <span className="rating-star"><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}
+
+                                        </span>
                                     </div>
-                                
-                               
-                               
+
+                                    <div id="address-rating">{displayAllSpots.state}, {displayAllSpots.country}</div>
+                                    {/* <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating} */}
+
+                                    <div>${displayAllSpots.price} night</div>
+                                    {/* <div>{displayAllSpots.city}</div> */}
+
+                                    {/* <div>{displayAllSpots.numReviews}</div> */}
+                                    {/* <div>{displayAllSpots.avgRating}</div> */}
+                                    {/* <div>{displayAllSpots.url}</div> */}
+                                </div>
+
+
+
                             </div>
                         </Link>
-                        
+
                     )
                 })
 
             } </div>
-            
+
 
             {/* {(showForm) ? (<CreateSpotForm hideForm={() => setShowForm(false)} />) : (
                 <Route path="/spots/:spotId">
@@ -81,14 +82,14 @@ const SpotsBrowser = () => {
                 </Route>
             )}, */}
             <footer>
-<div class="footer">
-        <p className="footer-code">© 2022 Airbnb, Inc.</p>
-      </div>
-</footer>
-   </main>
-   
-     
-       
+                <div class="footer">
+                    <p className="footer-code">© 2022 Airbnb, Inc.</p>
+                </div>
+            </footer>
+        </main>
+
+
+
     )
 }
 //do spot details in line 35
