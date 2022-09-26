@@ -26,9 +26,9 @@ function LoginForm() {
   return (
     <form className="Login-form-container" onSubmit={handleSubmit}>
       <div className="login-Title-SignUp">Log in </div>
-      <hr className="break"/>
+      <hr className="break" />
       <div className="welcomeT">Welcome to T-bnb</div>
-      <ul id = "errorLogin">
+      <ul id="errorLogin">
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
@@ -37,7 +37,7 @@ function LoginForm() {
       <label >
 
         <input
-        id="userfeild"
+          id="userfeild"
           className="field"
           type="text"
           placeholder=" Username or Email"
@@ -49,7 +49,7 @@ function LoginForm() {
       <label >
 
         <input
-         id="passwordfeild"
+          id="passwordfeild"
           className="field"
           type="password"
           placeholder=" Password"
@@ -59,9 +59,9 @@ function LoginForm() {
         />
       </label>
       <button className="loginButton" type="submit">Log In</button>
-     <DemoUser/>
-    
-    
+      <DemoUser />
+
+
     </form>
   );
 }

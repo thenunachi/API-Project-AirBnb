@@ -115,7 +115,7 @@ id="inputEdit"
                     onChange={updateDescription}
                 />
 
-                <input id="inputEdit"
+                <input
                     type="number"
                     placeholder="Price"
 

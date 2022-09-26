@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditSpotForm from './EditFormSpot';
 
-function EditFormModal(){
+function EditFormModal() {
     const [showModal, setShowModal] = useState(false);
 
-    return(
+    return (
         <>
-        <button id="edit-spot-modal" onClick={()=>setShowModal(true)}>Update Spot</button>
-        {
-            showModal && (
-                <Modal onClose={()=>setShowModal(false)}>
-<EditSpotForm closeForm={() => setShowModal(false)}  />
+            <button id="edit-spot-modal" className="Edit-button" onClick={() => setShowModal(true)}>Update Spot</button>
+            {
+                showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <EditSpotForm closeForm={() => setShowModal(false)} />
 
-                </Modal>
-            )
-        }
+                    </Modal>
+                )
+            }
         </>
     )
 }

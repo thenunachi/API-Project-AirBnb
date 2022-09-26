@@ -43,6 +43,15 @@
   font-family: 'Manrope', sans-serif;
   border: 1px solid #afafaf;
 }
+
+#preview-label {
+  font-size: 13px;
+  color: black;
+}
+
+#preview-input {
+  margin-left: 10px;
+}
 .spotButton{
   border: 1px solid #afafaf;
     background-color: #ff385c;

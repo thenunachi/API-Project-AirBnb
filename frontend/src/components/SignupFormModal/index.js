@@ -6,14 +6,17 @@ function SignUpFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
-      <button id="Modal-signup" onClick={() => setShowModal(true)}>Sign Up</button>
+    <a href="#" onClick={() => setShowModal(true)}>
+
+      <span className="navbox-menu" > Sign Up </span>
+
+      {/* <button id="Modal-signup" onClick={() => setShowModal(true)}>Sign Up</button> */}
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <SignupFormPage />
         </Modal>
       )}
-    </>
+    </a>
   );
 }
 

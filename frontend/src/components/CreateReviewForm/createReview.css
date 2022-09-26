@@ -127,7 +127,29 @@ input{
   #create-review-modal{
     border:none;
     background-color: #ff385c;
-    margin-left: 95px;
+    /* margin-left: 95px; */
     font-weight: bold;
     color: white;
   }
+
+  .Review-button{
+    background-color:  #ff385c;
+    height:20px;
+    width: 20px;
+    margin-bottom: 126px;
+    margin-top: -41px;
+    color:black;
+    height: 48px;
+    width: 126px;
+    border:none;
+        display: flex;
+    flex-direction: column;
+    margin-top: 27px;
+    margin-left: 276px;
+    height: 28px;
+    border-radius: 11px;
+    padding-top: 9px;
+    border: none;
+    width: 305px;
+    margin-top: 42px;
+ }

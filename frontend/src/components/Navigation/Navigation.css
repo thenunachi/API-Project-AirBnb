@@ -74,6 +74,7 @@
     z-index: 1;
     right: 0;
     margin-right: 0px;
+    height: 150px;
   }
    .dropdown-content a {
     color: black;
@@ -81,10 +82,11 @@
     text-decoration: none;
     display: block;
     border: none;
-    height: 57px;
+    height: 25px;
   }
   .dropdown:hover .dropdown-content {
     display: block;
+    border-radius: 10px;
   } 
   .name{
     height: 98px;
@@ -102,8 +104,9 @@
   }
   
   #createspot-button{
-    height: 50px;
+    height: 27px;
     width: 182px;
+    font-size: 14px;
   }
   .t-logo{
     height: 55px;
@@ -116,6 +119,7 @@
   #logout-button{
     height: 45px;
     width: 182px;
+    font-size: 14px;
     margin-bottom: 11px;
   }
   .openMenu{

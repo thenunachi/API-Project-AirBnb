@@ -50,9 +50,8 @@
     font-weight: bold;
     padding-left: 251px;
 }
-#Modal-login{
-    height: 50px;
-    width: 182px;
+.navbox-menu{
+    font-size: 14px;
 }
 
 #errorLogin{
