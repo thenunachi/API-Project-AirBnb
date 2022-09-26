@@ -28,7 +28,7 @@
 }
 #inputText {
 
-        
+  
   background-color: white;
   display: flex;
   justify-content: center;
@@ -149,7 +149,7 @@ body {
 
   .create-spot-form{
     margin-left: 201px;
-    margin-top: 302px;
+    margin-top: 409px;
     margin-right: 262px;
     margin-bottom: 421px;
     font-family: 'Manrope', sans-serif;
@@ -164,4 +164,10 @@ body {
   margin-left: 48px;
   font-family: 'Manrope', sans-serif;
 
+}
+.errorHandling{
+  color: red;
+  margin-left: 73px;
+  font-size: 9px;
+  text-align: start;
 }

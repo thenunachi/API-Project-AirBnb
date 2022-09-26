@@ -61,8 +61,9 @@ export const SingleSpotDetail = () => {
 
                   <div id="reviewList">
 
-                    {e.review}
-                    {isUserReviewCreator(e, user) && <button onClick={async (e) => {
+                    {e.review} {'     '}
+                    {isUserReviewCreator(e, user) && <button className="delete-review"
+                    onClick={async (e) => {
 
                       e.preventDefault()
                       await dispatch(deleteReview(review.id))

@@ -71,6 +71,7 @@ export const ReviewForm = ({ onCancel }) => {
         value={review}
         onChange={updateReviews}
       />
+      {/* {!address.length && <div className = "errorHandling">"Street address is required"</div> } */}
       <input id="reviewInput"
         type="number"
         placeholder="rating"

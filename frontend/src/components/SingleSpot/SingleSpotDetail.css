@@ -32,6 +32,7 @@
     height: 849px;
     width: 1219px;
     color: black;
+    border-radius: 26px;
 }
 .price{
     width: 195px;
@@ -196,4 +197,10 @@
  #cover-color{
     color:black;
     font-weight: bold;
+ }
+ .delete-review{
+    color:white;
+    background-color: #ff385c;
+    border:none;
+    border-radius: 9px;
  }

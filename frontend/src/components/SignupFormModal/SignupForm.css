@@ -31,5 +31,6 @@
     width: 182px;
 }
 #errorSingUp{
-    color:black
+    color:red;
+    list-style-type: none;
 }

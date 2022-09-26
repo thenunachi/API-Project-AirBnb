@@ -11,7 +11,10 @@ function LoginFormModal() {
       <span className='navbox-menu' > Log In </span>
       {/* <button id="Modal-login" onClick={() => setShowModal(true)}>Log In</button> */}
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+         <Modal onClose={(e) => {
+          setShowModal(false);
+          e.stopPropagation();
+        }}>
           <LoginForm />
         </Modal>
       )}
