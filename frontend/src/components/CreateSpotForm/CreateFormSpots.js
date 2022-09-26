@@ -52,6 +52,7 @@ export const CreateSpotForm = ({ hideForm }) => {
     if (!country.length) errors.push("Country is required")
     if(!lat)errors.push("Lat is required")
     if(!lng)errors.push("Lng is required")
+    if(!url)errors.push("URL is required")
     if (name.length < 3) errors.push("Name must be 3 or more characters");
     if (!description.length) errors.push("Description is required")
     if (price < 0) errors.push("Price per day is required")
@@ -189,7 +190,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={url}
                 onChange={updateUrl}
               />
-               {/* {!url && <div className = "errorHandling">" Url is required"</div> } */}
+               {!url && <div className = "errorHandling">" Url is required"</div> }
 
 <div>
               <label for="preview" id="preview-label"> Preview:</label>
