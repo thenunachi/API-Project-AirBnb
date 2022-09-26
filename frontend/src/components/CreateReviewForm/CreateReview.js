@@ -13,7 +13,7 @@ export const ReviewForm = ({ onCancel }) => {
   let allReviews = useSelector(state => Object.values(state.review));
  
   let user = useSelector(state => (state.session.user));
-  const reviewofUser = allReviews.find(review => review.userId === user.id)
+  const reviewofUser = allReviews.find(review => user && review.userId === user.id)
   const spot = allspots.find(spot => spot.id === +spotId)
   console.log("SPOT FROM CREATE REVIEW", spot)
   //const [comments,setComments] = useState("");
@@ -33,7 +33,7 @@ export const ReviewForm = ({ onCancel }) => {
     const errors = [];
     if (!review.length) errors.push("Review text is required");
     if (stars <= 0) errors.push("Stars must between 1 to 5");
-    if( reviewofUser) errors.push("User already has a review");
+    if(reviewofUser) errors.push("User already has a review");
     setValidations(errors)
   }, [review, stars]);
 

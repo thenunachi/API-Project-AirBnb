@@ -89,7 +89,7 @@ export const SingleSpotDetail = () => {
             <div id="combine-button">
 
               {/* <button className="Edit-button"> */}
-                <EditFormModal />
+              <EditFormModal />
 
               {/* </button> */}
               <button className="Delete-button" onClick={() => {
@@ -103,7 +103,7 @@ export const SingleSpotDetail = () => {
             </div>
           }
           {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
-          {!isUserOwner(spot, user) && <ReviewFormModal />}
+          {user && !isUserOwner(spot, user) && <ReviewFormModal />}
         </div>
       }
 
