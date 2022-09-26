@@ -29,6 +29,7 @@ const EditSpotForm = ({ closeForm }) => {
     const [description, setDescription] = useState(spot.description);
     const [price, setPrice] = useState(spot.price);
     const [validations, setValidations] = useState([])
+    const [url, setUrl] = useState("")
     const updateAddress = (e) => setAddress(e.target.value);
     const updateCity = (e) => setCity(e.target.value);
     const updateState = (e) => setState(e.target.value);
@@ -38,6 +39,7 @@ const EditSpotForm = ({ closeForm }) => {
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updatePrice = (e) => setPrice(e.target.value);
+    const updateUrl = (e) => setUrl(e.target.value)
     // console.log("SPOTS IN EDIT FORM ",spots)
     useEffect(() => {
         const errors = [];
@@ -48,6 +50,9 @@ const EditSpotForm = ({ closeForm }) => {
         if (name.length < 3) errors.push("Name must be 3 or more characters");
         if (!description.length) errors.push("Description is required")
         if (price < 0) errors.push("Price per day is required")
+        if(!lat)errors.push("Lat is required")
+    if(!lng)errors.push("Lng is required")
+    if(!url)errors.push("URL is required")
         setValidations(errors)
     
       }, [address, city, state, country, name, description, price])
@@ -77,7 +82,7 @@ id="inputEdit"
                     value={address}
                     onChange={updateAddress}
                 />
-                {!address.length && <div className = "errorHandlings">"Street address is required"</div> }
+                {!address.length && <div className = "errorHandlings">Street address is required</div> }
                 <input id="inputEdit"
                     type="text"
                     placeholder="City"
@@ -85,7 +90,7 @@ id="inputEdit"
                     value={city}
                     onChange={updateCity}
                 />
-                {!city.length && <div className = "errorHandlings">"City is required"</div> }
+                {!city.length && <div className = "errorHandlings">City is required</div> }
                 <input id="inputEdit"
                     type="text"
                     placeholder="State"
@@ -93,7 +98,7 @@ id="inputEdit"
                     value={state}
                     onChange={updateState}
                 />
-                {!state.length && <div className = "errorHandlings">"State is required"</div> }
+                {!state.length && <div className = "errorHandlings">State is required</div> }
                 <input id="inputEdit"
                     type="text"
                     placeholder="Country"
@@ -101,21 +106,21 @@ id="inputEdit"
                     value={country}
                     onChange={updateCountry}
                 />
-                 {!country.length && <div className = "errorHandlings">"Country is required"</div> }
+                 {!country.length && <div className = "errorHandlings">Country is required</div> }
                 <input id="inputEdit"
                     type="number"
                     placeholder="Lat"
 
                     value={lat}
                     onChange={updateLat}
-                />
+                /> {!lat && <div className = "errorHandling">Lat is required</div> }
                 <input id="inputEdit"
                     type="number"
                     placeholder="Lng"
 
                     value={lng}
                     onChange={updateLng}
-                />
+                /> {!lng && <div className = "errorHandling">Lng is required</div> }
                 <input id="inputEdit"
                     type="text"
                     placeholder="Name"
@@ -123,7 +128,7 @@ id="inputEdit"
                     value={name}
                     onChange={updateName}
                 />
-{name.length < 3 && <div className = "errorHandlings">"Name must be 3 or more characters"</div> }
+{name.length < 3 && <div className = "errorHandlings">Name must be 3 or more characters</div> }
                 <input id="inputEdit"
                     type="text"
                     placeholder="Description"
@@ -131,7 +136,7 @@ id="inputEdit"
                     value={description}
                     onChange={updateDescription}
                 />
- {!description.length && <div className = "errorHandlings">"Description is required"</div> }
+ {!description.length && <div className = "errorHandlings">Description is required</div> }
                 <input
                     type="number"
                     placeholder="Price"
@@ -139,7 +144,7 @@ id="inputEdit"
                     value={price}
                     onChange={updatePrice}
                 />
-{price<=0 && <div className = "errorHandlings">"Price is required"</div> }
+{price<=0 && <div className = "errorHandlings">Price is required</div> }
                 <button id="UpdateSpot" type="submit">Update Spot</button>
                 <button className="CancelEdit" type="button" onClick={closeForm}>Cancel</button>
 

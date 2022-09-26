@@ -116,7 +116,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 onChange={updateAddress}
 
               />
-              {!address.length && <div className = "errorHandling">"Street address is required"</div> }
+              {!address.length && <div className = "errorHandling">Street address is required</div> }
               <input id="inputText"
                 type="text"
                 placeholder="City"
@@ -124,7 +124,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={city}
                 onChange={updateCity}
               />
-               {!city.length && <div className = "errorHandling">"City is required"</div> }
+               {!city.length && <div className = "errorHandling">City is required</div> }
               <input id="inputText"
                 type="text"
                 placeholder="State"
@@ -132,7 +132,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={state}
                 onChange={updateState}
               />
-               {!state.length && <div className = "errorHandling">"State is required"</div> }
+               {!state.length && <div className = "errorHandling">State is required</div> }
               <input id="inputText"
                 type="text"
                 placeholder="Country"
@@ -140,7 +140,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={country}
                 onChange={updateCountry}
               />
-               {!country.length && <div className = "errorHandling">"Country is required"</div> }
+               {!country.length && <div className = "errorHandling">Country is required</div> }
               <input id="inputText"
                 type="number"
                 placeholder="Lat"
@@ -148,7 +148,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={lat}
                 onChange={updateLat}
               />
-                {!lat && <div className = "errorHandling">"Lat is required"</div> }
+                {!lat && <div className = "errorHandling">Lat is required</div> }
               <input id="inputText"
                 type="number"
                 placeholder="Lng"
@@ -156,7 +156,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={lng}
                 onChange={updateLng}
               />
-              {!lng && <div className = "errorHandling">"Lng is required"</div> }
+              {!lng && <div className = "errorHandling">Lng is required</div> }
               <input id="inputText"
                 type="text"
                 placeholder="Name"
@@ -164,7 +164,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={name}
                 onChange={updateName}
               />
-               {name.length < 3 && <div className = "errorHandling">"Name must be 3 or more characters"</div> }
+               {name.length < 3 && <div className = "errorHandling">Name must be 3 or more characters</div> }
  {/* {!address.length && <div className = "errorHandling">"Street address is required"</div> } */}
               <input id="inputText"
                 type="text"
@@ -173,7 +173,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={description}
                 onChange={updateDescription}
               />
-               {!description.length && <div className = "errorHandling">"Description is required"</div> }
+               {!description.length && <div className = "errorHandling">Description is required</div> }
  {/* {!address.length && <div className = "errorHandling">"Street address is required"</div> } */}
               <input id="inputText"
                 type="number"
@@ -182,7 +182,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={price}
                 onChange={updatePrice}
               />
-               {price<=0 && <div className = "errorHandling">"Price is required"</div> }
+               {price<=0 && <div className = "errorHandling">Price is required</div> }
               <input id="inputText"
                 type="text"
                 placeholder="url"
@@ -190,7 +190,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={url}
                 onChange={updateUrl}
               />
-               {!url && <div className = "errorHandling">" Url is required"</div> }
+               {!url && <div className = "errorHandling">Url is required</div> }
 
 <div>
               <label for="preview" id="preview-label"> Preview:</label>
