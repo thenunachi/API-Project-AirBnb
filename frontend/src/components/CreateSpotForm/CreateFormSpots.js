@@ -50,6 +50,8 @@ export const CreateSpotForm = ({ hideForm }) => {
     if (!city.length) errors.push("City is required")
     if (!state.length) errors.push("State is required")
     if (!country.length) errors.push("Country is required")
+    if(!lat)errors.push("Lat is required")
+    if(!lng)errors.push("Lng is required")
     if (name.length < 3) errors.push("Name must be 3 or more characters");
     if (!description.length) errors.push("Description is required")
     if (price < 0) errors.push("Price per day is required")
@@ -141,19 +143,19 @@ export const CreateSpotForm = ({ hideForm }) => {
               <input id="inputText"
                 type="number"
                 placeholder="Lat"
-
+                required
                 value={lat}
                 onChange={updateLat}
               />
-            
+                {!lat && <div className = "errorHandling">"Lat is required"</div> }
               <input id="inputText"
                 type="number"
                 placeholder="Lng"
-
+                required
                 value={lng}
                 onChange={updateLng}
               />
-              
+              {!lng && <div className = "errorHandling">"Lng is required"</div> }
               <input id="inputText"
                 type="text"
                 placeholder="Name"
