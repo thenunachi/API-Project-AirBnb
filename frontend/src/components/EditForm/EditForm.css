@@ -54,7 +54,7 @@
 #edit-spot-modal{
 
     /* height: 29px; */
-        width: 305px;
+    width: 305px;
         border:none;
         background-color: #ff385c;
         margin-left: 3px;
@@ -70,7 +70,7 @@
     font-weight: bold;
     justify-content: center;
     flex-direction: row;
-    margin: 2px;
+    /* margin: 2px; */
     padding: 2px;
     font-family: sans-serif;
     /* width: 613px; */

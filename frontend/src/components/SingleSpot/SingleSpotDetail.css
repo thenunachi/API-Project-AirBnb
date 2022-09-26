@@ -94,7 +94,7 @@
     margin-top: 18px;
 }
 #footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
@@ -155,7 +155,7 @@
         margin-left: 3px;
         font-weight: bold;
         color: white;
-        margin-top: -98px;
+        /* margin-top: -98px; */
  }
  .Review-button{
     background-color:  #ff385c;
@@ -182,8 +182,10 @@
     height: 56px;
     display: flex;
     flex-direction: column;
-    margin-bottom: -30px;
+    /* margin-bottom: -30px; */
     margin-left: 271px;
+    margin-top:-52px;
+    margin-bottom: 8px;
  }
  #reviewList{
     margin-bottom: 40px;
