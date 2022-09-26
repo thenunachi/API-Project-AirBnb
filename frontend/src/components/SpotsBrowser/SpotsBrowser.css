@@ -62,7 +62,7 @@
     text-align:left;
     height: 65px;
     padding-left: 107px;
-    border-top: 1px solid black;
+    border-top:   1px solid rgb(221, 221, 221);
     font-size: 16px;
     align-items: center;
  }

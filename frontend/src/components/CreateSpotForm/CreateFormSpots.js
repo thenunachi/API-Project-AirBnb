@@ -177,12 +177,17 @@ required
 value={url}
 onChange={updateUrl}
 />
+
+{/* <label >  */}
+Preview:
 <input id="inputText"
 type="checkbox"
-placeholder="boolean"
+placeholder="preview"
 required
 value={preview}
 onChange={updatePreview}
+// </label>
+
 />
 <button className="spotButton" type="submit">Create new Spot</button>
  <button className="cancelButton" type="button" onClick={handleCancelClick}>Cancel</button>

@@ -46,7 +46,10 @@ export const SingleSpotDetail = () => {
        
       </form>
       <div className="AirCover">
-        <div className="title">tCover</div>
+        <div className="title">
+        <span id="t-color">t</span>
+        <span id="cover-color">Cover</span>
+          </div>
         <p className="cover">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
         
         <div className="description">{spot.description}</div>

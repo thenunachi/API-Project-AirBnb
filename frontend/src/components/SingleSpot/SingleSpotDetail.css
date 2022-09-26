@@ -17,7 +17,8 @@
 .rooms{
     font-size: 19px;
     color: black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(221, 221, 221);
+
     width: 810px;
     padding-top: 28px;
     padding-bottom: 20px;
@@ -63,12 +64,12 @@
     color: black;
  
     width: 810px;
-    border-bottom: solid 1px black;
+    border-bottom: 1px solid rgb(221, 221, 221);
     padding-bottom: 10px;
     font-size: 16px;
 }
 .description{
-    border-bottom: solid 1px black;
+    border-bottom: 1px solid rgb(221, 221, 221);
     padding-bottom: 20px;
     width: 810px;
     font-size: 16px;
@@ -101,7 +102,7 @@
     text-align:left;
     height: 65px;
     padding-left: 107px;
-    border-top: 1px solid black;
+    border-top:  1px solid rgb(221, 221, 221);
     font-size: 16px;
     align-items: center;
  }
@@ -187,4 +188,12 @@
     margin-bottom: 40px;
     margin-right: 13px;
     width: 298px;
+ }
+ #t-color{
+    color:#ff385c;
+    font-weight: bold;
+ }
+ #cover-color{
+    color:black;
+    font-weight: bold;
  }
