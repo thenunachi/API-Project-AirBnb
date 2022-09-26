@@ -170,7 +170,7 @@ export const CreateSpotForm = ({ hideForm }) => {
                 value={description}
                 onChange={updateDescription}
               />
-               {!address.length && <div className = "errorHandling">"Description is required"</div> }
+               {!description.length && <div className = "errorHandling">"Description is required"</div> }
  {/* {!address.length && <div className = "errorHandling">"Street address is required"</div> } */}
               <input id="inputText"
                 type="number"

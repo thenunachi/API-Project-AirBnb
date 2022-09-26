@@ -87,3 +87,14 @@
         color: white;
         margin-top: -98px;
  }
+
+
+ .editShowmodel{
+    height: 544px;
+ }
+ .errorHandlings {
+    color: red;
+    margin-left: 9px;
+    font-size: 9px;
+    text-align: start;
+}
