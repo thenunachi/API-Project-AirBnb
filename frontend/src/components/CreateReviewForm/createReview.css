@@ -74,6 +74,8 @@ input{
     margin-bottom: 25px;
     border: 1px solid #afafaf;
     font-family: 'Manrope', sans-serif;
+    width: 601px;
+    height: 93px;
   }
   .editButton{
     border: 1px solid #afafaf;

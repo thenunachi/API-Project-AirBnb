@@ -25,6 +25,17 @@
     display: flex;
     padding-right: 119px;
     padding-bottom: 9px;
+
+    /* text-align: center;
+    border-bottom: 1px solid black;
+    color: Black;
+    font-size: 30px;
+    height: 55px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding-right: 119px;
+    padding-bottom: 9px; */
   }
 
 
@@ -33,7 +44,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-left: -344px;
+  margin-left: -379px;
   width: 289px;
   height: 60px;
 }
@@ -46,12 +57,13 @@
     font-size: 16px;
     border: none;
     cursor: pointer; */
-    height: 65px;
-    width: 47px;
+    height: 45px;
+    width: 67px;
     /* padding: 16px; */
     font-size: 16px;
-    border: none;
-   
+    border-radius: 21px;
+    margin-top: 10px;
+    border: 1px solid #afafaf;
   }
   .dropdown-content {
     display: none;
@@ -83,14 +95,12 @@
   main{
     margin-top: 76px;
   }
-  .fa-solid fa-bars{
-    padding-right: 19px;
-    margin-right: 5px;
-        margin-right: 12px;
+  .fa-solid.fa-bars{
+ 
+    
+    padding-right: 11px;
   }
-  .fa-solid fa-bars{
-    border: none;
-  }
+  
   #createspot-button{
     height: 50px;
     width: 182px;

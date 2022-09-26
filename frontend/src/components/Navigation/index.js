@@ -56,6 +56,7 @@ const logout = (e) => {
       <div  className="header-div">
 {/* <div><img className='Logo' src={'https://i.pinimg.com/736x/7f/b7/2d/7fb72d49a58ce11c03b24c9e81f85961.jpg'}/></div> */}
 <div className="name"><img  className="t-logo" src={logo}/></div>
+{/* <div> Welcome to T-bnb</div> */}
 <div className="dropdown" >
 {/* <button class="ProfileButton" onClick={handleclick}> */}
 <button class="ProfileButton" >

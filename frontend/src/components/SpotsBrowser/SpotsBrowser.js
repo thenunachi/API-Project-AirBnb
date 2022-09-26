@@ -46,9 +46,19 @@ const SpotsBrowser = () => {
                                 
                                 <div ><img className="spotimages" src={displayAllSpots.previewImage}/></div>
                                 <div className='details'>
-                                <div>{displayAllSpots.address} {displayAllSpots.city}      <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}</div></div>
+                                <div>{displayAllSpots.address} 
+                                {/* {displayAllSpots.city}  */}
+                                    
+                                     
+                                     </div>
+                                     <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating}
+                                     <div>{displayAllSpots.state}</div>
+                                     <div>{displayAllSpots.country}</div>
+                                     {/* <div><i class="fa-solid fa-star"></i> {displayAllSpots.avgRating} */}
+                                     </div>
+                                     <div>${displayAllSpots.price} night</div>
                                 {/* <div>{displayAllSpots.city}</div> */}
-                                <div>${displayAllSpots.price} night</div>
+                                
                                 {/* <div>{displayAllSpots.numReviews}</div> */}
                                 {/* <div>{displayAllSpots.avgRating}</div> */}
                                 {/* <div>{displayAllSpots.url}</div> */}
