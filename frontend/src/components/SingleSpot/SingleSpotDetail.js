@@ -16,9 +16,9 @@ export const SingleSpotDetail = () => {
   console.log("ALL REVIEWS", allReviews)
   let user = useSelector(state => (state.session.user))
   console.log("USER DETAILS", user)
-  const review = allReviews.find(review => review.spotId === +spotId)
+  // const review = allReviews.find(review => review.spotId === +spotId)
   const spot = allspots.find(spot => spot.id === +spotId)
-  console.log(review, "REVIEW FORMAT")//obj
+  // console.log(review, "REVIEW FORMAT")//obj
   // console.log(spot, "SPOT FROM SINGLESPOT DETAILS")
   const dispatch = useDispatch();
 
@@ -63,13 +63,13 @@ export const SingleSpotDetail = () => {
 
                     {e.review} {'     '}
                     {isUserReviewCreator(e, user) && <button className="delete-review"
-                    onClick={async (e) => {
+                      onClick={async (event) => {
 
-                      e.preventDefault()
-                      await dispatch(deleteReview(review.id))
-                      await dispatch(getAllReviewsBySpotId(spotId))
-                      return history.push(`/spots/${spot.id}`)
-                    }}>
+                        event.preventDefault()
+                        await dispatch(deleteReview(e.id))
+                        await dispatch(getAllReviewsBySpotId(spotId))
+                        return history.push(`/spots/${spot.id}`)
+                      }}>
                       Delete Review
 
                     </button>}
