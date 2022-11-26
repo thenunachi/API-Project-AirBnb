@@ -154,7 +154,15 @@ const spotsReducer = (state = initialState, action) => {
         default:
             return state;
     }
+
+
 }
 
+// case ADD_SPOT: {
+//     const newSpot = {};
+//     newSpot[action.spot.id] = action.spot
+//     const newState = { ...state, ...newSpot };
+//     return newState;
+// }
 
 export default spotsReducer;

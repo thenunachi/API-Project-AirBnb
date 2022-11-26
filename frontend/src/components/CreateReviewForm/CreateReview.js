@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createReviews, deleteReview, getAllReviewsBySpotId } from "../../store/ReviewsReducer";
 import './createReview.css'
+
+
 export const ReviewForm = ({ onCancel }) => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -15,6 +17,8 @@ export const ReviewForm = ({ onCancel }) => {
   let user = useSelector(state => (state.session.user));
   const reviewofUser = allReviews.find(review => user && review.userId === user.id)
   const spot = allspots.find(spot => spot.id === +spotId)
+
+  
   console.log("SPOT FROM CREATE REVIEW", spot)
   //const [comments,setComments] = useState("");
   const [review, setReview] = useState("");

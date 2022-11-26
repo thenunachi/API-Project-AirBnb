@@ -7,15 +7,21 @@ import { createReviews, deleteReview, getAllReviewsBySpotId } from "../../store/
 import EditFormModal from '../EditForm';
 import ReviewFormModal from "../CreateReviewForm";
 import { useHistory } from "react-router-dom";
+
+
 export const SingleSpotDetail = () => {
   const history = useHistory();
 
   let allspots = useSelector(state => Object.values(state.spot))//array of spots
+
   let { spotId } = useParams();
+
   let allReviews = useSelector(state => Object.values(state.review));
-  console.log("ALL REVIEWS", allReviews)
+
+  // console.log("ALL REVIEWS", allReviews)
   let user = useSelector(state => (state.session.user))
-  console.log("USER DETAILS", user)
+
+  // console.log("USER DETAILS", user)
   // const review = allReviews.find(review => review.spotId === +spotId)
   const spot = allspots.find(spot => spot.id === +spotId)
   // console.log(review, "REVIEW FORMAT")//obj
