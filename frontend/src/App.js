@@ -10,6 +10,8 @@ import EditSpotForm from "./components/EditForm/EditFormSpot";
 import { SingleSpotDetail } from "./components/SingleSpot/SingleSpotDetail";
 import SpotsBrowser from "./components/SpotsBrowser/SpotsBrowser"
 import {ReviewForm} from "./components/CreateReviewForm/CreateReview"
+import { BookingPage } from "./components/Booking/bookingPage";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,9 +34,13 @@ function App() {
           <Route path='/spots/:spotId'>
             <SingleSpotDetail />
           </Route>
+          <Route path='/booking'>
+          <BookingPage/>
+          </Route>
           <Route path='/'>
             <SpotsBrowser />
           </Route>
+          
         </Switch>
       )}
 

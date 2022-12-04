@@ -7,11 +7,29 @@ import { createReviews, deleteReview, getAllReviewsBySpotId } from "../../store/
 import EditFormModal from '../EditForm';
 import ReviewFormModal from "../CreateReviewForm";
 import { useHistory } from "react-router-dom";
-
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import { createBookingThunk, getAllBookingsThunk } from "../../store/bookingReducer";
+import { Redirect } from "react-router-dom";
 
 export const SingleSpotDetail = () => {
   const history = useHistory();
+  let checkin,checkout
+  let objectDate = new Date();
 
+
+  let day = objectDate.getDate();
+
+
+  let month = objectDate.getMonth() + 1;
+
+
+  let year = objectDate.getFullYear();
+
+  const [date, setDate] = useState(new Date()) //created a state to store a date and passed the current date as its initial value using JavaScript’s Date object.
+  const [edate,setEdate] = useState(new Date())
+  console.log(date.length)
+  console.log(date)
   let allspots = useSelector(state => Object.values(state.spot))//array of spots
 
   let { spotId } = useParams();
@@ -32,25 +50,38 @@ export const SingleSpotDetail = () => {
   useEffect(() => {
     dispatch((getAllSpots()))
     dispatch((getAllReviewsBySpotId(spotId)));
+    dispatch((getAllBookingsThunk(spotId)))
     //dispatch((createReviews(spot.id)))
   }, dispatch);
 
   console.log(getAllReviewsBySpotId(), "GET ALL REVIEWS BY SPOT ID")
 
+  const bookingConfirmed = async (e) => {
+    const payload = { startDate: date[0], endDate: date[1] }
+    console.log(date[0].toLocaleDateString(),"tolocalstring")
+    console.log(payload, "payload of booking")
+    let bookSpot = dispatch(createBookingThunk(spotId, payload))
+    console.log(bookSpot, "Bookspot")
+   history.push('/booking')
+  }
+  // const bookingConfirmed = async (e) => {
+  //   const payload = { startDate: date[0], endDate: edate[0] }
+  //   console.log(payload, "payload of booking")
+  //   let bookSpot = dispatch(createBookingThunk(spotId, payload))
+  //   console.log(bookSpot, "Bookspot")
+  // }
+
   return (
     <div className="singleSpot">
       {spot &&
         <div>
+          
           <div className="NameSpot">{spot.name}</div>
           <div className="SpotDetails"><i class="fa-solid fa-star"></i> {spot.avgRating}  {spot.numReviews}        {spot.address}  {spot.city}  {spot.country}</div>
           <img className="previewImage" src={spot.previewImage} />
           <div className="rooms">6 guests 2 bedrooms 2 beds 1 bath</div>
 
-          <form className="price" >
-            <div>${spot.price} night </div>
-            <div><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</div>
-
-          </form>
+          <div className="leftpart">
           <div className="AirCover">
             <div className="title">
               <span id="t-color">t</span>
@@ -111,6 +142,67 @@ export const SingleSpotDetail = () => {
           }
           {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
           {user && !isUserOwner(spot, user) && <ReviewFormModal />}
+          </div>
+          <div className="rightpart">
+          <form className="price" >
+            <span className="pricePerNight">${spot.price} night </span>
+            <span className="star"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</span>
+            {/* <div>
+
+start:<input type="date" id="start" name="trip-start" 
+value={date}
+min={new Date()}
+onChange={(e)=>setDate(e.target.value)} />
+end:<input type="date" id="start" name="trip-start" 
+value={edate}
+onChange={(e)=>setEdate(e.target.value)} />
+<button onClick={bookingConfirmed}>Reserve</button>
+</div> */}
+            <div className="calendar">
+              <div className="dates" >
+              <span >CHECK-IN :
+                {/* <div>{date[0].toDateString()}</div>  */}
+                </span> 
+                <span>
+                  CHECKOUT:
+                  {/* <div>{date[1].toDateString()}</div>  */}
+                  </span>
+              </div>
+             
+              <Calendar onChange={setDate}
+                value={date}
+                selectRange={true}
+                // maxDate={new Date()} // will not allow date later than today
+                minDate={new Date()} // will not allow date before 1st July 2015
+              />
+              {/*  created a state named date and passed it as a value to the Calendar component. Another prop, onChange, is passed to Calendar, which sets the date state to the value clicked by the user. */}
+               {date.length > 0 && (
+                <p className='text-center'>
+                  <span className='bold'>Start:</span>{' '}
+                  {date[0].toDateString()}
+                  {/* checkin = date[0] */}
+                  &nbsp;|&nbsp;
+                  <span className='bold'>End:</span> {date[1].toDateString()}
+                  {/* checkout = date[1] */}
+                </p>
+              )} 
+              {/* The toDateString() method returns the date portion of a Date object interpreted in the local timezone in English. expected output: Wed Jul 28 1993 */} 
+              
+              <button className="reserve" onClick={bookingConfirmed}
+              // 
+              >Reserve</button>
+              <div className="charged">You won't be charged yet</div>
+              <div className="cost">${spot.price 
+              //  (checkout.getTime() - checkin.getTime())
+               }</div>
+               <div className="charge"> Cleaning fee</div>
+               <span className="charge">Service fee </span><span>$10</span>
+            </div>   
+
+
+
+          </form>
+          </div>
         </div>
       }
 
@@ -127,3 +219,4 @@ export const SingleSpotDetail = () => {
 
 const isUserOwner = (spot, user) => spot && user && spot.ownerId === user.id;
 const isUserReviewCreator = (review, user) => user && user.id === review.userId;
+
