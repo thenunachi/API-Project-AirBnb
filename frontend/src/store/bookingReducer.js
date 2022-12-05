@@ -61,6 +61,7 @@ export const createBookingThunk = (spotId,data)=> async (dispatch)=>{
     }
 }
 export const updateBookingThunk = (payload)=>async dispatch =>{
+    console.log(payload,"payload of booking put")
     const response = await csrfFetch(`/api/bookings/${payload.id}`,{
         method : 'PUT',
         headers :{

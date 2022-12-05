@@ -1,0 +1,30 @@
+.start{
+    color: black;
+    font-size: 14px;
+}
+.edit{
+    border: 1px solid #afafaf;
+    background-color: #ff385c;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: row;
+    height: 28px;
+    border-radius: 4px;
+    
+    font-family: 'Manrope', sans-serif;
+  
+    margin-top: 13px;
+    margin-left: 36px;
+    margin-bottom: 13px;
+    width: 176px;
+
+}
+.dates-picked{
+    margin-bottom: 15px;
+    margin-right: 29px;
+    margin-left: 19px;
+}
+#start{
+    margin-left: 13px;
+}

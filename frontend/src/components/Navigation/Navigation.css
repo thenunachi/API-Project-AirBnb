@@ -74,7 +74,7 @@
     z-index: 1;
     right: 0;
     margin-right: 0px;
-    height: 114px;
+    height: 147px;
   }
    .dropdown-content a {
     color: black;
@@ -104,6 +104,11 @@
   }
   
   #createspot-button{
+    height: 27px;
+    width: 182px;
+    font-size: 14px;
+  }
+  #bookingButton{
     height: 27px;
     width: 182px;
     font-size: 14px;

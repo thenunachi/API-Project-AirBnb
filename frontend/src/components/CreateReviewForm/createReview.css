@@ -54,7 +54,7 @@ input{
     font-family: 'Manrope', sans-serif;
     border-radius: 45;
     margin-top: 52px;
-    height: 649px;
+    /* height: 649px; */
 }
 #reviewInput {
 

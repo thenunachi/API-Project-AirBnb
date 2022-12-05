@@ -82,9 +82,13 @@ function Navigation({ isLoaded }) {
               </div>
             }
             {sessionUser &&
-              <div><NavLink to="/new">
-                <span id="createspot-button"> Create Spot </span></NavLink>
-
+              <div>
+                <NavLink to="/new">
+                <span id="createspot-button"> Create Spot </span>
+                </NavLink>
+                <NavLink to="/booking">
+                <span id="bookingButton"> My trips </span>
+                </NavLink>
                 <a href='#' onClick={logout} id="logout-button"><span > Log out ({sessionUser.username})</span>
                 </a>
               </div>
