@@ -59,9 +59,10 @@
     /* display: flex; */
     font: size 23px;
     justify-content: space-between;
-    font-size: 19px;
+    /* font-size: 19px; */
     color: black;
     margin-right: 53px;
+    margin-top: -51px;
 }
 .title{
     color: black;
@@ -237,9 +238,10 @@
 }
 .star{
     height: 34px;
+    margin-left: 178px;
 }
 .calendar{
-    margin-top: 31px;
+    margin-top: 15px;
     margin-left: 22px;
 }
 .dates{
@@ -251,7 +253,7 @@
     justify-content: space-evenly;
     border: 1px solid black;
     border-radius: 8px;
-    height: 38px;
+    /* height: 38px; */
     margin-right: 29px;
     align-items: center;
     cursor: pointer;
@@ -259,17 +261,13 @@
 }
 .reserve{
     background-color: #ff385c;
-    
     color: black;
-    height: 40px;
+    height: 33px;
     width: 348px;
-    
     border-radius: 11px;
-   
     border: none;
-   
-    margin-top: 19px;
-    margin-bottom: 19px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .charged{
     font-size: 12px;
@@ -280,21 +278,49 @@
 }
 .charge{
     display: flex;
-    justify-content: space-evenly;
-
+    /* justify-content: space-evenly; */
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.text-center{
+    font-size: 13px;
+}
+.cost{
+    display: flex;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.pricepernight{
+    margin-right: 209px;
+}
+.cleaning{
+         margin-left: 212px;
+}
+.service{
+    margin-left: 222px;
+}
+.total{
+    font-size: 15px;
+    margin-bottom: 5px;
+    border-top: 1px solid rgb(221, 221, 221);
+    margin-bottom: 12px;
+}
+.subtotal{
+    margin-left: 161px;
 }
  /* vfdcgfdg */
- /* .react-calendar { 
+  .react-calendar { 
     width: 400px;
-    max-width: 100%;
+    /* max-width: 100%; */
     background-color: #fff;
     color: #222;
     border-radius: 8px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
-   }
-   .react-calendar__navigation button {
+   } 
+   /* .react-calendar__navigation button {
     color: #6f48eb;
     min-width: 44px;
     background: none;
@@ -310,7 +336,7 @@
    }
    abbr[title] {
     text-decoration: none;
-   }
+   } */
    /* .react-calendar__month-view__days__day--weekend {
     color: #d10000;
    } */

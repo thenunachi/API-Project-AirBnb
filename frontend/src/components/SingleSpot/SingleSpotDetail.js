@@ -11,25 +11,21 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { createBookingThunk, getAllBookingsThunk } from "../../store/bookingReducer";
 import { Redirect } from "react-router-dom";
-
+import Moment from 'react-moment';
+import moment from 'moment';
 export const SingleSpotDetail = () => {
   const history = useHistory();
-  let checkin,checkout
-  let objectDate = new Date();
 
 
-  let day = objectDate.getDate();
-
-
-  let month = objectDate.getMonth() + 1;
-
-
-  let year = objectDate.getFullYear();
-
+  const [showCal, setShowCal] = useState(false)
   const [date, setDate] = useState(new Date()) //created a state to store a date and passed the current date as its initial value using JavaScript’s Date object.
-  const [edate,setEdate] = useState(new Date())
+  // const [edate,setEdate] = useState(new Date())
   console.log(date.length)
-  console.log(date)
+  console.log(date, "date")
+  console.log(Math.ceil((new Date(date[1]) - new Date(date[0])) / (1000 * 60 * 60 * 24)), "subtraction")
+  console.log(moment(date[1]).diff(moment(date[0]), 'days'), "moment js dates")
+
+
   let allspots = useSelector(state => Object.values(state.spot))//array of spots
 
   let { spotId } = useParams();
@@ -58,11 +54,12 @@ export const SingleSpotDetail = () => {
 
   const bookingConfirmed = async (e) => {
     const payload = { startDate: date[0], endDate: date[1] }
-    console.log(date[0].toLocaleDateString(),"tolocalstring")
+    console.log(spot.price * (moment(date[1]).diff(moment(date[0]), 'days'))+80+10)
+    console.log(date[0].toLocaleDateString(), "tolocalstring")
     console.log(payload, "payload of booking")
     let bookSpot = dispatch(createBookingThunk(spotId, payload))
     console.log(bookSpot, "Bookspot")
-   history.push('/booking')
+    history.push('/booking')
   }
   // const bookingConfirmed = async (e) => {
   //   const payload = { startDate: date[0], endDate: edate[0] }
@@ -75,79 +72,79 @@ export const SingleSpotDetail = () => {
     <div className="singleSpot">
       {spot &&
         <div>
-          
+
           <div className="NameSpot">{spot.name}</div>
           <div className="SpotDetails"><i class="fa-solid fa-star"></i> {spot.avgRating}  {spot.numReviews}        {spot.address}  {spot.city}  {spot.country}</div>
           <img className="previewImage" src={spot.previewImage} />
           <div className="rooms">6 guests 2 bedrooms 2 beds 1 bath</div>
 
           <div className="leftpart">
-          <div className="AirCover">
-            <div className="title">
-              <span id="t-color">t</span>
-              <span id="cover-color">Cover</span>
-            </div>
-            <p className="cover">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
+            <div className="AirCover">
+              <div className="title">
+                <span id="t-color">t</span>
+                <span id="cover-color">Cover</span>
+              </div>
+              <p className="cover">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
 
-            <div className="description">{spot.description}</div>
-            <div className="second-form"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}Reviews</div>
-            <div className="review-details">{
+              <div className="description">{spot.description}</div>
+              <div className="second-form"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}Reviews</div>
+              <div className="review-details">{
 
-              allReviews.map((e) => {
-                return (
+                allReviews.map((e) => {
+                  return (
 
-                  <div id="reviewList">
+                    <div id="reviewList">
 
-                    {e.review} {'     '}
-                    {isUserReviewCreator(e, user) && <button className="delete-review"
-                      onClick={async (event) => {
+                      {e.review} {'     '}
+                      {isUserReviewCreator(e, user) && <button className="delete-review"
+                        onClick={async (event) => {
 
-                        event.preventDefault()
-                        await dispatch(deleteReview(e.id))
-                        await dispatch(getAllReviewsBySpotId(spotId))
-                        return history.push(`/spots/${spot.id}`)
-                      }}>
-                      Delete Review
+                          event.preventDefault()
+                          await dispatch(deleteReview(e.id))
+                          await dispatch(getAllReviewsBySpotId(spotId))
+                          return history.push(`/spots/${spot.id}`)
+                        }}>
+                        Delete Review
 
-                    </button>}
-                  </div>
+                      </button>}
+                    </div>
 
-                )
+                  )
 
-              })
-            }
-
-
-            </div>
-
-          </div>
-          {/* <div>{spot.Owner}</div> */}
-
-          {isUserOwner(spot, user) &&
-            <div id="combine-button">
-
-              {/* <button className="Edit-button"> */}
-              <EditFormModal />
-
-              {/* </button> */}
-              <button className="Delete-button" onClick={() => {
-                dispatch(deleteSpot(spot.id))
-                history.push('/')
+                })
               }
-              }>
-                Delete Spot
-              </button>
+
+
+              </div>
 
             </div>
-          }
-          {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
-          {user && !isUserOwner(spot, user) && <ReviewFormModal />}
+            {/* <div>{spot.Owner}</div> */}
+
+            {isUserOwner(spot, user) &&
+              <div id="combine-button">
+
+                {/* <button className="Edit-button"> */}
+                <EditFormModal />
+
+                {/* </button> */}
+                <button className="Delete-button" onClick={() => {
+                  dispatch(deleteSpot(spot.id))
+                  history.push('/')
+                }
+                }>
+                  Delete Spot
+                </button>
+
+              </div>
+            }
+            {/* <button onClick = {()=>dispatch(createReviews(spot.id))}>Create Review</button> */}
+            {user && !isUserOwner(spot, user) && <ReviewFormModal />}
           </div>
           <div className="rightpart">
-          <form className="price" >
-            <span className="pricePerNight">${spot.price} night </span>
-            <span className="star"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</span>
-            {/* <div>
+            <form className="price" >
+              <span className="pricePerNight">${spot.price} night </span>
+              <span className="star"><i class="fa-solid fa-star"></i>{spot.avgRating} {spot.numReviews}</span>
+              {/* <div>
 
 start:<input type="date" id="start" name="trip-start" 
 value={date}
@@ -158,50 +155,65 @@ value={edate}
 onChange={(e)=>setEdate(e.target.value)} />
 <button onClick={bookingConfirmed}>Reserve</button>
 </div> */}
-            <div className="calendar">
-              <div className="dates" >
-              <span >CHECK-IN :
-                {/* <div>{date[0].toDateString()}</div>  */}
-                </span> 
-                <span>
-                  CHECKOUT:
-                  {/* <div>{date[1].toDateString()}</div>  */}
+              <div className="calendar">
+                <div className="dates" onClick={() => { setShowCal(true) }} >
+                  <span >CHECK-IN :
                   </span>
+                  <span> CHECKOUT:
+
+                  </span>
+                </div>
+                {
+                  showCal && < Calendar onChange={setDate}
+                    value={date}
+                    selectRange={true}
+                    // maxDate={new Date()} // will not allow date later than today
+                    minDate={new Date()} // will not allow date before 1st July 2015
+                  />
+                }
+
+                {/*  created a state named date and passed it as a value to the Calendar component. Another prop, onChange, is passed to Calendar, which sets the date state to the value clicked by the user. */}
+                {date.length > 0 && (
+                  <p className='text-center'>
+                    <span className='bold'>CHECK-IN :</span>{' '}
+                    {date[0].toDateString()}
+                    {/* checkin = date[0] */}
+                    &nbsp;|&nbsp;
+                    <span className='bold'>CHECKOUT:</span> {date[1].toDateString()}
+                    {/* checkout = date[1] */}
+                  </p>
+                )}
+                {/* The toDateString() method returns the date portion of a Date object interpreted in the local timezone in English. expected output: Wed Jul 28 1993 */}
+
+                <button className="reserve" onClick={bookingConfirmed}
+                // 
+                >Reserve</button>
+                <div className="charged">You won't be charged yet</div>
+                {showCal && date.length > 0 && <div>
+                  <div className="cost">
+                    <span className="pricepernight"> ${spot.price} x {moment(date[1]).diff(moment(date[0]), 'days')}
+                    </span>
+                    <span>  ${spot.price * (moment(date[1]).diff(moment(date[0]), 'days'))}
+
+
+                    </span>
+                  </div>
+                  <div className="charge"> Cleaning fee
+                    <span className="cleaning"> $80</span>
+                  </div>
+                  <div className="charge">Service fee
+                    <span className="service">$10</span>
+                  </div>
+                  <div className="total">Total to be charged : 
+                    <span className="subtotal">${spot.price * (moment(date[1]).diff(moment(date[0]), 'days'))+80+10}</span>
+                  </div>
+                </div>
+                }
               </div>
-             
-              <Calendar onChange={setDate}
-                value={date}
-                selectRange={true}
-                // maxDate={new Date()} // will not allow date later than today
-                minDate={new Date()} // will not allow date before 1st July 2015
-              />
-              {/*  created a state named date and passed it as a value to the Calendar component. Another prop, onChange, is passed to Calendar, which sets the date state to the value clicked by the user. */}
-               {date.length > 0 && (
-                <p className='text-center'>
-                  <span className='bold'>Start:</span>{' '}
-                  {date[0].toDateString()}
-                  {/* checkin = date[0] */}
-                  &nbsp;|&nbsp;
-                  <span className='bold'>End:</span> {date[1].toDateString()}
-                  {/* checkout = date[1] */}
-                </p>
-              )} 
-              {/* The toDateString() method returns the date portion of a Date object interpreted in the local timezone in English. expected output: Wed Jul 28 1993 */} 
-              
-              <button className="reserve" onClick={bookingConfirmed}
-              // 
-              >Reserve</button>
-              <div className="charged">You won't be charged yet</div>
-              <div className="cost">${spot.price 
-              //  (checkout.getTime() - checkin.getTime())
-               }</div>
-               <div className="charge"> Cleaning fee</div>
-               <span className="charge">Service fee </span><span>$10</span>
-            </div>   
 
 
 
-          </form>
+            </form>
           </div>
         </div>
       }

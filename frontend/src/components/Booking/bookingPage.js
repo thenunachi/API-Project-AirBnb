@@ -7,7 +7,7 @@ import { getAllBookingsThunk, bookingOfUserThunk, deleteBookingThunk } from "../
 import { getAllSpots } from "../../store/SpotsReducer";
 import './booking.css'
 import EditBookingModal from '../Booking/editbookingmodal'
-
+import moment from 'moment';
 
 export const BookingPage = () => {
     const history = useHistory();
@@ -67,7 +67,7 @@ const futureBooking = (bookingList, dispatch) => {
                         <div className="perbooking">
                             <div className="color">
                                 <div className="detailsOfbookings">
-                                {new Date(booking.endDate).getUTCDate() - new Date(booking.startDate).getUTCDate() } nights in {booking.Spot.state}
+                                {moment(booking.endDate).diff(moment(booking.startDate),'days') } nights in {booking.Spot.state} at price ${Math.ceil(booking.Spot.price * (moment(booking.endDate).diff(moment(booking.startDate),'days'))+80+10)}
                                 </div>
                                 <div>
                                 {booking.startDate.split('T')[0]} to {booking.endDate.split('T')[0]} at   {booking.Spot.address},{booking.Spot.city},{booking.Spot.state}
@@ -118,7 +118,7 @@ const pastBooking = (bookingList, dispatch) => {
                         <div>
                             <div className="color">
                             <div className="detailsOfbookings">
-                                {new Date(booking.endDate).getUTCDate() - new Date(booking.startDate).getUTCDate() } nights in {booking.Spot.state}
+                                {moment(booking.endDate).diff(moment(booking.startDate),'days')  } nights in {booking.Spot.state} at price ${Math.ceil(booking.Spot.price * (moment(booking.endDate).diff(moment(booking.startDate),'days'))+80+10)}
                                 </div>
                                 <div>
                                 {booking.startDate.split('T')[0]} to {booking.endDate.split('T')[0]} at   {booking.Spot.address},{booking.Spot.city},{booking.Spot.state}
