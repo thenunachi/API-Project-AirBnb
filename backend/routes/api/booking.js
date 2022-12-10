@@ -34,7 +34,7 @@ router.get("/current", requireAuth, async (req, res) => {
     bookingObj = allBookings[i].toJSON();
     const previewImage = await SpotImage.findByPk(allBookings[i].id, {
       where: { preview: true },
-      attributes: ["url"],
+      attributes: ["url1"],
       raw: true
     })
     if (!previewImage) {

@@ -97,7 +97,7 @@ router.get('/', async (req, res, next) => {
         // go through spots array and see if each obj has an assoc image
         for (let spot of spotsall) {
             const spotImage = await SpotImage.findOne({
-                attributes: ["url"],
+                attributes: ["url1"],
                 where: {
                     preview: true,
                     spotId: spot.id
@@ -106,7 +106,7 @@ router.get('/', async (req, res, next) => {
             })
             // if image exists, then set spotImage property in obj accordingly
             if (spotImage) {
-                spot.previewImage = spotImage.url
+                spot.previewImage = spotImage.url1
             } else {
                 spot.previewImage = null
             }
@@ -155,7 +155,7 @@ router.get('/', async (req, res, next) => {
         // go through spots array and see if each obj has an assoc image
         for (let spot of spotsall) {
             const spotImage = await SpotImage.findOne({
-                attributes: ["url"],
+                attributes: ["url1"],
                 where: {
                     preview: true,
                     spotId: spot.id
@@ -164,7 +164,7 @@ router.get('/', async (req, res, next) => {
             })
             // if image exists, then set spotImage property in obj accordingly
             if (spotImage) {
-                spot.previewImage = spotImage.url
+                spot.previewImage = spotImage.url1
             } else {
                 spot.previewImage = null
             }
@@ -228,7 +228,7 @@ router.get("/current", requireAuth, async (req, res) => {
 router.get("/:spotId", async (req, res) => {
     const { spotId } = req.params;
     const spotDetails = await Spot.findByPk(spotId);
-
+console.log(spotDetails,"spotDetails")
     if (!spotDetails) {
         res.status(404)
         res.json({
@@ -240,11 +240,11 @@ router.get("/:spotId", async (req, res) => {
         attributes: ["id", "firstName", "lastName"]
     })
 
-    const spotImages = await SpotImage.findAll({
+    const spotImages = await SpotImage.findOne({
         where: {
             spotId: spotId
         },
-        attributes: ["id", "url", "preview"]
+        attributes: ["id", "url1", "url2","url3","url4","url5","preview"]
     })
 
     const numReviews = await Review.count({
@@ -563,7 +563,7 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
     }
 
     const newBooking = await Booking.create({
-        spotId: spot.id, userId: user.id, startDate, endDate
+       spotId: spot.id, userId: user.id, startDate, endDate
     })
     res.status(200);
     return res.json(newBooking)

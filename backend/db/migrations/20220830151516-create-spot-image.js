@@ -15,7 +15,23 @@ module.exports = {
           model:'Spots',
         }
       },
-      url: {
+      url1: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
+      url2: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
+      url3: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
+      url4: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
+      url5: {
         type: Sequelize.STRING,
         allowNull:false
       },
