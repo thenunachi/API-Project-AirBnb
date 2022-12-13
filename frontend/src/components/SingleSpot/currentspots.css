@@ -1,0 +1,36 @@
+.images{
+    height: 205px;
+    width: 236px;
+    border-radius: 30px
+}
+.topdiv{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-left: 92px;
+    /* margin-right: 18px; */
+    margin-top: 36px;
+}
+.editing{
+    display: grid;
+    grid-template-columns: 28% 28%;
+    display: grid;
+    grid-template-columns: 28% 28%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+h1{
+    color:black;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+
+}
+.detailsS{
+    display: grid;
+    grid-template-columns: 26% 73%;
+    /* display: flex; */
+    justify-content: space-between;
+    margin-bottom: 2px;
+    color: black;
+    
+}

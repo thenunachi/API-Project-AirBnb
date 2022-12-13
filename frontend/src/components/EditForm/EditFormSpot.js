@@ -5,16 +5,16 @@ import { updateSpot } from '../../store/SpotsReducer'
 import './EditForm.css'
 import { useHistory } from "react-router-dom";
 // const EditSpotForm =({hideForm}) =>{
-const EditSpotForm = ({ closeForm }) => {
+const EditSpotForm = ({ spot,closeForm }) => {
     // console.log(spot,"EDITFORMPAGE SPOT")
     const dispatch = useDispatch();
     console.log("**************************************BEFORE***************************")
-    let { spotId } = useParams()
-    console.log("SPOTID", spotId) //18
+    // let { spotId } = useParams()
+    // console.log("SPOTID", spotId) //18
     console.log("**************************************AFTER***************************")
     // spotId = parseInt(spotId)
     const history = useHistory();
-    let spot = useSelector(state => state.spot[spotId]);
+    // let spot = useSelector(state => state.spot[spotId]);
     //  console.log("STATE",state)
     //  console.log(spot,"SpotsDETAILS")
     // const mySpots = Object.values(spot).find(spot=>spot.id === spotId)
@@ -61,7 +61,7 @@ const EditSpotForm = ({ closeForm }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = {
-            id: spotId, address, city, state, country, lat, lng, name, description, price //spreading already created spot
+            id: spot.id, address, city, state, country, lat, lng, name, description, price //spreading already created spot
         };
         console.log(payload.id, "PAYLOAD")
         let updatedSpot = await dispatch(updateSpot(payload));

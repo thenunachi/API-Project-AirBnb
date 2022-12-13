@@ -53,40 +53,40 @@
 }
 #edit-spot-modal{
 
-    /* height: 29px; */
-    width: 305px;
-        border:none;
-        background-color: #ff385c;
-        margin-left: 3px;
-        font-weight: bold;
-        color: white;
+    /* height: 29px;  */
+    /* width: 305px; */
+    border: none;
+    background-color: #ff385c;
+    /* margin-left: 3px; */
+    font-weight: bold;
+    color: white;
+
 }
 
 .Edit-button{
     border: 10px 4px 5px 5px black;
-    background-color: #ff385c;
-    color: white;
+    /* background-color: #ff385c; */
+    /* color: white; */
     display: flex;
     font-weight: bold;
     justify-content: center;
-    flex-direction: row;
+    /* flex-direction: row; */
     /* margin: 2px; */
-    padding: 2px;
-    font-family: sans-serif;
+    /* padding: 2px; */
+    /* font-family: sans-serif; */
     /* width: 613px; */
-        height: 40px;
-        border-radius: 11px;
-        padding-top: 9px;
-        border: none;
-       
-        width: 305px;
-        border:none;
-        background-color: #ff385c;
-        margin-left: 3px;
-        font-weight: bold;
-        color: white;
-        margin-top: -98px;
- }
+    /* height: 40px; */
+    border-radius: 11px;
+    /* padding-top: 9px; */
+    /* border: none; */
+    /* width: 305px; */
+    /* border: none; */
+    /* background-color: #ff385c; */
+    /* margin-left: 3px; */
+    /* font-weight: bold; */
+    /* color: white; */
+    /* margin-top: -98px;*/
+}
 
 
  .editShowmodel{

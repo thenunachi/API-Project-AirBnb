@@ -28,3 +28,9 @@
 #start{
     margin-left: 13px;
 }
+.errorHandlings{
+    color: red;
+    /* margin-left: 73px; */
+    font-size: 9px;
+    text-align: start;
+}

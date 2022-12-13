@@ -18,9 +18,10 @@
     font-family: 'Manrope', sans-serif;
      
 }
-/* .upcoming:hover{
+
+.upcoming:hover{
     border-bottom: 2px solid #ff385c;
-  } */
+  }
   .upcoming:active{
     border-bottom: 2px solid #ff385c;
     outline: none;

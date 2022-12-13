@@ -92,12 +92,12 @@ const bookingReducer = (state = initialState,action)=>{
     switch (action.type){
         case GET_ALL_BOOKINGS:
             console.log(action.bookings,"to see what is inside the booking")
-            action.bookings.Bookings.forEach((b)=>{
-               // console.log(b,idx,"b","idx")
-                newState[b.id] = b;
+            action.bookings.Bookings.forEach((b,idx)=>{
+              console.log(b,"b",idx)
+                newState[idx] = b;
                 console.log(newState,"newState")
             })
-            return {...newState};
+            return newState;
         case GET_ALL_USER_BOOKING:
             console.log(action.payload,"see what is inside payload")
            action.payload.Bookings.forEach(e=>{

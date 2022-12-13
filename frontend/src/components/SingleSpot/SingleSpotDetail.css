@@ -28,12 +28,44 @@
     margin-top: -73px;
     color: black;
 }
-.previewImage{
-    height: 849px;
-    width: 1219px;
-    color: black;
-    border-radius: 26px;
+.leftImage{
+    float: left;
 }
+ .separate{
+    display: grid;
+    grid-template-columns: 38% 38%;
+    
+    
+}
+.gridimages{
+    height: 220px;
+    width: 241px;
+    
+}
+ .previewImage{
+    /* color: black;
+    border-radius: 26px; 
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20%;
+    margin-left: 87px;
+    margin-right: 139px;
+    justify-content: space-between;
+    height: 471px; 
+    width: 488px; */
+    color: black;
+    /* border-radius: 26px; */
+    /* display: grid; */
+    /* grid-template-columns: 20% 20% 20% 20%; */
+    /* grid-template-rows: 20% 20% 20% 20%; */
+    /* margin-left: 87px; */
+    /* margin-right: 139px; */
+    justify-content: space-between;
+    height: 441px;
+    width: 674px;
+    margin-right: 3px;
+}  
+ 
 .price{
     /* width: 195px;
     border: 1px solid rgb(221, 221, 221);
@@ -63,6 +95,7 @@
     color: black;
     margin-right: 53px;
     margin-top: -51px;
+    margin-bottom: 154px;
 }
 .title{
     color: black;
@@ -71,17 +104,18 @@
 
 }
 .AirCover{
-    float: left;
-    position:relative;
-    /* bottom:74px; */
+    float: left; 
+    position: relative;
+    /* bottom: 74px; */
     font-size: 19px;
     color: black;
+
 }
 
 .cover{
     color: black;
  
-    width: 810px;
+    /* width: 810px; */
     border-bottom: 1px solid rgb(221, 221, 221);
     padding-bottom: 10px;
     font-size: 16px;
@@ -89,21 +123,31 @@
 .description{
     border-bottom: 1px solid rgb(221, 221, 221);
     padding-bottom: 20px;
-    width: 810px;
+    /* width: 810px; */
     font-size: 16px;
     color: black;
     margin-top: 12px;
 }
 .review-details{
-    width: 810px;
-    color: black;
+    /* width: 810px; */
+    /* color: black;
     padding-bottom: 21px;
     padding-top: 16px;
     font-size: 16px;
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-columns: 50% 50%;
-    margin: 3px;
+    margin: 3px; */
+        /* width: 810px; */
+        color: black;
+        padding-bottom: 21px;
+        padding-top: 16px;
+        font-size: 16px;
+        display: grid;
+        /* grid-template-rows: 50% 50%; */
+        grid-template-columns: 50% 50%;
+        margin: 3px;
+    margin-bottom :136px;
 }
 .second-form{
     font-size: 16px;
@@ -139,29 +183,29 @@
     font-weight: bold;
     justify-content: center;
     flex-direction: row;
-    margin: 2px;
-    padding: 2px;
-    font-family: sans-serif;
-    height: 40px;
-        border-radius: 11px;
-        padding-top: 9px;
-        border: none;
-       
-        width: 305px;
+    /* margin: 2px; */
+    /* padding: 2px; */
+    /* font-family: sans-serif; */
+    /* height: 40px; */
+    border-radius: 11px;
+    /* padding-top: 9px; */
+    border: none;
+    /* width: 305px; */
+
  }
  .Edit-button{
-    border: 10px 4px 5px 5px black;
+    /* border: 10px 4px 5px 5px black;
     background-color: #ff385c;
     color: white;
     display: flex;
     font-weight: bold;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: row; */
     margin: 2px;
-    padding: 2px;
-    font-family: sans-serif;
+    /* padding: 2px;
+    font-family: sans-serif; */
     /* width: 613px; */
-        height: 40px;
+        /* height: 40px;
         border-radius: 11px;
         padding-top: 9px;
         border: none;
@@ -171,7 +215,7 @@
         background-color: #ff385c;
         margin-left: 3px;
         font-weight: bold;
-        color: white;
+        color: white; */
         /* margin-top: -98px; */
  }
  .Review-button{

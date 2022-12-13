@@ -11,6 +11,7 @@ import { SingleSpotDetail } from "./components/SingleSpot/SingleSpotDetail";
 import SpotsBrowser from "./components/SpotsBrowser/SpotsBrowser"
 import {ReviewForm} from "./components/CreateReviewForm/CreateReview"
 import { BookingPage } from "./components/Booking/bookingPage";
+import {CurrentSpots} from "./components/SingleSpot/currentSpots";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path='/booking'>
           <BookingPage/>
+          </Route>
+          <Route path='/current'>
+          <CurrentSpots />
           </Route>
           <Route path='/'>
             <SpotsBrowser />

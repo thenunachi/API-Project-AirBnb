@@ -74,7 +74,7 @@
     z-index: 1;
     right: 0;
     margin-right: 0px;
-    height: 147px;
+    /* height: 147px; */
   }
    .dropdown-content a {
     color: black;
@@ -82,7 +82,10 @@
     text-decoration: none;
     display: block;
     border: none;
-    height: 25px;
+    /* height: 25px; */
+    margin-top: 1px;
+    margin-bottom: 6px;
+   
   }
   .dropdown:hover .dropdown-content {
     display: block;

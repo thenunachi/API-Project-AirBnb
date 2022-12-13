@@ -89,6 +89,9 @@ function Navigation({ isLoaded }) {
                 <NavLink to="/booking">
                 <span id="bookingButton"> My trips </span>
                 </NavLink>
+                <NavLink to="/current">
+                <span id="bookingButton"> My Spots </span>
+                </NavLink>
                 <a href='#' onClick={logout} id="logout-button"><span > Log out ({sessionUser.username})</span>
                 </a>
               </div>

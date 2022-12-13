@@ -23,7 +23,7 @@ const SpotsBrowser = () => {
 
     useEffect(() => {
         dispatch(getAllSpots());
-    }, [dispatch])
+    }, [])
 
     if (!spot) {
         return null;
