@@ -45,8 +45,8 @@ setValidationError(errors)
       <div className="dates-picked">
         {edate < sdate 
         &&
-         <div className="errorHandlings">Checkout date can not come before check in date
-         </div>
+         <div className="errorHandlings">Checkout date can not come before check in date</div>
+         
         
         }
        <span className="start">CHECK-IN:{"                        "} </span>
