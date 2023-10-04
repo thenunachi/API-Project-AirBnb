@@ -5,7 +5,7 @@ import { updateBookingThunk } from '../../store/bookingReducer'
 import './editbooking.css'
 
 const EditBookingForm = ({ closeForm, booking }) => {
-  console.log(booking, 'e props')
+  // console.log(booking, 'e props')
 
   const dispatch = useDispatch()
   // const bookingOfUser = useSelector(state=>Object.values(state.bookingState))
@@ -34,9 +34,9 @@ setValidationError(errors)
   const bookingConfirmed = async (e) => {
     e.preventDefault();
     const payload = { id: booking.id, startDate: sdate, endDate: edate }
-    console.log(payload, "payload of booking")
+    // console.log(payload, "payload of booking")
     let bookSpot = dispatch(updateBookingThunk(payload))
-    console.log(bookSpot, "Bookspot")
+    // console.log(bookSpot, "Bookspot")
     //    history.push('/booking')
   }
   return (

@@ -66,7 +66,7 @@ const reviewsReducer = (state = initialState,action)=>{
     switch(action.type){
         case GET_ALL_REVIEWS:
             action.reviews.Reviews.forEach(review =>{
-                console.log(review,"review")
+                // console.log(review,"review")
                 allReviews[review.id] = review;
             })
             return {

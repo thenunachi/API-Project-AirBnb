@@ -24,7 +24,7 @@ export const SingleSpotDetail = () => {
 
 
   let allspots = useSelector(state => Object.values(state.spot))//array of spots
-  console.log(allspots, "what is allSpots???")
+  // console.log(allspots, "what is allSpots???")
   let { spotId } = useParams();
 
   let allReviews = useSelector(state => Object.values(state.review));
@@ -33,11 +33,11 @@ export const SingleSpotDetail = () => {
   let user = useSelector(state => (state.session.user))
 
   let booking = useSelector(state => Object.values(state.bookingState));
-  console.log(booking, "booking")
+  // console.log(booking, "booking")
 
   // const review = allReviews.find(review => review.spotId === +spotId)
   const spot = allspots.find(spot => spot.id === +spotId)
-  console.log(spot, "spot")
+  // console.log(spot, "spot")
 
   const dispatch = useDispatch();
 

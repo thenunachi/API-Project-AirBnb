@@ -19,7 +19,7 @@ export const ReviewForm = ({ onCancel }) => {
   const spot = allspots.find(spot => spot.id === +spotId)
 
   
-  console.log("SPOT FROM CREATE REVIEW", spot)
+  // console.log("SPOT FROM CREATE REVIEW", spot)
   //const [comments,setComments] = useState("");
   const [review, setReview] = useState("");
   const [stars, setStars] = useState(0);

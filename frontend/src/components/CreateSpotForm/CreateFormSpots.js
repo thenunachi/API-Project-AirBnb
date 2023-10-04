@@ -70,10 +70,10 @@ export const CreateSpotForm = ({ hideForm }) => {
     const imageload = {
       preview, url
     }
-    console.log(payload, "PAYLOAD")
+    // console.log(payload, "PAYLOAD")
     //  let  = await dispatch(createSpot(payload));
     let createdSpot = await dispatch(createSpot(imageload, payload))
-    console.log("CREATED SPOT", createdSpot)
+    // console.log("CREATED SPOT", createdSpot)
     if (createdSpot) {
       history.push(`/spots/${createdSpot.id}`);
       hideForm();
@@ -83,7 +83,7 @@ export const CreateSpotForm = ({ hideForm }) => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     history.push('/')
-    console.log("CANCEL CLICK")
+    // console.log("CANCEL CLICK")
     // e.style.display = 'none'
     hideForm();
   };
