@@ -5,6 +5,7 @@ module.exports = {
     storage: config.dbFile,//takes either node_env environment or development environment
     dialect: "sqlite",
     seederStorage: "sequelize",
+    // logging: true,
     logQueryParameters: true,
     typeValidation: true
   },
