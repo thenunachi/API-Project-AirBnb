@@ -31,7 +31,7 @@ const remove = (spotId) => ({
 
 export const getAllSpots = () => async (dispatch) => { //getting all spots
     const response = await csrfFetch('/api/spots');
-    console.log(response, "response from getall spots thunk")
+    // console.log(response, "response from getall spots thunk")
     if (response.ok) {
         const list = await response.json();
         dispatch(get(list))
@@ -47,7 +47,7 @@ export const getOneSpot = (id) => async dispatch => {
     }
 }
 export const createSpot = (imageload, data) => async dispatch => {
-    console.log("DATA FROM SPOT REDUCER", data)
+    // console.log("DATA FROM SPOT REDUCER", data)
     const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
         headers: {

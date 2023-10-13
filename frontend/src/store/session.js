@@ -5,7 +5,7 @@ const REMOVE_USER = 'session/removeUser';
 
 const setUser = (user) => {
     //console.log("FROM SET USER",user)
-    console.log("2")
+    // console.log("2")
   return {
     type: SET_USER,
     payload: user,

@@ -11,7 +11,7 @@ const EditSpotForm = ({ spot,closeForm }) => {
     console.log("**************************************BEFORE***************************")
     // let { spotId } = useParams()
     // console.log("SPOTID", spotId) //18
-    console.log("**************************************AFTER***************************")
+    // console.log("**************************************AFTER***************************")
     // spotId = parseInt(spotId)
     const history = useHistory();
     // let spot = useSelector(state => state.spot[spotId]);
@@ -63,7 +63,7 @@ const EditSpotForm = ({ spot,closeForm }) => {
         const payload = {
             id: spot.id, address, city, state, country, lat, lng, name, description, price //spreading already created spot
         };
-        console.log(payload.id, "PAYLOAD")
+        // console.log(payload.id, "PAYLOAD")
         let updatedSpot = await dispatch(updateSpot(payload));
         if (updatedSpot) {
             closeForm();

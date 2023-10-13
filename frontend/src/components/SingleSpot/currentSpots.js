@@ -20,7 +20,7 @@ export const CurrentSpots = () => {
 
 
     let allspots = useSelector(state => Object.values(state.spot))
-    console.log(allspots, "allSpots")
+    // console.log(allspots, "allSpots")
     let user = useSelector(state => state.session.user)
 
 
@@ -33,7 +33,7 @@ export const CurrentSpots = () => {
         <div className="topdiv">
             
             {allspots.map((spot) => {
-                console.log(spot.ownerId === user.id, "spot")
+                // console.log(spot.ownerId === user.id, "spot")
                 return (
 
                     spot.ownerId === user.id &&

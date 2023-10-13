@@ -15,8 +15,8 @@ export const BookingPage = () => {
 
   let user = useSelector(state => (state.session.user));
   let bookingList = useSelector(state => Object.values(state.bookingState))
-  console.log(bookingList, "bookingList arr")
-  console.log(user, "user in booking page")
+  // console.log(bookingList, "bookingList arr")
+  // console.log(user, "user in booking page")
   useEffect(() => {
     dispatch(bookingOfUserThunk())
   }, [user]);
@@ -44,12 +44,12 @@ const futureBooking = (bookingList, dispatch) => {
   let newdate = year + "-" + month + "-" + day;
   return bookingList.map((booking) => {
 
-    console.log("Inside upcoming funct")
-    console.log(booking, "test value coming under booking")
-    console.log(new Date(booking.startDate), "startdate")
-    console.log(newdate, "check date")
-    console.log(booking.startDate.split('T')[0] >= newdate)
-    console.log(new Date(booking.endDate).getUTCDate() - new Date(booking.startDate).getUTCDate(), "find the date")
+    // console.log("Inside upcoming funct")
+    // console.log(booking, "test value coming under booking")
+    // console.log(new Date(booking.startDate), "startdate")
+    // console.log(newdate, "check date")
+    // console.log(booking.startDate.split('T')[0] >= newdate)
+    // console.log(new Date(booking.endDate).getUTCDate() - new Date(booking.startDate).getUTCDate(), "find the date")
     // console.log(new Date(booking.endDate.getUTCDate()) - new Date(booking.startDate.getUTCDate()) ,"number of days")
     return (
 
@@ -96,11 +96,11 @@ const pastBooking = (bookingList, dispatch) => {
   let newdate = year + "-" + month + "-" + day;
   return bookingList.map((booking) => {
 
-    console.log("Inside upcoming funct")
-    console.log(booking, "test value coming under booking")
-    console.log(booking.startDate.split('T')[0], "startdate")
-    console.log(newdate, "check date")
-    console.log(booking.startDate.split('T')[0] >= newdate)
+    // console.log("Inside upcoming funct")
+    // console.log(booking, "test value coming under booking")
+    // console.log(booking.startDate.split('T')[0], "startdate")
+    // console.log(newdate, "check date")
+    // console.log(booking.startDate.split('T')[0] >= newdate)
 
     return (
 

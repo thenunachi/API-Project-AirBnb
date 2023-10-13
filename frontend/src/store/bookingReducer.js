@@ -61,7 +61,7 @@ export const createBookingThunk = (spotId,data)=> async (dispatch)=>{
     }
 }
 export const updateBookingThunk = (payload)=>async dispatch =>{
-    console.log(payload,"payload of booking put")
+    // console.log(payload,"payload of booking put")
     const response = await csrfFetch(`/api/bookings/${payload.id}`,{
         method : 'PUT',
         headers :{
@@ -91,24 +91,24 @@ const bookingReducer = (state = initialState,action)=>{
     let newState={};
     switch (action.type){
         case GET_ALL_BOOKINGS:
-            console.log(action.bookings,"to see what is inside the booking")
+            // console.log(action.bookings,"to see what is inside the booking")
             action.bookings.Bookings.forEach((b,idx)=>{
-              console.log(b,"b",idx)
+            //   console.log(b,"b",idx)
                 newState[idx] = b;
-                console.log(newState,"newState")
+                // console.log(newState,"newState")
             })
             return newState;
         case GET_ALL_USER_BOOKING:
-            console.log(action.payload,"see what is inside payload")
+            // console.log(action.payload,"see what is inside payload")
            action.payload.Bookings.forEach(e=>{
-            console.log(e,"e")
+            // console.log(e,"e")
             newState[e.id]= e
            
            })
            
         //   newState[action.payload.id] = action.payload
         // newState(...action.payload)
-            console.log(newState,"newState")
+            // console.log(newState,"newState")
            
             return newState;
         case CREATE_A_BOOKING:
