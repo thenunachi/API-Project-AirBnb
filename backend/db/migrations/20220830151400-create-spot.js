@@ -71,7 +71,7 @@ module.exports = {
       }
     }, options);
   },
-  down: async(queryInterface, Sequelize) {
+  down: async(queryInterface, Sequelize) =>{
     return queryInterface.dropTable("Spots", options);
   }
 };
