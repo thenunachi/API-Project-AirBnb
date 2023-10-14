@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 // END of new code
 module.exports = {
-  up: async(queryInterface, Sequelize) {
+  up: async(queryInterface, Sequelize) =>{
     return queryInterface.createTable("Spots", {
       id: {
         allowNull: false,
