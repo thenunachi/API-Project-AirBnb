@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
+    schema: process.env.SCHEMA,
     modelName: 'Booking',
   });
   return Booking;
